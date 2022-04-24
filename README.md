@@ -76,6 +76,6 @@ Options:
 ```
   
   ### Winged Hussars
-  [![Winged Hussars](https://yt-embed.herokuapp.com/embed?v=rcYhYO02f98)](https://www.youtube.com/watch?v=StTqXEQ2l-Y "Winged Hussars")
+  [![Winged Hussars](https://yt-embed.herokuapp.com/embed?v=rcYhYO02f98)](https://www.youtube.com/watch?v=rcYhYO02f98 "Winged Hussars")
 
   

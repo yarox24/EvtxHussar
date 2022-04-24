@@ -1,0 +1,46 @@
+info:
+  typ: "layer2"
+  name: AccountsUserRelatedOperations
+
+output:
+  typ: flat
+  category: accounts
+  filename: users_related_operations
+
+fields_remap:
+  "SidHistory": SidHistory/SidList
+  "SidList": SidHistory/SidList
+
+ordered_fields:
+  - TargetUserName
+  - TargetDomainName
+  - TargetSid
+  - OldTargetUserName
+  - NewTargetUserName
+  - SubjectUserSid
+  - SubjectUserName
+  - SubjectDomainName
+  - SubjectLogonId:display_as=hex
+  - PrivilegeList
+  - MemberName
+  - MemberSid
+  - SourceUserName
+  - SourceSid
+  - SamAccountName
+  - DisplayName:resolve=doublequotes
+  - UserPrincipalName
+  - HomeDirectory:resolve=doublequotes
+  - HomePath:resolve=doublequotes
+  - ScriptPath:resolve=doublequotes
+  - ProfilePath:resolve=doublequotes
+  - UserWorkstations:resolve=doublequotes
+  - PasswordLastSet:resolve=doublequotes
+  - AccountExpires:resolve=doublequotes
+  - PrimaryGroupId
+  - AllowedToDelegateTo
+  - OldUacValue:mapper_bitwise_to_string=uacvalue
+  - NewUacValue:mapper_bitwise_to_string=uacvalue
+  - UserAccountControl:resolve=doublequotes
+  - UserParameters:resolve=doublequotes
+  - SidHistory/SidList
+  - LogonHours:resolve=doublequotes

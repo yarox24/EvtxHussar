@@ -1,0 +1,20 @@
+info:
+  typ: "layer2"
+  name: ScheduledTasks_Execution
+
+output:
+  typ: flat
+  category: scheduled_tasks
+  filename: execution
+
+ordered_fields:
+  - TaskName
+  - UserContext
+  - InstanceId
+  - Path
+  - ProcessID:display_as=hex
+  - Priority
+  - ActionName
+  - TaskInstanceId
+  - EnginePID
+  - ResultCode

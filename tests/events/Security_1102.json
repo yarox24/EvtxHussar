@@ -1,0 +1,39 @@
+{
+	"Event": {
+		"System": {
+			"Provider": {
+				"Name": "Microsoft-Windows-Eventlog",
+				"Guid": "{fc65ddd8-d6ef-4962-83d5-6e5cfe9ce148}"
+			},
+			"EventID": {
+				"Value": 1102
+			},
+			"Version": 0,
+			"Level": 4,
+			"Task": 104,
+			"Opcode": 0,
+			"Keywords": 4620693217682128896,
+			"TimeCreated": {
+				"SystemTime": 1638798000.1111112
+			},
+			"EventRecordID": 111,
+			"Correlation": {},
+			"Execution": {
+				"ProcessID": 988,
+				"ThreadID": 1316
+			},
+			"Channel": "Security",
+			"Computer": "DESKTOP-EvtxHussar",
+			"Security": {}
+		},
+		"UserData": {
+			"LogFileCleared": {
+				"xmlns:auto-ns3": "http://schemas.microsoft.com/win/2004/08/events",
+				"SubjectUserSid": "S-1-5-18",
+				"SubjectUserName": "Administrator",
+				"SubjectDomainName": "DESKTOP-EvtxHussar",
+				"SubjectLogonId": 1989
+			}
+		}
+	}
+}

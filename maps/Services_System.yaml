@@ -1,0 +1,71 @@
+info:
+    typ: "layer1"
+    source_comment: "System.evtx"
+    channel: "System"
+
+sendto_layer2: ServicesUniversal
+
+events:
+    7024:
+        attrib_extraction:
+            - "rename_field:input_field=param1,output_field=ServiceName"
+            - "rename_field:input_field=param2,output_field=Error"
+        short_description: "The X service terminated with service-specific error Y."
+        provider_guid: "{555908d1-a6d7-4695-8e1e-26931d2012f4}"
+
+    7034:
+        attrib_extraction:
+            - "rename_field:input_field=param1,output_field=ServiceName"
+        short_description: "The X service terminated unexpectedly. It has done this Y time(s)."
+        provider_guid: "{555908d1-a6d7-4695-8e1e-26931d2012f4}"
+
+    7035:
+        attrib_extraction:
+            - "rename_field:input_field=param1,output_field=ServiceName"
+            - "rename_field:input_field=param2,output_field=Status"
+        short_description: "The X service was successfully sent a Y control."
+        provider_guid: "{555908d1-a6d7-4695-8e1e-26931d2012f4}"
+
+    7036:
+        attrib_extraction:
+            - "rename_field:input_field=param1,output_field=ServiceName"
+            - "rename_field:input_field=param2,output_field=State"
+        short_description: "The X service entered the Y state."
+        provider_guid: "{555908d1-a6d7-4695-8e1e-26931d2012f4}"
+
+    7040:
+        attrib_extraction:
+            - "rename_field:input_field=param1,output_field=ServiceName"
+            - "rename_field:input_field=param2,output_field=ServiceStartTypeOld"
+            - "rename_field:input_field=param3,output_field=ServiceStartTypeNew"
+            - "rename_field:input_field=param4,output_field=ExtraServiceName"
+        short_description: "The start type of the X service was changed from A to B."
+        provider_guid: "{555908d1-a6d7-4695-8e1e-26931d2012f4}" 
+
+    7042:
+        attrib_extraction:
+            - "rename_field:input_field=param1,output_field=ServiceName"
+            - "rename_field:input_field=param2,output_field=Status"
+            - "rename_field:input_field=param3,output_field=ServiceReason"
+            - "rename_field:input_field=param4,output_field=ServiceReasonText"
+            - "rename_field:input_field=param5,output_field=Comment"
+        short_description: "The X service was successfully sent a Y control. The reason specified was: A [B] Comment: C"
+        provider_guid: "{555908d1-a6d7-4695-8e1e-26931d2012f4}"
+
+    7043:
+        attrib_extraction:
+            - "rename_field:input_field=param1,output_field=ServiceName"
+        short_description: "The X service did not shut down properly after receiving a preshutdown control."
+        provider_guid: "{555908d1-a6d7-4695-8e1e-26931d2012f4}"
+
+    7045:
+        attrib_extraction: []
+        short_description: "A service was installed in the system."
+        provider_guid: "{555908d1-a6d7-4695-8e1e-26931d2012f4}"
+
+    7046:
+        attrib_extraction:
+            - "rename_field:input_field=param1,output_field=ServiceName"
+        short_description: "The following service has repeatedly stopped responding to service control requests: X"
+        provider_guid: "{555908d1-a6d7-4695-8e1e-26931d2012f4}"
+

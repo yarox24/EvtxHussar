@@ -1,0 +1,97 @@
+info:
+    typ: "layer1"
+    source_comment: "Security.evtx"
+    channel: "Security"
+
+sendto_layer2: AccountsUserRelatedOperations
+
+events:
+    4720:
+        attrib_extraction: []
+        short_description: "A user account was created."
+        provider_guid: "{54849625-5478-4994-a5ba-3e3b0328c30d}"
+    
+    4722:
+        attrib_extraction: []
+        short_description: "A user account was enabled."
+        provider_guid: "{54849625-5478-4994-a5ba-3e3b0328c30d}"
+        
+    4723:
+        attrib_extraction: []
+        short_description: "An attempt was made to change an account's password."
+        provider_guid: "{54849625-5478-4994-a5ba-3e3b0328c30d}"
+    
+    4724:
+        attrib_extraction: []
+        short_description: "An attempt was made to reset an account's password."
+        provider_guid: "{54849625-5478-4994-a5ba-3e3b0328c30d}"
+
+    4725:
+        attrib_extraction: []
+        short_description: "A user account was disabled."
+        provider_guid: "{54849625-5478-4994-a5ba-3e3b0328c30d}"
+        
+    4726:
+        attrib_extraction: []
+        short_description: "A user account was deleted."
+        provider_guid: "{54849625-5478-4994-a5ba-3e3b0328c30d}"
+
+    4728:
+        attrib_extraction: []
+        short_description: "A member was added to a security-enabled global group."
+        provider_guid: "{54849625-5478-4994-a5ba-3e3b0328c30d}"
+
+    4729:
+        attrib_extraction: []
+        short_description: "A member was removed from a security-enabled global group."
+        provider_guid: "{54849625-5478-4994-a5ba-3e3b0328c30d}"
+        
+    4732:
+        attrib_extraction: []
+        short_description: "A member was added to a security-enabled local group."
+        provider_guid: "{54849625-5478-4994-a5ba-3e3b0328c30d}"
+    
+    4733:
+        attrib_extraction: []
+        short_description: "A member was removed from a security-enabled local group."
+        provider_guid: "{54849625-5478-4994-a5ba-3e3b0328c30d}"
+    
+    4738:
+        attrib_extraction: []
+        short_description: "A user account was changed."
+        provider_guid: "{54849625-5478-4994-a5ba-3e3b0328c30d}"
+
+    4740:
+        attrib_extraction: []
+        short_description: "A user account was locked out."
+        provider_guid: "{54849625-5478-4994-a5ba-3e3b0328c30d}"
+
+    4756:
+        attrib_extraction: []
+        short_description: "A member was added to a security-enabled universal group."
+        provider_guid: "{54849625-5478-4994-a5ba-3e3b0328c30d}"
+
+    4757:
+        attrib_extraction: []
+        short_description: "A member was removed from a security-enabled universal group."
+        provider_guid: "{54849625-5478-4994-a5ba-3e3b0328c30d}"
+
+    4765:
+        attrib_extraction: []
+        short_description: "SID History was added to an account."
+        provider_guid: "{54849625-5478-4994-a5ba-3e3b0328c30d}"
+
+    4766:
+        attrib_extraction: []
+        short_description: "An attempt to add SID History to an account failed."
+        provider_guid: "{54849625-5478-4994-a5ba-3e3b0328c30d}"
+
+    4767:
+        attrib_extraction: []
+        short_description: "A user account was unlocked."
+        provider_guid: "{54849625-5478-4994-a5ba-3e3b0328c30d}"
+
+    4781:
+        attrib_extraction: []
+        short_description: "The name of an account was changed"
+        provider_guid: "{54849625-5478-4994-a5ba-3e3b0328c30d}"

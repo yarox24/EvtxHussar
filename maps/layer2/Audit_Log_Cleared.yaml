@@ -1,0 +1,16 @@
+info:
+  typ: "layer2"
+  name: AuditLogCleared
+
+output:
+  typ: flat
+  category: audit
+  filename: log_cleared
+
+ordered_fields:
+  - Channel
+  - SubjectUserSid
+  - SubjectUserName
+  - SubjectDomainName
+  - SubjectLogonId:display_as=hex
+  - BackupPath

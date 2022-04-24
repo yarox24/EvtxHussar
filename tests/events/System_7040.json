@@ -1,0 +1,40 @@
+{
+	"Event": {
+		"System": {
+			"Provider": {
+				"Name": "Service Control Manager",
+				"Guid": "{555908d1-a6d7-4695-8e1e-26931d2012f4}",
+				"EventSourceName": "Service Control Manager"
+			},
+			"EventID": {
+				"Qualifiers": 16384,
+				"Value": 7040
+			},
+			"Version": 0,
+			"Level": 4,
+			"Task": 0,
+			"Opcode": 0,
+			"Keywords": 9259400833873739776,
+			"TimeCreated": {
+				"SystemTime": 1638798000.1111112
+			},
+			"EventRecordID": 111,
+			"Correlation": {},
+			"Execution": {
+				"ProcessID": 768,
+				"ThreadID": 3608
+			},
+			"Channel": "System",
+			"Computer": "DESKTOP-EvtxHussar",
+			"Security": {
+				"UserID": "S-1-5-18"
+			}
+		},
+		"EventData": {
+			"param1": "Background Intelligent Transfer Service",
+			"param2": "auto start",
+			"param3": "demand start",
+			"param4": "BITS"
+		}
+	}
+}

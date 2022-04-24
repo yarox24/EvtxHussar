@@ -1,0 +1,19 @@
+info:
+    typ: "layer1"
+    source_comment: "Microsoft-Windows-Sysmon%4Operational.evtxx"
+    channel: "Microsoft-Windows-Sysmon/Operational"
+
+sendto_layer2: ProcessCreation
+
+events:
+    1:
+        attrib_extraction:
+            - "rename_field:input_field=User,output_field=TargetUserName"
+            - "rename_field:input_field=LogonId,output_field=TargetLogonId"
+            - "rename_field:input_field=ParentUser,output_field=SubjectUserName"
+        short_description: "Process Create"
+    
+    5:
+        attrib_extraction:
+            - "rename_field:input_field=User,output_field=TargetUserName"
+        short_description: "Process terminated"

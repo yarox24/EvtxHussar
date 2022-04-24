@@ -1,0 +1,40 @@
+{
+	"Event": {
+		"System": {
+			"Provider": {
+				"Name": "Microsoft-Windows-Sysmon",
+				"Guid": "5770385F-C22A-43E0-BF4C-06F5698FFBD9"
+			},
+			"EventID": {
+				"Value": 5
+			},
+			"Version": 3,
+			"Level": 4,
+			"Task": 5,
+			"Opcode": 0,
+			"Keywords": 9223372036854775808,
+			"TimeCreated": {
+				"SystemTime": 1638798000.1111112
+			},
+			"EventRecordID": 111,
+			"Correlation": {},
+			"Execution": {
+				"ProcessID": 7080,
+				"ThreadID": 23972
+			},
+			"Channel": "Microsoft-Windows-Sysmon/Operational",
+			"Computer": "DESKTOP-EvtxHussar",
+			"Security": {
+				"UserID": "S-1-5-18"
+			}
+		},
+		"EventData": {
+			"RuleName": "-",
+			"UtcTime": "2021-04-14 07:02:06.156",
+			"ProcessGuid": "9FA3FE52-C6EB-6257-9D3A-000000005F00",
+			"ProcessId": 26580,
+			"Image": "F:\\Sysmon\\Sysmon64.exe",
+			"User": "DESKTOP-EvtxHussar\\Hussar"
+		}
+	}
+}

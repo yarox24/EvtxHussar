@@ -1,0 +1,33 @@
+info:
+    typ: mapper_bitwise_to_string
+    name: uacvalue
+    display_original: hex
+
+params_number:
+    0x1: "SCRIPT (The logon script will be run)"
+    0x2: "ACCOUNT_DISABLE (The user account is disabled)"
+    #0x4: "UNKNOWN_1"
+    0x8: "HOMEDIR_REQUIRED (The home folder is required)"
+    0x10: "LOCKOUT"
+    0x20: "PASSWD_NOTREQD (No password is required)"
+    0x40: "PASSWD_CANT_CHANGE (The user can't change the password)"
+    0x80: "ENCRYPTED_TEXT_PWD_ALLOWED (The user can send an encrypted password)"
+    0x100: "TEMP_DUPLICATE_ACCOUNT (It's an account for users whose primary account is in another domain. This account provides user access to this domain, but not to any domain that trusts this domain. It's sometimes referred to as a local user account)"
+    0x200: "NORMAL_ACCOUNT (It's a default account type that represents a typical user)"
+    #0x400: "UNKNOWN_2"
+    0x800: "INTERDOMAIN_TRUST_ACCOUNT (It's a permit to trust an account for a system domain that trusts other domains)"
+    0x1000: "WORKSTATION_TRUST_ACCOUNT (It's a computer account for a computer that is running Microsoft Windows NT 4.0 Workstation, Microsoft Windows NT 4.0 Server, Microsoft Windows 2000 Professional, or Windows 2000 Server and is a member of this domain)"
+    0x2000: "SERVER_TRUST_ACCOUNT (It's a computer account for a domain controller that is a member of this domain)"
+    #0x4000: "UNKNOWN_3"
+    #0x8000: "UNKNOWN_4"
+    0x10000: "DONT_EXPIRE_PASSWORD (Represents the password, which should never expire on the account)"
+    0x20000: "MNS_LOGON_ACCOUNT (It's an MNS logon account)"
+    0x40000: "SMARTCARD_REQUIRED (When this flag is set, it forces the user to log on by using a smart card)"
+    0x80000: "TRUSTED_FOR_DELEGATION (When this flag is set, the service account (the user or computer account) under which a service runs is trusted for Kerberos delegation. Any such service can impersonate a client requesting the service)"
+    0x100000: "NOT_DELEGATED (When this flag is set, the security context of the user isn't delegated to a service even if the service account is set as trusted for Kerberos delegation)"
+    0x200000: "USE_DES_KEY_ONLY (Restrict this principal to use only Data Encryption Standard (DES) encryption types for keys)"
+    0x400000: "DONT_REQ_PREAUTH (This account doesn't require Kerberos pre-authentication for logging on)"
+    0x800000: "PASSWORD_EXPIRED (The user's password has expired)"
+    0x1000000: "TRUSTED_TO_AUTH_FOR_DELEGATION (The account is enabled for delegation. It's a security-sensitive setting. Accounts that have this option enabled should be tightly controlled. This setting lets a service that runs under the account assume a client's identity and authenticate as that user to other remote servers on the network)"
+    #0x2000000: "UNKNOWN_5"
+    0x4000000: "PARTIAL_SECRETS_ACCOUNT (The account is a read-only domain controller (RODC). It's a security-sensitive setting. Removing this setting from an RODC compromises security on that server)"

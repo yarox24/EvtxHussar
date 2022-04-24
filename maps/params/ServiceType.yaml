@@ -1,0 +1,20 @@
+info:
+    typ: "mapper_number_to_string"
+    name: "servicetype"
+    display_original: hex
+
+# Not needed bitwise
+params_number:
+    0x1: "Kernel driver"
+    0x2: "Filesystem driver"
+    0x4: "Adapter (Reserved)"
+    0x8: "Recognizer driver (Reserved)"
+    0x10: "Own process"
+    0x20: "Share process"
+    0x50: "User own process"
+    0x60: "User share process"
+    0x110: "Own interactive process"
+    0x120: "Share interactive process"
+    0xd0: "User own process (instance)"
+    0xe0: "User share process (instance)"
+    

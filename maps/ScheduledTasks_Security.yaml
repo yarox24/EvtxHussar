@@ -1,0 +1,34 @@
+info:
+    typ: "layer1"
+    source_comment: "Security.evtx"
+    channel: "Security"
+
+sendto_layer2: ScheduledTasks_CreationModification
+
+events:
+    4698:
+        attrib_extraction: []
+        short_description: "A scheduled task was created."
+        provider_guid: "{54849625-5478-4994-A5BA-3E3B0328C30D}"
+
+    4699:
+        attrib_extraction: []
+        short_description: "A scheduled task was deleted."
+        provider_guid: "{54849625-5478-4994-A5BA-3E3B0328C30D}"
+
+    4700:
+        attrib_extraction: []
+        short_description: "A scheduled task was enabled."
+        provider_guid: "{54849625-5478-4994-A5BA-3E3B0328C30D}"
+
+    4701:
+        attrib_extraction: []
+        short_description: "A scheduled task was disabled."
+        provider_guid: "{54849625-5478-4994-A5BA-3E3B0328C30D}"
+        
+    4702:
+        attrib_extraction: []
+        short_description: "A scheduled task was updated."
+        provider_guid: "{54849625-5478-4994-A5BA-3E3B0328C30D}"
+        
+        

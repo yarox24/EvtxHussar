@@ -1,0 +1,41 @@
+{
+	"Event": {
+		"System": {
+			"Provider": {
+				"Name": "Microsoft-Windows-TaskScheduler",
+				"Guid": "DE7B24EA-73C8-4A09-985D-5BDADCFA9017"
+			},
+			"EventID": {
+				"Value": 201
+			},
+			"Version": 2,
+			"Level": 4,
+			"Task": 201,
+			"Opcode": 2,
+			"Keywords": 9223372036854775808,
+			"TimeCreated": {
+				"SystemTime": 1638798000.1111112
+			},
+			"EventRecordID": 111,
+			"Correlation": {
+				"ActivityID": "0B7D84B2-B42A-18E7-8127-B56B858191B1"
+			},
+			"Execution": {
+				"ProcessID": 1280,
+				"ThreadID": 2388
+			},
+			"Channel": "Microsoft-Windows-TaskScheduler/Operational",
+			"Computer": "DESKTOP-EvtxHussar",
+			"Security": {
+				"UserID": "S-1-5-18"
+			}
+		},
+		"EventData": {
+			"TaskName": "\\Microsoft\\Windows\\Subscription\\Renew",
+			"TaskInstanceId": "0B7D84B2-B42A-18E7-8127-B56B858191B1",
+			"ActionName": "%SystemRoot%\\system32\\Renew.exe",
+			"ResultCode": 0,
+			"EnginePID": 6848
+		}
+	}
+}

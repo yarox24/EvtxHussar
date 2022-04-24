@@ -1,0 +1,34 @@
+info:
+    typ: "layer1"
+    source_comment: "Microsoft-Windows-TaskScheduler%4Operational.evtx"
+    channel: "Microsoft-Windows-TaskScheduler/Operational"
+
+sendto_layer2: ScheduledTasks_Execution
+
+events:
+    100:
+        attrib_extraction: []
+        short_description: "Task Scheduler started X instance of the A task for user B."
+        provider_guid: "{de7b24ea-73c8-4a09-985d-5bdadcfa9017}"
+    
+    106:
+        attrib_extraction: []
+        short_description: "User X registered Task Scheduler task A"
+        provider_guid: "{de7b24ea-73c8-4a09-985d-5bdadcfa9017}"
+        
+    129:
+        attrib_extraction: []
+        short_description: "Task Scheduler launch task X , instance A  with process ID C"
+        provider_guid: "{de7b24ea-73c8-4a09-985d-5bdadcfa9017}"
+        
+    200:
+        attrib_extraction: []
+        short_description: "Task Scheduler launched action B in instance C of task X"
+        provider_guid: "{de7b24ea-73c8-4a09-985d-5bdadcfa9017}"
+
+    201:
+        attrib_extraction: []
+        short_description: "Task Scheduler successfully completed task X , instance A , action B with return code C"
+        provider_guid: "{de7b24ea-73c8-4a09-985d-5bdadcfa9017}"
+        
+        

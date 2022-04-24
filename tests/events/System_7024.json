@@ -1,0 +1,36 @@
+{
+	"Event": {
+		"System": {
+			"Provider": {
+				"Name": "Service Control Manager",
+				"Guid": "{555908d1-a6d7-4695-8e1e-26931d2012f4}",
+				"EventSourceName": "Service Control Manager"
+			},
+			"EventID": {
+				"Qualifiers": 49152,
+				"Value": 7024
+			},
+			"Version": 0,
+			"Level": 2,
+			"Task": 0,
+			"Opcode": 0,
+			"Keywords": 9259400833873739776,
+			"TimeCreated": {
+				"SystemTime": 1638798000.1111112
+			},
+			"EventRecordID": 111,
+			"Correlation": {},
+			"Execution": {
+				"ProcessID": 800,
+				"ThreadID": 2496
+			},
+			"Channel": "System",
+			"Computer": "DESKTOP-EvtxHussar",
+			"Security": {}
+		},
+		"EventData": {
+			"param1": "Hipsotek Evolution",
+			"param2": "%%3"
+		}
+	}
+}

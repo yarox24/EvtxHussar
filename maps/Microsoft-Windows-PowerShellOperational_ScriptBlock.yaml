@@ -1,0 +1,12 @@
+info:
+    typ: "layer1"
+    source_comment: "Microsoft-Windows-PowerShell%4Operational.evtx"
+    channel: "Microsoft-Windows-PowerShell/Operational"
+
+sendto_layer2: PowerShellScriptBlock
+
+events:
+    4104:
+        attrib_extraction: []
+        short_description: "Creating Scriptblock text"
+

@@ -1,0 +1,150 @@
+info:
+  typ: "layer2"
+  name: ScheduledTasks_CreationModification
+
+output:
+  typ: flat
+  category: scheduled_tasks
+  filename: creation_modification
+
+fields_remap:
+  "UserName": SubjectUserName
+
+field_extra_transformations:
+  - input_field: TaskContent
+    output_field: "RegistrationInfo Author (TaskContent XML)"
+    special_transform: xml_scheduled_task:path=author
+  - input_field: TaskContent
+    output_field: "XML Task Version (TaskContent XML)"
+    special_transform: xml_scheduled_task:path=task_version
+  - input_field: TaskContent
+    output_field: "RegistrationInfo Description (TaskContent XML)"
+    special_transform: xml_scheduled_task:path=description
+  - input_field: TaskContent
+    output_field: "RegistrationInfo URI (TaskContent XML)"
+    special_transform: xml_scheduled_task:path=uri
+  - input_field: TaskContent
+    output_field: "RegistrationInfo Version (TaskContent XML)"
+    special_transform: xml_scheduled_task:path=version    
+  - input_field: TaskContent
+    output_field: "RegistrationInfo Source (TaskContent XML)"
+    special_transform: xml_scheduled_task:path=source        
+  - input_field: TaskContent
+    output_field: "RegistrationInfo Date (TaskContent XML)"
+    special_transform: xml_scheduled_task:path=date        
+  - input_field: TaskContent
+    output_field: "Principal ID (TaskContent XML)"
+    special_transform: xml_scheduled_task:path=principal_id    
+  - input_field: TaskContent
+    output_field: "Principal UserId (TaskContent XML)"
+    special_transform: xml_scheduled_task:path=principal_userid    
+  - input_field: TaskContent
+    output_field: "Principal GroupId (TaskContent XML)"
+    special_transform: xml_scheduled_task:path=principal_groupid            
+  - input_field: TaskContent
+    output_field: "Principal RunLevel (TaskContent XML)"
+    special_transform: xml_scheduled_task:path=principal_runlevel          
+  - input_field: TaskContent
+    output_field: "Principal DisplayName (TaskContent XML)"
+    special_transform: xml_scheduled_task:path=principal_displayname         
+  - input_field: TaskContent
+    output_field: "Principal LogonType (TaskContent XML)"
+    special_transform: xml_scheduled_task:path=principal_logontype
+  - input_field: TaskContent
+    output_field: "Task enabled (TaskContent XML)"
+    special_transform: xml_scheduled_task:path=task_enabled
+  - input_field: TaskContent
+    output_field: "Task Hidden (TaskContent XML)"
+    special_transform: xml_scheduled_task:path=task_hidden    
+  - input_field: TaskContent
+    output_field: "Triggers summary (TaskContent XML)"
+    special_transform: xml_scheduled_task:path=triggers_summary  
+  - input_field: TaskContent
+    output_field: "CalendarTrigger StartBoundary (TaskContent XML)"
+    special_transform: xml_scheduled_task:path=calendartrigger_startboundary  
+  - input_field: TaskContent
+    output_field: "TimeTrigger StartBoundary (TaskContent XML)"
+    special_transform: xml_scheduled_task:path=timetrigger_startboundary  
+  - input_field: TaskContent
+    output_field: "Actions summary (TaskContent XML)"
+    special_transform: xml_scheduled_task:path=actions_summary  
+  - input_field: TaskContent
+    output_field: "Actions context (TaskContent XML)"
+    special_transform: xml_scheduled_task:path=actions_context  
+  - input_field: TaskContent
+    output_field: "Exec Command with Arguments (TaskContent XML)"
+    special_transform: xml_scheduled_task:path=exec_command_with_arguments  
+  - input_field: TaskContent
+    output_field: "Exec WorkingDirectory (TaskContent XML)"
+    special_transform: xml_scheduled_task:path=exec_workingdirectory  
+  - input_field: TaskContent
+    output_field: "Exec WorkingDirectory (TaskContent XML)"
+    special_transform: xml_scheduled_task:path=exec_workingdirectory  
+  - input_field: TaskContent
+    output_field: "ComHandler ClassId (TaskContent XML)"
+    special_transform: xml_scheduled_task:path=comhandler_classid  
+  - input_field: TaskContent
+    output_field: "ComHandler Data (TaskContent XML)"
+    special_transform: xml_scheduled_task:path=comhandler_data 
+  - input_field: TaskContent
+    output_field: "SendEmail Server (TaskContent XML)"
+    special_transform: xml_scheduled_task:path=sendemail_server  
+  - input_field: TaskContent
+    output_field: "SendEmail To (TaskContent XML)"
+    special_transform: xml_scheduled_task:path=sendemail_to
+  - input_field: TaskContent
+    output_field: "SendEmail From (TaskContent XML)"
+    special_transform: xml_scheduled_task:path=sendemail_from
+  - input_field: TaskContent
+    output_field: "SendEmail Body (TaskContent XML)"
+    special_transform: xml_scheduled_task:path=sendemail_body
+  - input_field: TaskContent
+    output_field: "ShowMessage Title (TaskContent XML)"
+    special_transform: xml_scheduled_task:path=showmessage_title
+  - input_field: TaskContent
+    output_field: "ShowMessage Body (TaskContent XML)" 
+    special_transform: xml_scheduled_task:path=showmessage_body
+
+
+ordered_fields:
+    - SubjectUserSid
+    - SubjectUserName
+    - SubjectDomainName
+    - SubjectLogonId:display_as=hex
+    - TaskName
+    - TaskContent
+    - "XML Task Version (TaskContent XML)"
+    - "RegistrationInfo Author (TaskContent XML)"
+    - "RegistrationInfo Description (TaskContent XML)"
+    - "RegistrationInfo URI (TaskContent XML)"
+    - "RegistrationInfo Version (TaskContent XML)"
+    - "RegistrationInfo Source (TaskContent XML)"
+    - "RegistrationInfo Date (TaskContent XML)"
+    - "Principal ID (TaskContent XML)"
+    - "Principal UserId (TaskContent XML)"
+    - "Principal GroupId (TaskContent XML)"
+    - "Principal RunLevel (TaskContent XML)"
+    - "Principal DisplayName (TaskContent XML)"
+    - "Principal LogonType (TaskContent XML)"
+    - "Task enabled (TaskContent XML)"
+    - "Task Hidden (TaskContent XML)"
+    - "Triggers summary (TaskContent XML)"
+    - "CalendarTrigger StartBoundary (TaskContent XML)"
+    - "TimeTrigger StartBoundary (TaskContent XML)"
+    - "Actions summary (TaskContent XML)"
+    - "Actions context (TaskContent XML)"
+    - "Exec Command with Arguments (TaskContent XML)"
+    - "Exec WorkingDirectory (TaskContent XML)"
+    - "ComHandler ClassId (TaskContent XML)"
+    - "ComHandler Data (TaskContent XML)"
+    - "SendEmail Server (TaskContent XML)"
+    - "SendEmail To (TaskContent XML)"
+    - "SendEmail From (TaskContent XML)"
+    - "SendEmail Body (TaskContent XML)"
+    - "ShowMessage Title (TaskContent XML)"
+    - "ShowMessage Body (TaskContent XML)"  
+    - ClientProcessStartKey
+    - ClientProcessId
+    - ParentProcessId
+    - RpcCallClientLocality
+    - FQDN

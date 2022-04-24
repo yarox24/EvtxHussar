@@ -1,0 +1,17 @@
+info:
+    typ: "layer1"
+    source_comment: "Microsoft-Windows-TaskScheduler%4Operational.evtx"
+    channel: "Microsoft-Windows-TaskScheduler/Operational"
+
+sendto_layer2: ScheduledTasks_CreationModification
+
+events:       
+    140:
+        attrib_extraction: []
+        short_description: "User B updated Task Scheduler task X"
+        provider_guid: "{de7b24ea-73c8-4a09-985d-5bdadcfa9017}"
+        
+    141:
+        attrib_extraction: []
+        short_description: "User X deleted Task Scheduler task A"
+        provider_guid: "{de7b24ea-73c8-4a09-985d-5bdadcfa9017}"

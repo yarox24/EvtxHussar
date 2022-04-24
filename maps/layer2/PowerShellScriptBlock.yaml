@@ -1,0 +1,22 @@
+info:
+    typ: "layer2"
+    name: PowerShellScriptBlock
+
+output:
+    typ: powershell_scriptblock
+    category: powershell
+    subcategory: scriptblocks
+
+aggregation_options:
+    field_matching_id: ScriptBlockId
+    field_total_number: MessageTotal
+    field_current_number: MessageNumber
+    field_content: ScriptBlockText
+    field_filename: Path
+
+ordered_fields:
+  - MessageNumber:fix_field=cast_singlerune_to_number
+  - MessageTotal:fix_field=cast_singlerune_to_number
+  - ScriptBlockText
+  - ScriptBlockId
+  - Path

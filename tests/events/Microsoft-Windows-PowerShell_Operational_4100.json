@@ -1,0 +1,39 @@
+{
+	"Event": {
+		"System": {
+			"Provider": {
+				"Name": "Microsoft-Windows-PowerShell",
+				"Guid": "A0C1853B-5C40-4B15-8766-3CF1C58F985A"
+			},
+			"EventID": {
+				"Value": 4100
+			},
+			"Version": 1,
+			"Level": 3,
+			"Task": 106,
+			"Opcode": 19,
+			"Keywords": 0,
+			"TimeCreated": {
+				"SystemTime": 1638798000.1111112
+			},
+			"EventRecordID": 111,
+			"Correlation": {
+				"ActivityID": "505F1AEA-C08D-0009-CCD7-3F908DC0D601"
+			},
+			"Execution": {
+				"ProcessID": 4296,
+				"ThreadID": 20444
+			},
+			"Channel": "Microsoft-Windows-PowerShell/Operational",
+			"Computer": "DESKTOP-EvtxHussar",
+			"Security": {
+				"UserID": "S-1-5-18"
+			}
+		},
+		"EventData": {
+			"ContextInfo": "        Severity = Warning\r\n        Host Name = OpsMgr PowerShell Host\r\n        Host Version = 7.0.5000.0\r\n        Host ID = 4f80b870-db49-4aff-bf8e-ec910d0b6978\r\n        Host Application = C:\\Program Files\\Microsoft Monitoring Agent\\Agent\\MonitoringHost.exe -Embedding\r\n        Engine Version = 4.0\r\n        Runspace ID = a132d323-abff-1ff6-b46f-2ed01b71fc4d\r\n        Pipeline ID = 2\r\n        Command Name = \r\n        Command Type = \r\n        Script Name = \r\n        Command Path = \r\n        Sequence Number = 111696\r\n        User = NTNT\\SYSTEM\r\n        Shell ID = Microsoft.PowerShell\r\n",
+			"UserData": "",
+			"Payload": "Error Message = System error.\r\n"
+		}
+	}
+}

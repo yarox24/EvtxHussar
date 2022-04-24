@@ -1,0 +1,47 @@
+{
+	"Event": {
+		"System": {
+			"Provider": {
+				"Name": "Microsoft-Windows-Security-Auditing",
+				"Guid": "54849625-5478-4994-A5BA-3E3B0328C30D"
+			},
+			"EventID": {
+				"Value": 4688
+			},
+			"Version": 2,
+			"Level": 0,
+			"Task": 13312,
+			"Opcode": 0,
+			"Keywords": 9232379236109516800,
+			"TimeCreated": {
+				"SystemTime": 1638798000.1111112
+			},
+			"EventRecordID": 111,
+			"Correlation": {},
+			"Execution": {
+				"ProcessID": 4,
+				"ThreadID": 9028
+			},
+			"Channel": "Security",
+			"Computer": "DESKTOP-EvtxHussar",
+			"Security": {}
+		},
+		"EventData": {
+			"SubjectUserSid": "S-1-5-18",
+			"SubjectUserName": "DESKTOP-EvtxHussar$",
+			"SubjectDomainName": "HUSSAR",
+			"SubjectLogonId": 999,
+			"NewProcessId": 1940,
+			"NewProcessName": "C:\\Windows\\SysWOW64\\cmd.exe",
+			"TokenElevationType": "%%1936",
+			"ProcessId": 2017,
+			"CommandLine": "C:\\Windows\\SysWOW64\\cmd.exe dosomething",
+			"TargetUserSid": "S-1-0-0",
+			"TargetUserName": "-",
+			"TargetDomainName": "-",
+			"TargetLogonId": 0,
+			"ParentProcessName": "C:\\Program Files\\VNC\\vnc.exe",
+			"MandatoryLabel": "S-1-16-16384"
+		}
+	}
+}

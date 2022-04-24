@@ -1,0 +1,13 @@
+info:
+    typ: "layer1"
+    source_comment: "System.evtx"
+    channel: "System"
+
+sendto_layer2: AuditLogCleared
+
+events:
+    104:
+        attrib_extraction:
+            - "userdata_flatten_first_value"
+        short_description: "The log file was cleared."
+        provider_guid: "{fc65ddd8-d6ef-4962-83d5-6e5cfe9ce148}"

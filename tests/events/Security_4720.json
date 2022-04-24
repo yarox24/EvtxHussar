@@ -1,0 +1,60 @@
+{
+	"Event": {
+		"System": {
+			"Provider": {
+				"Name": "Microsoft-Windows-Security-Auditing",
+				"Guid": "54849625-5478-4994-A5BA-3E3B0328C30D"
+			},
+			"EventID": {
+				"Value": 4720
+			},
+			"Version": 0,
+			"Level": 0,
+			"Task": 13824,
+			"Opcode": 0,
+			"Keywords": 9232379236109516800,
+			"TimeCreated": {
+				"SystemTime": 1638798000.1111112
+			},
+			"EventRecordID": 111,
+			"Correlation": {
+				"ActivityID": "280BC4EF-2457-4CBC-2248-3F3ACC2C402A"
+			},
+			"Execution": {
+				"ProcessID": 960,
+				"ThreadID": 12344
+			},
+			"Channel": "Security",
+			"Computer": "DESKTOP-EvtxHussar",
+			"Security": {}
+		},
+		"EventData": {
+			"TargetUserName": "someuser",
+			"TargetDomainName": "DESKTOP-EvtxHussar",
+			"TargetSid": "S-1-5-18",
+			"SubjectUserSid": "S-1-5-18",
+			"SubjectUserName": "DESKTOP-EvtxHussar$",
+			"SubjectDomainName": "HUSS",
+			"SubjectLogonId": 999,
+			"PrivilegeList": "-",
+			"SamAccountName": "someuser",
+			"DisplayName": "%%1793",
+			"UserPrincipalName": "-",
+			"HomeDirectory": "%%1793",
+			"HomePath": "%%1793",
+			"ScriptPath": "%%1793",
+			"ProfilePath": "%%1793",
+			"UserWorkstations": "%%1793",
+			"PasswordLastSet": "%%1794",
+			"AccountExpires": "%%1794",
+			"PrimaryGroupId": "513",
+			"AllowedToDelegateTo": "-",
+			"OldUacValue": "0x0",
+			"NewUacValue": "0x15",
+			"UserAccountControl": "\r\n\t\t%%2080\r\n\t\t%%2082\r\n\t\t%%2084",
+			"UserParameters": "%%1793",
+			"SidHistory": "-",
+			"LogonHours": "%%1797"
+		}
+	}
+}

@@ -1,0 +1,78 @@
+info:
+    typ: "layer1"
+    source_comment: "Microsoft-Windows-PowerShell%4Operational.evtx"
+    channel: "Microsoft-Windows-PowerShell/Operational"
+
+sendto_layer2: PowerShellUniversal
+
+events:
+    4100:
+        attrib_extraction:
+            - "split_by_char_and_equal:input_field=ContextInfo,split_char=\"\r\n\""
+            - "rename_field:input_field=autonumbered2,output_field=CommandInvocation/ParameterBinding"
+        short_description: "Executing pipeline - System Error"
+
+    4101:
+        attrib_extraction:
+            - "split_by_char_and_equal:input_field=ContextInfo,split_char=\"\r\n\""
+        short_description: "Executing pipeline - The pipeline has been stopped"
+  
+    4102:
+        attrib_extraction:
+            - "split_by_char_and_equal:input_field=ContextInfo,split_char=\"\r\n\""
+        short_description: "Executing pipeline - Provider error"
+  
+    4103:
+        attrib_extraction:
+            - "split_by_char_and_equal:input_field=ContextInfo,split_char=\"\r\n\""
+        short_description: "Executing pipeline - CommandInvocation"
+    
+    4104:
+        attrib_extraction: []
+        short_description: "Creating Scriptblock text"
+    
+    4105:
+        attrib_extraction: []
+        short_description: "Started invocation of ScriptBlock"
+
+    4106:
+        attrib_extraction: []
+        short_description: "Completed invocation of ScriptBlock"
+    
+    8193:
+        attrib_extraction: []
+        short_description: "Creating Runspace object"
+    
+    8194:
+        attrib_extraction: []
+        short_description: "Creating RunspacePool object"
+    
+    24577:
+        attrib_extraction: []
+        short_description: "Windows PowerShell ISE has started to run script file"
+    
+    24578:
+        attrib_extraction: []
+        short_description: "Windows PowerShell ISE has started to run a user-selected script from file"
+
+    24579:
+        attrib_extraction: []
+        short_description: "Windows PowerShell ISE is stopping the current command"
+
+    32784:
+        attrib_extraction: []
+        short_description: "Runspace Id/Pipeline Id - Provider reported an error"
+
+    40961:
+        attrib_extraction: []
+        short_description: "PowerShell console is starting up"
+
+    40962:
+        attrib_extraction: []
+        short_description: "PowerShell console is ready for user input"
+
+    53504:
+        attrib_extraction: []
+        short_description: "Windows PowerShell has started an IPC listening thread"
+
+

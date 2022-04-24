@@ -1,0 +1,40 @@
+info:
+  typ: "layer2"
+  name: ActiveDirectoryComputerAccounts
+
+output:
+  typ: flat
+  category: activedirectory
+  filename: computer_accounts_related_operations
+
+ordered_fields:
+  - TargetUserName
+  - TargetDomainName
+  - TargetSid
+  - SubjectUserSid
+  - SubjectUserName
+  - SubjectDomainName
+  - SubjectLogonId:display_as=hex
+  - PrivilegeList
+  - ComputerAccountChange
+  - SamAccountName
+  - DisplayName:resolve=doublequotes  
+  - UserPrincipalName
+  - HomeDirectory:resolve=doublequotes
+  - HomePath:resolve=doublequotes
+  - ScriptPath:resolve=doublequotes
+  - ProfilePath:resolve=doublequotes
+  - UserWorkstations:resolve=doublequotes
+  - PasswordLastSet:resolve=doublequotes
+  - AccountExpires:resolve=doublequotes
+  - PrimaryGroupId
+  - AllowedToDelegateTo
+  - OldUacValue:mapper_bitwise_to_string=uacvalue
+  - NewUacValue:mapper_bitwise_to_string=uacvalue
+  - UserAccountControl:resolve=doublequotes
+  - UserParameters:resolve=doublequotes
+  - SidHistory
+  - LogonHours:resolve=doublequotes
+  - DnsHostName
+  - ServicePrincipalNames
+

@@ -1,0 +1,41 @@
+{
+	"Event": {
+		"System": {
+			"Provider": {
+				"Name": "Microsoft-Windows-Security-Auditing",
+				"Guid": "54849625-5478-4994-A5BA-3E3B0328C30D"
+			},
+			"EventID": {
+				"Value": 4781
+			},
+			"Version": 0,
+			"Level": 0,
+			"Task": 13824,
+			"Opcode": 0,
+			"Keywords": 9232379236109516800,
+			"TimeCreated": {
+				"SystemTime": 1638798000.1111112
+			},
+			"EventRecordID": 111,
+			"Correlation": {},
+			"Execution": {
+				"ProcessID": 652,
+				"ThreadID": 704
+			},
+			"Channel": "Security",
+			"Computer": "DESKTOP-EvtxHussar",
+			"Security": {}
+		},
+		"EventData": {
+			"OldTargetUserName": "Administrators",
+			"NewTargetUserName": "Administrators",
+			"TargetDomainName": "Builtin",
+			"TargetSid": "S-1-5-32-544",
+			"SubjectUserSid": "S-1-5-18",
+			"SubjectUserName": "DESKTOP-EvtxHussar$",
+			"SubjectDomainName": "WORKGROUP",
+			"SubjectLogonId": 999,
+			"PrivilegeList": "-"
+		}
+	}
+}

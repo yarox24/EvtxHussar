@@ -1,0 +1,45 @@
+info:
+    typ: "layer1"
+    source_comment: "Windows PowerShell.evtx"
+    channel: "Windows PowerShell"
+
+sendto_layer2: PowerShellUniversal
+
+events:
+    400:
+        attrib_extraction:
+            - "content_data_autonumbering"
+            - "split_by_char_and_equal:input_field=autonumbered2,split_char=\"\r\n\t\"" # "funkcja:param1=val1,param2=val2"
+        short_description: "Engine state is changed from None to Available"
+
+    403:
+        attrib_extraction:
+            - "content_data_autonumbering"
+            - "split_by_char_and_equal:input_field=autonumbered2,split_char=\"\r\n\t\""
+        short_description: "Engine state is changed from Available to Stopped"
+  
+    500:
+        attrib_extraction:
+            - "content_data_autonumbering"
+            - "split_by_char_and_equal:input_field=autonumbered2,split_char=\"\r\n\t\""
+        short_description: "Command \"xxx\" is Started"
+  
+    501:
+        attrib_extraction:
+            - "content_data_autonumbering"
+            - "split_by_char_and_equal:input_field=autonumbered2,split_char=\"\r\n\t\""
+        short_description: "Command \"xxx\" is Stopped"
+    
+    600:
+        attrib_extraction:
+            - "content_data_autonumbering"
+            - "split_by_char_and_equal:input_field=autonumbered2,split_char=\"\r\n\t\""
+        short_description: "Provider \"xxx\" is Started"
+    
+    800:
+        attrib_extraction:
+            - "content_data_autonumbering"
+            - "split_by_char_and_equal:input_field=autonumbered1,split_char=\"\r\n\t\""
+            - "rename_field:input_field=autonumbered2,output_field=CommandInvocation/ParameterBinding"
+        short_description: "Pipeline execution details for command line"
+

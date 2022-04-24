@@ -1,0 +1,38 @@
+{
+	"Event": {
+		"System": {
+			"Provider": {
+				"Name": "Microsoft-Windows-PowerShell",
+				"Guid": "A0C1853B-5C40-4B15-8766-3CF1C58F985A"
+			},
+			"EventID": {
+				"Value": 53504
+			},
+			"Version": 1,
+			"Level": 4,
+			"Task": 111,
+			"Opcode": 10,
+			"Keywords": 0,
+			"TimeCreated": {
+				"SystemTime": 1638798000.1111112
+			},
+			"EventRecordID": 111,
+			"Correlation": {
+				"ActivityID": "3D702DF9-D520-0001-01A0-AB2D20C5D601"
+			},
+			"Execution": {
+				"ProcessID": 10368,
+				"ThreadID": 11016
+			},
+			"Channel": "Microsoft-Windows-PowerShell/Operational",
+			"Computer": "DESKTOP-EvtxHussar",
+			"Security": {
+				"UserID": "S-1-5-18"
+			}
+		},
+		"EventData": {
+			"param1": "10368",
+			"param2": "DefaultAppDomain"
+		}
+	}
+}

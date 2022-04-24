@@ -1,0 +1,17 @@
+info:
+    typ: common
+
+ordered_fields:
+    - EventTime
+    - Computer
+    - EID
+    - Description
+    - Channel
+    - Provider
+    - EventRecord ID
+    - System Process ID
+    - Security User ID
+
+options:
+    "HighPrecisionEventTime": true
+

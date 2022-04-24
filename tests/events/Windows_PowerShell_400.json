@@ -1,0 +1,29 @@
+{
+	"Event": {
+		"System": {
+			"Provider": {
+				"Name": "PowerShell"
+			},
+			"EventID": {
+				"Qualifiers": 0,
+				"Value": 400
+			},
+			"Level": 4,
+			"Task": 4,
+			"Keywords": 36028797018963968,
+			"TimeCreated": {
+				"SystemTime": 1638798000.1111112
+			},
+			"EventRecordID": 111,
+			"Channel": "Windows PowerShell",
+			"Computer": "DESKTOP-EvtxHussar",
+			"Security": {}
+		},
+		"EventData": {
+			"Data": [
+				"Available",
+				"None",	"\tNewEngineState=Available\r\n\tPreviousEngineState=None\r\n\r\n\tSequenceNumber=13\r\n\r\n\tHostName=ConsoleHost\r\n\tHostVersion=5.1.14409.1018\r\n\tHostId=bf81775a-bf81-473d-8f8e-bf81bf81bec2\r\n\tHostApplication=c:\\windows\\sysnative\\WindowsPowerShell\\v1.0\\powershell.exe -ExecutionPolicy Bypass -enc RwBlAHQALQBEAGEAdABlAA== \r\n\tEngineVersion=5.1.14409.1018\r\n\tRunspaceId=12e27fd9-281d-43bb-8135-geb0f27a38b5\r\n\tPipelineId=\r\n\tCommandName=\r\n\tCommandType=\r\n\tScriptName=\r\n\tCommandPath=\r\n\tCommandLine="
+			]
+		}
+	}
+}

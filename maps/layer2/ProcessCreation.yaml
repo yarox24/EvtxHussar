@@ -1,0 +1,49 @@
+info:
+  typ: "layer2"
+  name: ProcessCreation
+
+output:
+  typ: flat
+  category: processes
+  filename: processes
+
+fields_remap:
+  "Image": ProcessName
+  "ParentImage": ParentProcessName
+
+ordered_fields:
+  - ProcessId:display_as=hex
+  - ProcessName
+  - CommandLine
+  - ParentProcessId:display_as=hex
+  - ParentProcessName
+  - ParentCommandLine
+  - SubjectUserSid
+  - SubjectUserName
+  - SubjectDomainName
+  - SubjectLogonId:display_as=hex
+  - TokenElevationType:resolve=doublequotes
+  - TargetUserSid
+  - TargetUserName
+  - TargetDomainName
+  - TargetLogonId:display_as=hex
+  - MandatoryLabel:mapper_string_to_string=mandatorylabel # Mapping to: mandatorylabel
+  - Status
+  - ProcessGuid
+  - RuleName
+  - FileVersion
+  - Description
+  - Product
+  - Company
+  - OriginalFileName
+  - CurrentDirectory
+  - LogonGuid
+  - TerminalSessionId
+  - IntegrityLevel
+  - Hashes
+  - ParentProcessGuid
+  
+  
+  
+
+

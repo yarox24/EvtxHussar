@@ -1,0 +1,75 @@
+info:
+  typ: "layer2"
+  name: PowerShellUniversal
+
+output:
+  typ: flat
+  category: powershell
+  filename: powershell_events
+
+fields_remap:
+  "Command Name": CommandName
+  "Engine Version": EngineVersion
+  "Command Path": CommandPath
+  "Command Type": CommandType
+  "Error Message": ErrorMessage
+  "Host Application": HostApplication
+  "Host ID": HostId
+  "Host Name": HostName
+  "Host Version": HostVersion
+  "Pipeline ID": PipelineId
+  "Provider name": ProviderName
+  "Runspace ID": RunspaceId
+  "Script Name": ScriptName
+  "Sequence Number": SequenceNumber
+
+field_extra_transformations:
+  - input_field: HostApplication
+    output_field: "HostApplication (Base64 decoded)"
+    special_transform: base64powershellhunter
+
+ordered_fields:
+  - HostApplication
+  - "HostApplication (Base64 decoded)"
+  - ScriptName
+  - Payload
+  - HostName
+  - HostVersion
+  - EngineVersion
+  - CommandInvocation/ParameterBinding
+  - CommandLine
+  - CommandName
+  - CommandPath
+  - CommandType
+  - RunspaceId
+  - ProviderName
+  - "Connected User"
+  - User
+  - UserId
+  - DetailSequence
+  - DetailTotal
+  - ErrorMessage
+  - ErrorCode
+  - FileName
+  - "Fully Qualified Error ID" # is used?
+  - HostId
+  - InstanceId
+  - NewCommandState
+  - PreviousEngineState
+  - NewEngineState
+  - NewProviderState
+  - Path
+  - PipelineId
+  - ScriptBlockId
+  - ScriptBlockText
+  - SequenceNumber
+  - SessionId
+  - Severity
+  - "Shell ID"
+  - param1
+  - param2
+  - MinRunspaces
+  - MaxRunspaces
+#  - MessageNumber
+#  - MessageTotal
+  

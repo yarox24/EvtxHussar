@@ -1,0 +1,46 @@
+{
+	"Event": {
+		"System": {
+			"Provider": {
+				"Name": "Microsoft-Windows-Security-Auditing",
+				"Guid": "54849625-5478-4994-A5BA-3E3B0328C30D"
+			},
+			"EventID": {
+				"Value": 4697
+			},
+			"Version": 1,
+			"Level": 0,
+			"Task": 12289,
+			"Opcode": 0,
+			"Keywords": 9232379236109516800,
+			"TimeCreated": {
+				"SystemTime": 1638798000.1111112
+			},
+			"EventRecordID": 111,
+			"Correlation": {
+				"ActivityID": "431B214F-BBAC-0001-A421-2B73ACEBD701"
+			},
+			"Execution": {
+				"ProcessID": 912,
+				"ThreadID": 5812
+			},
+			"Channel": "Security",
+			"Computer": "DESKTOP-EvtxHussar",
+			"Security": {}
+		},
+		"EventData": {
+			"SubjectUserSid": "S-1-5-18",
+			"SubjectUserName": "DESKTOP-EvtxHussar$",
+			"SubjectDomainName": "HUSSAR",
+			"SubjectLogonId": 999,
+			"ServiceName": "DepSvc_2158",
+			"ServiceFileName": "C:\\WINDOWS\\system32\\svchost.exe -k DepSvcGroup -p",
+			"ServiceType": 224,
+			"ServiceStartType": 3,
+			"ServiceAccount": "LocalSystem",
+			"ClientProcessStartKey": 1207372833353327,
+			"ClientProcessId": 2452,
+			"ParentProcessId": 888
+		}
+	}
+}

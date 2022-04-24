@@ -1,0 +1,39 @@
+{
+	"Event": {
+		"System": {
+			"Provider": {
+				"Name": "Microsoft-Windows-TaskScheduler",
+				"Guid": "DE7B24EA-73C8-4A09-985D-5BDADCFA9017"
+			},
+			"EventID": {
+				"Value": 100
+			},
+			"Version": 0,
+			"Level": 4,
+			"Task": 100,
+			"Opcode": 1,
+			"Keywords": 9223372036854775809,
+			"TimeCreated": {
+				"SystemTime": 1638798000.1111112
+			},
+			"EventRecordID": 111,
+			"Correlation": {
+				"ActivityID": "4B0F2D5B-2182-291A-BF46-1017A6B18D05"
+			},
+			"Execution": {
+				"ProcessID": 1280,
+				"ThreadID": 1980
+			},
+			"Channel": "Microsoft-Windows-TaskScheduler/Operational",
+			"Computer": "DESKTOP-EvtxHussar",
+			"Security": {
+				"UserID": "S-1-5-18"
+			}
+		},
+		"EventData": {
+			"TaskName": "\\Microsoft\\Windows\\DirectX\\AdapterCache",
+			"UserContext": "NT AUTHORITY\\SYSTEM",
+			"InstanceId": "4B0F2D5B-2182-291A-BF46-1017A6B18D05"
+		}
+	}
+}

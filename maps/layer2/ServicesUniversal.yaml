@@ -1,0 +1,40 @@
+info:
+  typ: "layer2"
+  name: ServicesUniversal
+
+output:
+  typ: flat
+  category: services
+  filename: services
+
+
+fields_remap:
+  "StartType": ServiceStartType
+  "ServiceAccount": ServiceAccount/AccountName
+  "AccountName": ServiceAccount/AccountName
+  "ImagePath": ImagePath/ServiceFileName
+  "ServiceFileName": ImagePath/ServiceFileName
+
+ordered_fields:
+  - ServiceName
+  - ExtraServiceName
+  - ImagePath/ServiceFileName
+  - ServiceType:mapper_number_to_string=servicetype # Mapping to: servicetype
+  - ServiceStartType:mapper_number_to_string=servicestarttype # Mapping to: servicestarttype
+  - ServiceAccount/AccountName
+  - SubjectUserSid
+  - SubjectUserName
+  - SubjectDomainName
+  - SubjectLogonId:display_as=hex
+  - ServiceStartTypeOld
+  - ServiceStartTypeNew
+  - ServiceReason
+  - ServiceReasonText
+  - State
+  - Status
+  - Comment
+  - Error
+  - ClientProcessStartKey
+  - ClientProcessId
+  - ParentProcessId
+  

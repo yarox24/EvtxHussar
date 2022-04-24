@@ -1,0 +1,39 @@
+{
+	"Event": {
+		"System": {
+			"Provider": {
+				"Name": "Microsoft-Windows-PowerShell",
+				"Guid": "A0C1853B-5C40-4B15-8766-3CF1C58F985A"
+			},
+			"EventID": {
+				"Value": 8194
+			},
+			"Version": 1,
+			"Level": 5,
+			"Task": 1,
+			"Opcode": 16,
+			"Keywords": 0,
+			"TimeCreated": {
+				"SystemTime": 1638798000.1111112
+			},
+			"EventRecordID": 111,
+			"Correlation": {
+				"ActivityID": "157F7844-2BD7-4DD2-AC6D-FA91496D4688"
+			},
+			"Execution": {
+				"ProcessID": 4160,
+				"ThreadID": 2232
+			},
+			"Channel": "Microsoft-Windows-PowerShell/Operational",
+			"Computer": "DESKTOP-EvtxHussar",
+			"Security": {
+				"UserID": "S-1-5-18"
+			}
+		},
+		"EventData": {
+			"InstanceId": "157f7844-6bd7-4dd2-ac6d-fb91496d4688",
+			"MaxRunspaces": "2",
+			"MinRunspaces": "10"
+		}
+	}
+}

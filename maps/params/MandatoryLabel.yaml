@@ -1,0 +1,13 @@
+info:
+    typ: "mapper_string_to_string"
+    name: "mandatorylabel"
+
+params:
+    "S-1-16-0": "Untrusted"
+    "S-1-16-4096": "Low integrity"
+    "S-1-16-8192": "Medium integrity"
+    "S-1-16-8208": "Medium integrity with UIAccess"
+    "S-1-16-8448": "Medium high integrity"
+    "S-1-16-12288": "High integrity"
+    "S-1-16-16384": "System integrity"
+    "S-1-16-20480": "Protected process"

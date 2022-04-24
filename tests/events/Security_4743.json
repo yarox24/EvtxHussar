@@ -1,0 +1,40 @@
+{
+	"Event": {
+		"System": {
+			"Provider": {
+				"Name": "Microsoft-Windows-Security-Auditing",
+				"Guid": "54849625-5478-4994-A5BA-3E3B0328C30D"
+			},
+			"EventID": {
+				"Value": 4743
+			},
+			"Version": 0,
+			"Level": 0,
+			"Task": 13825,
+			"Opcode": 0,
+			"Keywords": 9232279236109516800,
+			"TimeCreated": {
+				"SystemTime": 1638798000.1111112
+			},
+			"EventRecordID": 111,
+			"Correlation": {},
+			"Execution": {
+				"ProcessID": 796,
+				"ThreadID": 2100
+			},
+			"Channel": "Security",
+			"Computer": "DESKTOP-EvtxHussar",
+			"Security": {}
+		},
+		"EventData": {
+			"TargetUserName": "DESKTOP-EvtxHussar$",
+			"TargetDomainName": "HUSS",
+			"TargetSid": "S-1-5-19",
+			"SubjectUserSid": "S-1-5-18",
+			"SubjectUserName": "Administrator",
+			"SubjectDomainName": "HUSS",
+			"SubjectLogonId": 2366790,
+			"PrivilegeList": "-"
+		}
+	}
+}

@@ -1,0 +1,57 @@
+{
+	"Event": {
+		"System": {
+			"Provider": {
+				"Name": "Microsoft-Windows-Sysmon",
+				"Guid": "5770385F-C22A-43E0-BF4C-06F5698FFBD9"
+			},
+			"EventID": {
+				"Value": 1
+			},
+			"Version": 5,
+			"Level": 4,
+			"Task": 1,
+			"Opcode": 0,
+			"Keywords": 9223372036854775808,
+			"TimeCreated": {
+				"SystemTime": 1638798000.1111112
+			},
+			"EventRecordID": 111,
+			"Correlation": {},
+			"Execution": {
+				"ProcessID": 7080,
+				"ThreadID": 23972
+			},
+			"Channel": "Microsoft-Windows-Sysmon/Operational",
+			"Computer": "DESKTOP-EvtxHussar",
+			"Security": {
+				"UserID": "S-1-5-18"
+			}
+		},
+		"EventData": {
+			"RuleName": "-",
+			"UtcTime": "2021-04-14 07:02:05.122",
+			"ProcessGuid": "9FA3FE52-C6ED-6257-A33A-000000005F00",
+			"ProcessId": 7080,
+			"Image": "C:\\Windows\\Sysmon64.exe",
+			"FileVersion": "13.33",
+			"Description": "System activity monitor",
+			"Product": "Sysinternals Sysmon",
+			"Company": "Sysinternals - www.sysinternals.com",
+			"OriginalFileName": "-",
+			"CommandLine": "C:\\WINDOWS\\Sysmon64.exe",
+			"CurrentDirectory": "C:\\WINDOWS\\system32\\",
+			"User": "ZARZĄDZANIE NT\\SYSTEM",
+			"LogonGuid": "9FA3FE52-1ED0-6254-E703-000000000000",
+			"LogonId": 999,
+			"TerminalSessionId": 0,
+			"IntegrityLevel": "System",
+			"Hashes": "SHA256=7ABCC0EDB4C0F9F47A1BAC0D06401504E1E91C4B1A4E679F01AD539F364D6881",
+			"ParentProcessGuid": "9FA3FE52-1ED0-6254-0B00-000000005F00",
+			"ParentProcessId": 1944,
+			"ParentImage": "C:\\Windows\\System32\\services.exe",
+			"ParentCommandLine": "C:\\WINDOWS\\system32\\services.exe",
+			"ParentUser": "ZARZĄDZANIE NT\\SYSTEM"
+		}
+	}
+}

@@ -1,0 +1,40 @@
+{
+	"Event": {
+		"System": {
+			"Provider": {
+				"Name": "Microsoft-Windows-PowerShell",
+				"Guid": "A0C1853B-5C40-4B15-8766-3CF1C58F985A"
+			},
+			"EventID": {
+				"Value": 24577
+			},
+			"Version": 1,
+			"Level": 4,
+			"Task": 120,
+			"Opcode": 20,
+			"Keywords": 0,
+			"TimeCreated": {
+				"SystemTime": 1638798000.1111112
+			},
+			"EventRecordID": 111,
+			"Correlation": {
+				"ActivityID": "2059E36D-B8B2-0001-13AB-5A40B2C8D201"
+			},
+			"Execution": {
+				"ProcessID": 4764,
+				"ThreadID": 5732
+			},
+			"Channel": "Microsoft-Windows-PowerShell/Operational",
+			"Computer": "DESKTOP-EvtxHussar",
+			"Security": {
+				"UserID": "S-1-5-18"
+			}
+		},
+		"EventData": {
+			"Data": {
+				"Name": "FileName",
+				"Value": "Noname.ps1"
+			}
+		}
+	}
+}

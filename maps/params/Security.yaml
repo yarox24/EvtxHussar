@@ -1,0 +1,107 @@
+info:
+    typ: "doublequotes"
+    channel: "Security"
+
+
+# msobjs.dll
+params:
+    "%%1792": "<value changed, but not displayed>"
+    "%%1793": "-"
+    "%%1794": "<never>"
+    "%%1795": Enabled
+    "%%1796": Disabled
+    "%%1797": All
+    "%%1798": None
+    "%%1799": Audit Policy query/set API Operation
+    "%%1800": <Value change auditing for this registry type is not supported>
+    "%%1801": Granted by
+    "%%1802": Denied by
+    "%%1803": Denied by Integrity Check policy
+    "%%1804": Granted by Ownership
+    "%%1805": Not granted
+    "%%1806": Granted by NULL DACL
+    "%%1807": Denied by Empty DACL
+    "%%1808": Granted by NULL Security Descriptor
+    "%%1809": Unknown or unchecked
+    "%%1810": Not granted due to missing
+    "%%1811": Granted by ACE on parent folder
+    "%%1812": Denied by ACE on parent folder
+    "%%1832": Identification
+    "%%1833": Impersonation
+    "%%1840": Delegation
+    "%%1841": Denied by Process Trust Label ACE
+    "%%1842": Yes
+    "%%1843": No
+    "%%1844": System
+    "%%1845": Not Available
+    "%%1846": Default
+    "%%1847": DisallowMmConfig
+    "%%1848": Off
+    "%%1849": Auto
+    "%%1936": TokenElevationTypeDefault (1)
+    "%%1937": TokenElevationTypeFull (2)
+    "%%1938": TokenElevationTypeLimited (3)
+    "%%2048": Account Enabled
+    "%%2049": "'Home Directory Required' - Disabled"
+    "%%2050": "'Password Not Required' - Disabled"
+    "%%2051": "'Temp Duplicate Account' - Disabled"
+    "%%2052": "'Normal Account' - Disabled"
+    "%%2053": "'MNS Logon Account' - Disabled"
+    "%%2054": "'Interdomain Trust Account' - Disabled"
+    "%%2055": "'Workstation Trust Account' - Disabled"
+    "%%2056": "'Server Trust Account' - Disabled"
+    "%%2057": "'Don't Expire Password' - Disabled"
+    "%%2058": "Account Unlocked"
+    "%%2059": "'Encrypted Text Password Allowed' - Disabled"
+    "%%2060": "'Smartcard Required' - Disabled"
+    "%%2061": "'Trusted For Delegation' - Disabled"
+    "%%2062": "'Not Delegated' - Disabled"
+    "%%2063": "'Use DES Key Only' - Disabled"
+    "%%2064": "'Don't Require Preauth' - Disabled"
+    "%%2065": "'Password Expired' - Disabled"
+    "%%2066": "'Trusted To Authenticate For Delegation' - Disabled"
+    "%%2067": "'Exclude Authorization Information' - Disabled"
+    "%%2068": "'Undefined UserAccountControl Bit 20' - Disabled"
+    "%%2069": "'Protect Kerberos Service Tickets with AES Keys' - Disabled"
+    "%%2070": "'Undefined UserAccountControl Bit 22' - Disabled"
+    "%%2071": "'Undefined UserAccountControl Bit 23' - Disabled"
+    "%%2072": "'Undefined UserAccountControl Bit 24' - Disabled"
+    "%%2073": "'Undefined UserAccountControl Bit 25' - Disabled"
+    "%%2074": "'Undefined UserAccountControl Bit 26' - Disabled"
+    "%%2075": "'Undefined UserAccountControl Bit 27' - Disabled"
+    "%%2076": "'Undefined UserAccountControl Bit 28' - Disabled"
+    "%%2077": "'Undefined UserAccountControl Bit 29' - Disabled"
+    "%%2078": "'Undefined UserAccountControl Bit 30' - Disabled"
+    "%%2079": "'Undefined UserAccountControl Bit 31' - Disabled"
+    "%%2080": "Account Disabled"
+    "%%2081": "'Home Directory Required' - Enabled"
+    "%%2082": "'Password Not Required' - Enabled"
+    "%%2083": "'Temp Duplicate Account' - Enabled"
+    "%%2084": "'Normal Account' - Enabled"
+    "%%2085": "'MNS Logon Account' - Enabled"
+    "%%2086": "'Interdomain Trust Account' - Enabled"
+    "%%2087": "'Workstation Trust Account' - Enabled"
+    "%%2088": "'Server Trust Account' - Enabled"
+    "%%2089": "'Don't Expire Password' - Enabled"
+    "%%2090": "Account Disabled"
+    "%%2091": "'Encrypted Text Password Allowed' - Enabled"
+    "%%2092": "'Smartcard Required' - Enabled"
+    "%%2093": "'Trusted For Delegation' - Enabled"
+    "%%2094": "'Not Delegated' - Enabled"
+    "%%2095": "'Use DES Key Only' - Enabled"
+    "%%2096": "'Don't Require Preauth' - Enabled"
+    "%%2097": "'Password Expired' - Enabled"
+    "%%2098": "'Trusted To Authenticate For Delegation' - Enabled"
+    "%%2099": "'Exclude Authorization Information' - Enabled"
+    "%%2100": "'Undefined UserAccountControl Bit 20' - Enabled"
+    "%%2101": "'Protect Kerberos Service Tickets with AES Keys' - Enabled"
+    "%%2102": "'Undefined UserAccountControl Bit 22' - Enabled"
+    "%%2103": "'Undefined UserAccountControl Bit 23' - Enabled"
+    "%%2104": "'Undefined UserAccountControl Bit 24' - Enabled"
+    "%%2105": "'Undefined UserAccountControl Bit 25' - Enabled"
+    "%%2106": "'Undefined UserAccountControl Bit 26' - Enabled"
+    "%%2107": "'Undefined UserAccountControl Bit 27' - Enabled"
+    "%%2108": "'Undefined UserAccountControl Bit 28' - Enabled"
+    "%%2109": "'Undefined UserAccountControl Bit 29' - Enabled"
+    "%%2110": "'Undefined UserAccountControl Bit 30' - Enabled"
+    "%%2111": "'Undefined UserAccountControl Bit 31' - Enabled"

@@ -1,0 +1,12 @@
+info:
+    typ: "mapper_number_to_string"
+    name: "servicestarttype"
+    display_original: dec
+
+# msobjs.dll
+params_number:
+    0: "Boot start"
+    1: "System start"	
+    2: "Auto start"
+    3: "Demand start"
+    4: Disabled

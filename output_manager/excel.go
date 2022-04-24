@@ -3,7 +3,7 @@ package output_manager
 import (
 	"github.com/Velocidex/ordereddict"
 	"github.com/xuri/excelize/v2"
-	"github.com/yarox24/evtxhussar/common"
+	"github.com/yarox24/EvtxHussar/common"
 )
 
 func (dc *OutputManager) CreateFileForExcelWriting() error {

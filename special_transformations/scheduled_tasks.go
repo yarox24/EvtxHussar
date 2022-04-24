@@ -4,7 +4,7 @@ import (
 	"encoding/xml"
 	"fmt"
 	"github.com/Velocidex/ordereddict"
-	"github.com/yarox24/evtxhussar/common"
+	"github.com/yarox24/EvtxHussar/common"
 	"golang.org/x/net/html/charset"
 	"io"
 	"strconv"

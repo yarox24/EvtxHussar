@@ -4,7 +4,7 @@ import (
 	"bufio"
 	"encoding/json"
 	"github.com/Velocidex/ordereddict"
-	"github.com/yarox24/evtxhussar/common"
+	"github.com/yarox24/EvtxHussar/common"
 )
 
 func (dc *OutputManager) CreateFileForJSONWriting() error {

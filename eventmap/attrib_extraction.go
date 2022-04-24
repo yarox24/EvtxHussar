@@ -2,7 +2,7 @@ package eventmap
 
 import (
 	"github.com/Velocidex/ordereddict"
-	"github.com/yarox24/evtxhussar/common"
+	"github.com/yarox24/EvtxHussar/common"
 	"strconv"
 	"strings"
 )

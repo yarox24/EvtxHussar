@@ -3,8 +3,8 @@ package eventmap
 import (
 	"fmt"
 	"github.com/Velocidex/ordereddict"
-	"github.com/yarox24/evtxhussar/common"
-	"github.com/yarox24/evtxhussar/special_transformations"
+	"github.com/yarox24/EvtxHussar/common"
+	"github.com/yarox24/EvtxHussar/special_transformations"
 	"regexp"
 	"sort"
 	"strconv"

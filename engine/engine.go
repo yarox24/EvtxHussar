@@ -2,8 +2,8 @@ package engine
 
 import (
 	"github.com/Velocidex/ordereddict"
-	"github.com/yarox24/evtxhussar/common"
-	"github.com/yarox24/evtxhussar/eventmap"
+	"github.com/yarox24/EvtxHussar/common"
+	"github.com/yarox24/EvtxHussar/eventmap"
 	"gopkg.in/yaml.v3"
 	"io/ioutil"
 	"os"

@@ -3,8 +3,8 @@ package main
 import (
 	"fmt"
 	"github.com/alexflint/go-arg"
-	"github.com/yarox24/evtxhussar/common"
-	"github.com/yarox24/evtxhussar/engine"
+	"github.com/yarox24/EvtxHussar/common"
+	"github.com/yarox24/EvtxHussar/engine"
 	"strings"
 )
 

@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"github.com/Velocidex/ordereddict"
 	"github.com/rs/zerolog"
-	"github.com/yarox24/evtxhussar/common"
-	"github.com/yarox24/evtxhussar/engine"
+	"github.com/yarox24/EvtxHussar/common"
+	"github.com/yarox24/EvtxHussar/engine"
 	"io/ioutil"
 	"os"
 	"strings"
@@ -16,7 +16,6 @@ import (
 // go test -args "F:\path_to\maps"
 func GrabCmdlineMapPath() string {
 
-	return "F:\\GoLangBase\\EvtxHussarProject\\maps"
 	if len(os.Args) == 4 {
 		return os.Args[3]
 	} else {
@@ -33,7 +32,7 @@ func LoadEngine() *engine.Engine {
 	maps_path2, _ := common.Determine_Maps_Path(maps_path)
 	engi := engine.NewEngine("csv", maps_path2)
 	engi.LoadLayer1()
-	engi.LoadLayer2("F:\\GoLangBase\\EvtxHussarProject\\test_out_fake")
+	engi.LoadLayer2("")
 	engi.LoadParams()
 
 	return &engi

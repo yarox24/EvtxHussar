@@ -3,7 +3,7 @@ package special_transformations
 import (
 	"encoding/base64"
 	"github.com/Velocidex/ordereddict"
-	"github.com/yarox24/evtxhussar/common"
+	"github.com/yarox24/EvtxHussar/common"
 	"golang.org/x/text/encoding/unicode"
 	"golang.org/x/text/transform"
 	"strings"

@@ -1,4 +1,4 @@
-module github.com/yarox24/evtxhussar
+module github.com/yarox24/EvtxHussar
 
 go 1.18
 

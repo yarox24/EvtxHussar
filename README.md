@@ -1,9 +1,9 @@
 # <img src="https://github.com/yarox24/EvtxHussar/blob/447cd68ab8f3a4e5bd9d0197461d81cc162b8202/icon/icons8-forensics-96.png" alt="Icon" width="40"/> EvtxHussar
 
-
+Initial triage of Windows Event logs (Pre-built package for Windows as for now). This is beta quality software.
 
 ### Input data
-- .evtx files coming from various or single host
+- .evtx - Windows event log files coming from various hosts or single host
 
 ### Output data
 - Subset of events based on event ID's defined in maps (e.g. System 104 - The log file was cleared.)
@@ -16,7 +16,7 @@
 ###### Subset of columns only (Click for fullscreen preview)
 ![image](https://user-images.githubusercontent.com/18016218/164982801-4fdc2786-0bfb-439a-8679-1ab35537e4c0.png)
 
-###### Output directory structure (Click for fullscreen preview)
+###### Output directory structure
 ![image](https://user-images.githubusercontent.com/18016218/164982810-7b706507-8bcb-42be-aba5-5bfec0846154.png)
 
 ### Interesting features
@@ -54,9 +54,14 @@ EvtxHussar.exe -f csv -o C:\evtxhussar_results C:\evtx_compromised_machine\Secur
 EvtxHussar.exe -w 100 -r -o C:\evtxhussar_results C:\evtx_many_machines
 ```
 
+**Parse with custom maps relevant to incident**
+```cmd
+EvtxHussar.exe -m C:\incident_specific_maps -r -o C:\evtxhussar_results C:\evtx_many_machines
+```
+  
 ### Help
 ```cmd
-Usage: EvtxHussar1.0_amd64.exe [--recursive] [--output_dir OUTPUT_DIR] [--format FORMAT] [--workers WORKERS] [--maps MAPS] [--debug] [INPUT_EVTX_PATHS [INPUT_EVTX_PATHS ...]]
+Usage: EvtxHussar [--recursive] [--output_dir OUTPUT_DIR] [--format FORMAT] [--workers WORKERS] [--maps MAPS] [--debug] [INPUT_EVTX_PATHS [INPUT_EVTX_PATHS ...]]
 
 Positional arguments:
   INPUT_EVTX_PATHS       Path(s) to .evtx files or directories containing these files (can be mixed)
@@ -75,7 +80,5 @@ Options:
   --version              display version and exit
 ```
   
-  ### Winged Hussars
-  [![Winged Hussars](https://yt-embed.herokuapp.com/embed?v=rcYhYO02f98)](https://www.youtube.com/watch?v=rcYhYO02f98 "Winged Hussars")
-
-  
+  ### Then the winged hussars arrived, coming down they turned the tide
+  [![Winged Hussars](https://user-images.githubusercontent.com/18016218/164983755-ce34e0db-4867-4118-8441-d546c090c8a9.png)](https://www.youtube.com/watch?v=rcYhYO02f98 "Winged Hussars")  

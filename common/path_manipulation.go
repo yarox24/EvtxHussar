@@ -6,6 +6,12 @@ import (
 )
 
 func Handle_output_directory(p string) {
+
+	// Output directory must be provided
+	if len(p) == 0 {
+		LogCriticalError("Output directory not provided!")
+	}
+
 	p, _ = filepath.Abs(p)
 
 	fi, err := os.Stat(p)

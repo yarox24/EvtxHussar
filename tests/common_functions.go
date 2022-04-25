@@ -39,13 +39,13 @@ func LoadEngine() *engine.Engine {
 }
 
 func GetTestEventsPath(maps_path string) string {
-	events_path_temp := strings.Split(maps_path, "\\")
-	return strings.Join(events_path_temp[:len(events_path_temp)-2], "\\") + "\\tests\\events\\"
+	events_path_temp := strings.Split(maps_path, string(os.PathSeparator))
+	return strings.Join(events_path_temp[:len(events_path_temp)-2], string(os.PathSeparator)) + fmt.Sprintf("%stests%sevents%s", string(os.PathSeparator), string(os.PathSeparator), string(os.PathSeparator))
 }
 
 func GetTestFilesPath(maps_path string) string {
-	events_files_temp := strings.Split(maps_path, "\\")
-	return strings.Join(events_files_temp[:len(events_files_temp)-2], "\\") + "\\tests\\files\\"
+	events_files_temp := strings.Split(maps_path, string(os.PathSeparator))
+	return strings.Join(events_files_temp[:len(events_files_temp)-2], string(os.PathSeparator)) + fmt.Sprintf("%stests%sfiles%s", string(os.PathSeparator), string(os.PathSeparator), string(os.PathSeparator))
 }
 
 func UnmarshallAndParseEvent(filename string, eng *engine.Engine, l2_name string) *ordereddict.Dict {

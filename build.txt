@@ -5,6 +5,10 @@ go build cmd\EvtxHussar\EvtxHussar.go
 move EvtxHussar.exe EvtxHussarVERSION_amd64.exe
 rcedit-x64.exe EvtxHussarVERSION_amd64.exe --set-icon icon\icons8-forensics-96.ico
 
+# Build notes Linux
+go build cmd\EvtxHussar\EvtxHussar.go
+mv EvtxHussar EvtxHussarVERSION_amd64
+
 
 # Tests
 cd tests

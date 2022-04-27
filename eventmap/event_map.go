@@ -17,13 +17,8 @@ func GetSystemTime(ev_map *ordereddict.Dict, highprecisioneventtime string) stri
 	temp, _ := ordereddict.GetAny(ev_map, "System.TimeCreated.SystemTime")
 	temp_float64, _ := temp.(float64)
 
-	temp_time := common.ToTime(common.Float64ToByte(temp_float64))
-
-	if strings.ToLower(highprecisioneventtime) == "true" {
-		return temp_time.UTC().Format("2006.01.02 15:04:05.999999999")
-	} else {
-		return temp_time.UTC().Format("2006.01.02 15:04:05")
-	}
+	temp_time := common.ToTime(temp_float64)
+	return common.SysTimeToString(temp_time, strings.ToLower(highprecisioneventtime) == "true")
 }
 
 func GetEID(ev_map *ordereddict.Dict) string {

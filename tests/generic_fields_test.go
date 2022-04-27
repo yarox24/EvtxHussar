@@ -11,7 +11,7 @@ func TestCommonFields(t *testing.T) {
 
 	// System104
 	easytesting104 := NewEasyTesting(t, UnmarshallAndParseEvent("System_104.json", eng, "AccountsUserRelatedOperations"))
-	easytesting104.CheckDesiredValue("EventTime", "2022.05.19 13:30:57.3431922")
+	easytesting104.CheckDesiredValue("EventTime", "2021.12.06 13:40:00.11111")
 	easytesting104.CheckDesiredValue("EID", "104")
 	easytesting104.CheckDesiredValue("Description", "The log file was cleared.")
 	easytesting104.CheckDesiredValue("Computer", "DESKTOP-EvtxHussar")

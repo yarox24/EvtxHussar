@@ -2,14 +2,14 @@
 set GOARCH=amd64
 // Edit version variable
 go build cmd\EvtxHussar\EvtxHussar.go
-move EvtxHussar.exe EvtxHussarVERSION_amd64.exe
-rcedit-x64.exe EvtxHussarVERSION_amd64.exe --set-icon icon\icons8-forensics-96.ico
+// Keep name: EvtxHussar.exe
+rcedit-x64.exe EvtxHussar.exe --set-icon icon\icons8-forensics-96.ico
 
 # Build notes Linux
 go build cmd\EvtxHussar\EvtxHussar.go
-mv EvtxHussar EvtxHussarVERSION_amd64
+// Keep name: EvtxHussar
 
 
 # Tests
 cd tests
-go test
+go test -args /path/to/maps

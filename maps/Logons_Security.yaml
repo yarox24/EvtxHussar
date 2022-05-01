@@ -1,0 +1,139 @@
+info:
+    typ: "layer1"
+    source_comment: "Security.evtx"
+    channel: "Security"
+
+sendto_layer2: LogonsUniversal
+
+events:
+
+    4624:
+        attrib_extraction: []
+        short_description: "An account was successfully logged on"
+        provider_guid: "{54849625-5478-4994-A5BA-3E3B0328C30D}"
+
+    4625:
+        attrib_extraction: []
+        short_description: "An account failed to log on"
+        provider_guid: "{54849625-5478-4994-A5BA-3E3B0328C30D}"
+
+    4627:
+        attrib_extraction: []
+        short_description: "Group membership information"
+        provider_guid: "{54849625-5478-4994-A5BA-3E3B0328C30D}"
+
+    4634:
+        attrib_extraction: []
+        short_description: "An account was logged off"
+        provider_guid: "{54849625-5478-4994-A5BA-3E3B0328C30D}"
+
+    4647:
+        attrib_extraction: []
+        short_description: "User initiated logoff"
+        provider_guid: "{54849625-5478-4994-A5BA-3E3B0328C30D}"
+
+    4648:
+        attrib_extraction: []
+        short_description: "A logon was attempted using explicit credentials"
+        provider_guid: "{54849625-5478-4994-A5BA-3E3B0328C30D}"
+
+    4649:
+        attrib_extraction: []
+        short_description: "A replay attack was detected"
+        provider_guid: "{54849625-5478-4994-A5BA-3E3B0328C30D}"
+
+    4672:
+        attrib_extraction: []
+        short_description: "Special privileges assigned to new logon"
+        provider_guid: "{54849625-5478-4994-A5BA-3E3B0328C30D}"
+
+    4768:
+        attrib_extraction: []
+        short_description: "A Kerberos authentication ticket (TGT) was requested"
+        provider_guid: "{54849625-5478-4994-A5BA-3E3B0328C30D}"
+
+    4769:
+        attrib_extraction: []
+        short_description: "A Kerberos service ticket was requested"
+        provider_guid: "{54849625-5478-4994-A5BA-3E3B0328C30D}"
+
+    4770:
+        attrib_extraction: []
+        short_description: "A Kerberos service ticket was renewed"
+        provider_guid: "{54849625-5478-4994-A5BA-3E3B0328C30D}"
+
+    4771:
+        attrib_extraction: []
+        short_description: "Kerberos pre-authentication failed"
+        provider_guid: "{54849625-5478-4994-A5BA-3E3B0328C30D}"
+
+    4772:
+        attrib_extraction: []
+        short_description: "A Kerberos authentication ticket request failed"
+        provider_guid: "{54849625-5478-4994-A5BA-3E3B0328C30D}"
+
+    4773:
+        attrib_extraction: []
+        short_description: "A Kerberos service ticket request failed"
+        provider_guid: "{54849625-5478-4994-A5BA-3E3B0328C30D}"
+
+    4774:
+        attrib_extraction: []
+        short_description: "An account was mapped for logon"
+        provider_guid: "{54849625-5478-4994-A5BA-3E3B0328C30D}"
+
+    4776:
+        attrib_extraction: []
+        short_description: "The computer attempted to validate the credentials for an account"
+        provider_guid: "{54849625-5478-4994-A5BA-3E3B0328C30D}"
+
+    4778:
+        attrib_extraction: []
+        short_description: "A session was reconnected to a Window Station"
+        provider_guid: "{54849625-5478-4994-A5BA-3E3B0328C30D}"
+
+    4779:
+        attrib_extraction: []
+        short_description: "A session was disconnected from a Window Station"
+        provider_guid: "{54849625-5478-4994-A5BA-3E3B0328C30D}"
+
+    4800:
+        attrib_extraction: []
+        short_description: "The workstation was locked"
+        provider_guid: "{54849625-5478-4994-A5BA-3E3B0328C30D}"
+
+    4801:
+        attrib_extraction: []
+        short_description: "The workstation was unlocked"
+        provider_guid: "{54849625-5478-4994-A5BA-3E3B0328C30D}"
+
+    4802:
+        attrib_extraction: []
+        short_description: "The screen saver was invoked"
+        provider_guid: "{54849625-5478-4994-A5BA-3E3B0328C30D}"
+
+    4803:
+        attrib_extraction: []
+        short_description: "The screen saver was dismissed"
+        provider_guid: "{54849625-5478-4994-A5BA-3E3B0328C30D}"
+
+    4820:
+        attrib_extraction: []
+        short_description: "A Kerberos Ticket-granting-ticket (TGT) was denied because the device does not meet the access control restrictions"
+        provider_guid: "{54849625-5478-4994-A5BA-3E3B0328C30D}"        
+        
+    4821:
+        attrib_extraction: []
+        short_description: "A Kerberos service ticket was denied because the user, device, or both does not meet the access control restrictions"
+        provider_guid: "{54849625-5478-4994-A5BA-3E3B0328C30D}"  
+        
+    4824:
+        attrib_extraction: []
+        short_description: "Kerberos preauthentication by using DES or RC4 failed because the account was a member of the Protected User group"
+        provider_guid: "{54849625-5478-4994-A5BA-3E3B0328C30D}"  
+
+    4964:
+        attrib_extraction: []
+        short_description: "Special groups have been assigned to a new logon"
+        provider_guid: "{54849625-5478-4994-A5BA-3E3B0328C30D}"  
+        

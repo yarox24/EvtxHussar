@@ -22,3 +22,6 @@ vendor/
 
 # Go workspace file
 go.work
+
+# Test
+cmd/EvtxHussar/test.go

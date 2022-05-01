@@ -1,0 +1,22 @@
+info:
+    typ: "mapper_number_to_string"
+    name: "logontype"
+    display_original: dec
+
+
+params_number:
+    0: "Undefined/LocalSystem"
+    2: "Interactive"
+    3: "Network"
+    4: "Batch"
+    5: "Service"
+    6: "Proxy"
+    7: "Unlock"
+    8: "NetworkCleartext"
+    9: "NewCredentials"
+    10: "RemoteInteractive"
+    11: "CachedInteractive"
+    12: "CachedRemoteInteractive"
+    13: "CachedUnlock"
+
+    

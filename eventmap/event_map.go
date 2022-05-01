@@ -248,6 +248,14 @@ func MapAttribToOrderedMap(attrib_map *ordereddict.Dict, ord_map *ordereddict.Di
 			// Extra fix
 			always_string = ExtraFixField(Ordered_fields_enhanced, key, "fix_field", always_string)
 
+			copy_to_field := ReadSpecialOptionForKey(Ordered_fields_enhanced, key, "copy_raw_value_to_output_field")
+
+			if len(copy_to_field) > 0 {
+				ord_map.Update(copy_to_field, always_string)
+			}
+
+			// Extra copy
+
 			ord_map.Update(key, always_string)
 		} else {
 
@@ -284,6 +292,8 @@ func GetOriginalDisplayValueForMapperNumberToString(current_params common.Params
 			return fmt.Sprintf(" [Original value: %d]", nr)
 		case "hex":
 			return fmt.Sprintf(" [Original value: 0x%X]", nr)
+		case "none":
+			return ""
 		default:
 			panic("Wrong display_original type")
 		}
@@ -292,7 +302,23 @@ func GetOriginalDisplayValueForMapperNumberToString(current_params common.Params
 	return ""
 }
 
-func ResolveForMapperNumberToString(VariousMappers map[string]common.Params, map_name string, value string) string {
+func GetOriginalDisplayValueForMapperBitwiseToString(current_params common.Params, nr int64) string {
+
+	switch current_params.Info.Display_original {
+	case "dec":
+		return fmt.Sprintf(" [Original value: %d]", nr)
+	case "hex":
+		return fmt.Sprintf(" [Original value: 0x%X]", nr)
+	case "none":
+		return ""
+	default:
+		panic("Wrong display_original type")
+	}
+
+	return ""
+}
+
+func ResolveForMapperNumberToString(VariousMappers map[string]common.Params, map_name string, value string, sf_name string) string {
 
 	// Get correct map
 	current_params, found_map := VariousMappers[map_name]
@@ -306,16 +332,18 @@ func ResolveForMapperNumberToString(VariousMappers map[string]common.Params, map
 
 	if err_nr == nil {
 		if nice_name, nice_name_found := current_params.Params_number[nr]; nice_name_found {
+			// switch options: hex, dec, none
+
 			return nice_name + GetOriginalDisplayValueForMapperNumberToString(current_params, value)
 		} else {
-			common.LogImprove(fmt.Sprintf("Append more values to ResolveForMapperNumberToString: %s %s", map_name, value))
+			common.LogImprove(fmt.Sprintf("Append more values to ResolveForMapperNumberToString: %s %s [%s]", map_name, value, sf_name))
 		}
 	}
 
 	return value
 }
 
-func ResolveForMapperStringToString(VariousMappers map[string]common.Params, map_name string, value string) string {
+func ResolveForMapperStringToString(VariousMappers map[string]common.Params, map_name string, value string, sf_name string) string {
 
 	// Get correct map
 	current_params, found_map := VariousMappers[map_name]
@@ -327,13 +355,13 @@ func ResolveForMapperStringToString(VariousMappers map[string]common.Params, map
 	if nice_name, nice_name_found := current_params.Params[value]; nice_name_found {
 		return nice_name + GetOriginalDisplayValueForMapperStringToString(current_params, value)
 	} else {
-		common.LogImprove(fmt.Sprintf("Append more values to ResolveForMapperStringToString: %s %s", map_name, value))
+		common.LogImprove(fmt.Sprintf("Append more values to ResolveForMapperStringToString: %s %s [%s]", map_name, value, sf_name))
 	}
 
 	return value
 }
 
-func ResolveForMapperBitwiseToString(VariousMappers map[string]common.Params, map_name string, value string) string {
+func ResolveForMapperBitwiseToString(VariousMappers map[string]common.Params, map_name string, value string, sf_name string) string {
 
 	// Get correct map
 	current_params, found_map := VariousMappers[map_name]
@@ -342,14 +370,17 @@ func ResolveForMapperBitwiseToString(VariousMappers map[string]common.Params, ma
 		panic("Yaml map error")
 	}
 
-	// Convert string to int (Decimal)
-	nr, err_dec := strconv.ParseInt(value, 10, 0)
+	var int64_value int64
+	var err error
 
-	// Convert string to int (Hex)
-	nr, err_hex := strconv.ParseInt(strings.TrimPrefix(value, "0x"), 16, 0)
+	lower_string := strings.ToLower(value)
+	if strings.HasPrefix(lower_string, "0x") {
+		int64_value, err = strconv.ParseInt(strings.TrimPrefix(lower_string, "0x"), 16, 0)
+	} else {
+		int64_value, err = strconv.ParseInt(value, 10, 0)
+	}
 
-	// Skip non numbers
-	if err_dec != nil && err_hex != nil {
+	if err != nil {
 		return value
 	}
 
@@ -367,16 +398,16 @@ func ResolveForMapperBitwiseToString(VariousMappers map[string]common.Params, ma
 	for _, int_flag := range map_keys {
 		description := current_params.Params_number[int_flag]
 
-		if int64(int_flag)&nr > 0 {
+		if int64(int_flag)&int64_value > 0 {
 			active_flags = append(active_flags, description)
 		}
 	}
 
 	if len(active_flags) > 0 {
-		return fmt.Sprintf("%s [Original value: %s]", strings.Join(active_flags, " | "), value)
+		return fmt.Sprintf("%s%s", strings.Join(active_flags, " | "), GetOriginalDisplayValueForMapperBitwiseToString(current_params, int64_value))
 	} else {
-		if nr != 0 {
-			common.LogInfo("Not found value for: " + value)
+		if int64_value != 0 {
+			common.LogImprove(fmt.Sprintf("Not found value for: %s [%s]", value, sf_name))
 		}
 	}
 
@@ -393,22 +424,22 @@ func ResolveMappersAndDoubleQuotesInPlace(ord_map *ordereddict.Dict, Ordered_fie
 				case "mapper_number_to_string":
 					current_val, found_val := ord_map.GetString(sf_name)
 					if found_val && len(current_val) > 0 {
-						ord_map.Update(sf.NiceName, ResolveForMapperNumberToString(VariousMappers, opt_v, current_val))
+						ord_map.Update(sf.NiceName, ResolveForMapperNumberToString(VariousMappers, opt_v, current_val, sf_name))
 					}
 				case "mapper_string_to_string":
 					current_val, found_val := ord_map.GetString(sf_name)
 					if found_val && len(current_val) > 0 {
-						ord_map.Update(sf.NiceName, ResolveForMapperStringToString(VariousMappers, opt_v, current_val))
+						ord_map.Update(sf.NiceName, ResolveForMapperStringToString(VariousMappers, opt_v, current_val, sf_name))
 					}
 				case "mapper_bitwise_to_string":
 					current_val, found_val := ord_map.GetString(sf_name)
 					if found_val && len(current_val) > 0 {
-						ord_map.Update(sf.NiceName, ResolveForMapperBitwiseToString(VariousMappers, opt_v, current_val))
+						ord_map.Update(sf.NiceName, ResolveForMapperBitwiseToString(VariousMappers, opt_v, current_val, sf_name))
 					}
 				case "resolve":
 					current_val, found_val := ord_map.GetString(sf_name)
 					if found_val && len(current_val) > 0 {
-						ord_map.Update(sf.NiceName, ResolveDoubleQuotesInPlace(doublequotes, opt_v, current_val))
+						ord_map.Update(sf.NiceName, ResolveDoubleQuotesInPlace(doublequotes, opt_v, current_val, sf_name))
 					}
 				}
 			}
@@ -417,7 +448,7 @@ func ResolveMappersAndDoubleQuotesInPlace(ord_map *ordereddict.Dict, Ordered_fie
 	}
 }
 
-func ResolveDoubleQuotesInPlace(double_quotes map[string]string, opt_v string, current_val string) string {
+func ResolveDoubleQuotesInPlace(double_quotes map[string]string, opt_v string, current_val string, sf_name string) string {
 
 	if len(double_quotes) == 0 {
 		return current_val
@@ -436,7 +467,7 @@ func ResolveDoubleQuotesInPlace(double_quotes map[string]string, opt_v string, c
 					if nice_value, nice_value_exists := double_quotes[existing_double_percent]; nice_value_exists {
 						temp = strings.ReplaceAll(temp, existing_double_percent, nice_value)
 					} else {
-						common.LogImprove(fmt.Sprintf("Find value for %s", current_val))
+						common.LogImprove(fmt.Sprintf("Find value for %s [%s]", current_val, sf_name))
 					}
 				}
 				return temp

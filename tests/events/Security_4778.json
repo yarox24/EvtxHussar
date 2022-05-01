@@ -1,0 +1,38 @@
+{
+	"Event": {
+		"System": {
+			"Provider": {
+				"Name": "Microsoft-Windows-Security-Auditing",
+				"Guid": "54849625-5478-4994-A5BA-3E3B0328C30D"
+			},
+			"EventID": {
+				"Value": 4778
+			},
+			"Version": 0,
+			"Level": 0,
+			"Task": 12551,
+			"Opcode": 0,
+			"Keywords": 9232379236109516800,
+			"TimeCreated": {
+				"SystemTime": 1638798000.1111112
+			},
+			"EventRecordID": 111,
+			"Correlation": {},
+			"Execution": {
+				"ProcessID": 888,
+				"ThreadID": 6004
+			},
+			"Channel": "Security",
+			"Computer": "DESKTOP-EvtxHussar",
+			"Security": {}
+		},
+		"EventData": {
+			"AccountName": "acco",
+			"AccountDomain": "HUSS",
+			"LogonID": 1607226573,
+			"SessionName": "RDP-Tcp#26",
+			"ClientName": "SourceHuss",
+			"ClientAddress": "192.168.0.1"
+		}
+	}
+}

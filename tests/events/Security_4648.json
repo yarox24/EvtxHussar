@@ -1,0 +1,48 @@
+{
+	"Event": {
+		"System": {
+			"Provider": {
+				"Name": "Microsoft-Windows-Security-Auditing",
+				"Guid": "54849625-5478-4994-A5BA-3E3B0328C30D"
+			},
+			"EventID": {
+				"Value": 4648
+			},
+			"Version": 0,
+			"Level": 0,
+			"Task": 12544,
+			"Opcode": 0,
+			"Keywords": 9232379236109516800,
+			"TimeCreated": {
+				"SystemTime": 1638798000.1111112
+			},
+			"EventRecordID": 111,
+			"Correlation": {
+				"ActivityID": "BDCAC4ED-065A-0006-EE79-6A808613D801"
+			},
+			"Execution": {
+				"ProcessID": 844,
+				"ThreadID": 892
+			},
+			"Channel": "Security",
+			"Computer": "DESKTOP-EvtxHussar",
+			"Security": {}
+		},
+		"EventData": {
+			"SubjectUserSid": "S-1-5-18",
+			"SubjectUserName": "EvtxHussar$",
+			"SubjectDomainName": "WORKGROUP",
+			"SubjectLogonId": 999,
+			"LogonGuid": "00000000-0000-0000-0000-000000000000",
+			"TargetUserName": "UMFD-5",
+			"TargetDomainName": "Font Driver Host",
+			"TargetLogonGuid": "00000000-0000-0000-0000-000000000000",
+			"TargetServerName": "localhost",
+			"TargetInfo": "localhost",
+			"ProcessId": 2004,
+			"ProcessName": "C:\\Windows\\System32\\winlogon.exe",
+			"IpAddress": "-",
+			"IpPort": "-"
+		}
+	}
+}

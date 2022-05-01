@@ -1,0 +1,61 @@
+{
+	"Event": {
+		"System": {
+			"Provider": {
+				"Name": "Microsoft-Windows-Security-Auditing",
+				"Guid": "54849625-5478-4994-A5BA-3E3B0328C30D"
+			},
+			"EventID": {
+				"Value": 4624
+			},
+			"Version": 2,
+			"Level": 0,
+			"Task": 12544,
+			"Opcode": 0,
+			"Keywords": 9232379236109516800,
+			"TimeCreated": {
+				"SystemTime": 1638798000.1111112
+			},
+			"EventRecordID": 111,
+			"Correlation": {
+				"ActivityID": "24A48CA1-86F6-0001-2E8D-A474F686D601"
+			},
+			"Execution": {
+				"ProcessID": 640,
+				"ThreadID": 712
+			},
+			"Channel": "Security",
+			"Computer": "DESKTOP-EvtxHussar",
+			"Security": {}
+		},
+		"EventData": {
+			"SubjectUserSid": "S-1-5-18",
+			"SubjectUserName": "DESKTOP-EvtxHussar$",
+			"SubjectDomainName": "WORKGROUP",
+			"SubjectLogonId": 999,
+			"TargetUserSid": "S-1-5-18",
+			"TargetUserName": "SYSTEM",
+			"TargetDomainName": "NT AUTHORITY",
+			"TargetLogonId": 999,
+			"LogonType": 5,
+			"LogonProcessName": "Advapi  ",
+			"AuthenticationPackageName": "Negotiate",
+			"WorkstationName": "-",
+			"LogonGuid": "00000000-0000-0000-0000-000000000000",
+			"TransmittedServices": "-",
+			"LmPackageName": "-",
+			"KeyLength": 0,
+			"ProcessId": 604,
+			"ProcessName": "C:\\Windows\\System32\\services.exe",
+			"IpAddress": "-",
+			"IpPort": "-",
+			"ImpersonationLevel": "%%1833",
+			"RestrictedAdminMode": "-",
+			"TargetOutboundUserName": "-",
+			"TargetOutboundDomainName": "-",
+			"VirtualAccount": "%%1843",
+			"TargetLinkedLogonId": 0,
+			"ElevatedToken": "%%1842"
+		}
+	}
+}

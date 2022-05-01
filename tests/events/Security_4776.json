@@ -1,0 +1,38 @@
+{
+	"Event": {
+		"System": {
+			"Provider": {
+				"Name": "Microsoft-Windows-Security-Auditing",
+				"Guid": "54849625-5478-4994-A5BA-3E3B0328C30D"
+			},
+			"EventID": {
+				"Value": 4776
+			},
+			"Version": 0,
+			"Level": 0,
+			"Task": 14336,
+			"Opcode": 0,
+			"Keywords": 9232379236109516800,
+			"TimeCreated": {
+				"SystemTime": 1638798000.1111112
+			},
+			"EventRecordID": 111,
+			"Correlation": {
+				"ActivityID": "BDCAC4ED-165A-1006-EE79-6A808613D801"
+			},
+			"Execution": {
+				"ProcessID": 844,
+				"ThreadID": 892
+			},
+			"Channel": "Security",
+			"Computer": "DESKTOP-EvtxHussar",
+			"Security": {}
+		},
+		"EventData": {
+			"PackageName": "MICROSOFT_AUTHENTICATION_PACKAGE_V1_0",
+			"TargetUserName": "huss",
+			"Workstation": "DESKTOP-EvtxHussar",
+			"Status": 0
+		}
+	}
+}

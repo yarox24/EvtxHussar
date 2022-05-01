@@ -1,0 +1,38 @@
+info:
+    typ: mapper_bitwise_to_string
+    name: ticketoptions
+    display_original: hex
+
+params_number:
+    0x1: "Validate"
+    0x2: "Renew"
+    #0x4: "Unused"
+    0x8: "Enc-tkt-in-skey"
+    0x10: "Renewable-ok"
+    0x20: "Disable-transited-check"
+    #0x40: "Unused"
+    #0x80: "Unused"
+    #0x100: "Unused"
+    #0x200: "Unused"
+    #0x400: "Unused"
+    #0x800: "Unused"
+    #0x1000: "Unused"
+    #0x2000: "Unused"
+    #0x4000: "Unused"
+    #0x8000: "Unused"
+    0x10000: "Name-canonicalize"
+    0x20000: "Request-anonymous"
+    0x40000: "Ok-as-delegate"
+    0x80000: "Transited-policy-checked"
+    0x100000: "Opt-hardware-auth"
+    0x200000: "Pre-authent"
+    0x400000: "Initial"
+    0x800000: "Renewable"
+    0x1000000: "Invalid"
+    0x2000000: "Postdated"
+    0x4000000: "Allow-postdate"
+    0x8000000: "Proxy"
+    0x10000000: "Proxiable"
+    0x20000000: "Forwarded"
+    0x40000000: "Forwardable"
+    0x80000000: "Reserved"

@@ -46,7 +46,7 @@ func LogWarn(msg string) {
 }
 
 func LogImprove(msg string) {
-	log.Info().Msg("[Improve] " + msg)
+	log.Debug().Msg("[Improve] " + msg)
 }
 
 func GrabUniversalLogger() *zerolog.Logger {

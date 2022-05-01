@@ -8,9 +8,9 @@ ordered_fields:
     - Description
     - Channel
     - Provider
-    - EventRecord ID
     - System Process ID
     - Security User ID
+    - EventRecord ID
 
 options:
     "HighPrecisionEventTime": true

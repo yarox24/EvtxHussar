@@ -27,7 +27,7 @@ func (dc *OutputManager) SetExcelSheetName(excel_sheet_name string) {
 	dc.excel_sheet_name = excel_sheet_name
 }
 
-func (dc *OutputManager) AnalyzeColumnDataWidthAndEmptiness() { // wg_analyzer *sync.WaitGroup
+func (dc *OutputManager) AnalyzeColumnDataWidthAndEmptiness(current_slice [][]string) { // wg_analyzer *sync.WaitGroup
 
 	// Create analyzed structure
 	dc.column_lengths = ordereddict.NewDict()
@@ -44,8 +44,8 @@ func (dc *OutputManager) AnalyzeColumnDataWidthAndEmptiness() { // wg_analyzer *
 	}
 
 	// Analyze all rows
-	for i := 0; i < len(dc.rows_list_of_lists); i++ {
-		row := dc.rows_list_of_lists[i]
+	for i := 0; i < len(current_slice); i++ {
+		row := current_slice[i]
 
 		for col, val := range row {
 			col_name := dc.headers_list[col]
@@ -88,7 +88,46 @@ func ToInterfaceSlice(ss []string) []interface{} {
 	return iface
 }
 
-func (dc *OutputManager) SaveAllDataToExcelFormatStreaming() error {
+func (dc *OutputManager) SaveAllDataToMultipleExcelsFormatStreaming() error {
+	var SINGLE_EXCEL_ROWS_LIMIT = 1000000
+	current_total := len(dc.rows_list_of_lists)
+	start_nr := 0
+	end_nr := SINGLE_EXCEL_ROWS_LIMIT
+	i := 1
+	len_rows := len(dc.rows_list_of_lists)
+
+	// Initial dc.path
+	path_without_number := dc.path
+
+	// Single file mode
+	if len_rows <= SINGLE_EXCEL_ROWS_LIMIT {
+		return dc.SaveAllDataToExcelFormatStreaming(dc.rows_list_of_lists)
+	} else {
+		common.LogInfo("Exceeded million of records - saving to multiple Excel files")
+		for current_total > 0 {
+
+			var current_slice = dc.rows_list_of_lists[common.Min(start_nr, len_rows):common.Min(end_nr, len_rows)]
+
+			// Parse single file
+			dc.path = common.AppendNumberToPath(path_without_number, i)
+			common.LogInfo("Multi-part Excel: " + dc.path)
+			err := dc.SaveAllDataToExcelFormatStreaming(current_slice)
+
+			if err != nil {
+				return err
+			}
+
+			start_nr += SINGLE_EXCEL_ROWS_LIMIT
+			end_nr += SINGLE_EXCEL_ROWS_LIMIT
+			i += 1
+			current_total -= SINGLE_EXCEL_ROWS_LIMIT
+		}
+	}
+
+	return nil
+}
+
+func (dc *OutputManager) SaveAllDataToExcelFormatStreaming(current_slice [][]string) error {
 
 	// Ensure directory
 	if err1 := dc.CreateFileForExcelWriting(); err1 != nil {
@@ -108,7 +147,7 @@ func (dc *OutputManager) SaveAllDataToExcelFormatStreaming() error {
 	// Analyze data in extra goroutine
 	//var wg_analyzer sync.WaitGroup
 	//wg_analyzer.Add(1)
-	dc.AnalyzeColumnDataWidthAndEmptiness() // &wg_analyzer
+	dc.AnalyzeColumnDataWidthAndEmptiness(current_slice) // &wg_analyzer
 
 	// Before writing rows #Set auto column width - Analyzer dependent
 	//wg_analyzer.Wait()
@@ -137,8 +176,8 @@ func (dc *OutputManager) SaveAllDataToExcelFormatStreaming() error {
 	}
 
 	// Write rows
-	for i := 0; i < len(dc.rows_list_of_lists); i++ {
-		row_interface := ToInterfaceSlice(dc.rows_list_of_lists[i])
+	for i := 0; i < len(current_slice); i++ {
+		row_interface := ToInterfaceSlice(current_slice[i])
 		axis, _ := excelize.CoordinatesToCellName(1, i+2)
 
 		err_header := stream_writer.SetRow(axis, row_interface)
@@ -149,8 +188,8 @@ func (dc *OutputManager) SaveAllDataToExcelFormatStreaming() error {
 	}
 
 	// Set auto-filter
-	if len(dc.rows_list_of_lists) > 0 {
-		lowest_right_cell, _ := excelize.CoordinatesToCellName(len(dc.headers_list), len(dc.rows_list_of_lists)+1)
+	if len(current_slice) > 0 {
+		lowest_right_cell, _ := excelize.CoordinatesToCellName(len(dc.headers_list), len(current_slice)+1)
 		dc.excel_file.AutoFilter(dc.excel_sheet_name, "A1", lowest_right_cell, "")
 	}
 

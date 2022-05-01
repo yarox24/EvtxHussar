@@ -1,0 +1,40 @@
+info:
+    typ: "mapper_number_to_string"
+    name: "logontypeusecase"
+    display_original: none
+
+
+params_number:
+    0: "-"
+    2: "Console logon;
+       RunAs;
+       Hardware remote control solutions (such as Network KVM or Remote Access / Lights-Out Card in server)
+       IIS Basic Auth (before IIS 6.0);
+       VNC;
+       PsExec with explicit creds"
+    3: "NET USE;
+       RPC calls;
+       Remote registry;
+       MMC snap-ins to remote computer;
+       IIS integrated Windows auth;
+       SQL Windows auth;
+       PowerShell WinRM;
+       WMI;
+       VNC;
+       Vulnerability scanners;
+       Remote Desktop Gateway;
+       PsExec without explicit creds"
+    4: "Scheduled tasks"
+    5: "Windows services"
+    7: "When a user tries to unlock a locked machine"
+    8: "IIS Basic Auth (IIS 6.0 and newer);
+        PowerShell WinRM with CredSSP;
+        FTP"
+    9: "When a user leverages RunAs command with /netonly option to start a program"
+    10: "RDP;
+        Remote Assitance"
+    11: "CachedInteractive"
+    12: "RDP;
+        Remote Assitance"
+
+    

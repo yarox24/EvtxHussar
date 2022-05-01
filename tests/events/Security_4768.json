@@ -1,0 +1,46 @@
+{
+	"Event": {
+		"System": {
+			"Provider": {
+				"Name": "Microsoft-Windows-Security-Auditing",
+				"Guid": "54849625-5478-4994-A5BA-3E3B0328C30D"
+			},
+			"EventID": {
+				"Value": 4768
+			},
+			"Version": 0,
+			"Level": 0,
+			"Task": 14339,
+			"Opcode": 0,
+			"Keywords": 9232379236109516800,
+			"TimeCreated": {
+				"SystemTime": 1638798000.1111112
+			},
+			"EventRecordID": 111,
+			"Correlation": {},
+			"Execution": {
+				"ProcessID": 652,
+				"ThreadID": 1232
+			},
+			"Channel": "Security",
+			"Computer": "DESKTOP-EvtxHussar",
+			"Security": {}
+		},
+		"EventData": {
+			"TargetUserName": "EvtxHussar$",
+			"TargetDomainName": "HUSS",
+			"TargetSid": "S-1-5-18",
+			"ServiceName": "krbtgt",
+			"ServiceSid": "S-1-5-18",
+			"TicketOptions": 1073807360,
+			"Status": 0,
+			"TicketEncryptionType": 18,
+			"PreAuthType": "2",
+			"IpAddress": "::ffff:192.168.0.1",
+			"IpPort": "41384",
+			"CertIssuerName": "",
+			"CertSerialNumber": "",
+			"CertThumbprint": ""
+		}
+	}
+}

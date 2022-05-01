@@ -31,7 +31,7 @@ func TestTimeConversion(t *testing.T) {
 
 	// Time 3
 	t3_time := common.ToTime(float64(1634892254.0))
-	CompareTime(t, common.SysTimeToString(t3_time, true), "2021.10.22 08:44:14.0")
+	CompareTime(t, common.SysTimeToString(t3_time, true), "2021.10.22 08:44:14.00000")
 
 	// Time 4
 	t4_time := common.ToTime(float64(1635503568.259472))
@@ -40,5 +40,9 @@ func TestTimeConversion(t *testing.T) {
 	// Calculated imperfect time without cutting: 	2021-10-29T10:32:48.259471893 Too long, but this time correct?
 	CompareTime(t, common.SysTimeToString(t4_time, true), "2021.10.29 10:32:48.25947")
 	CompareTime(t, common.SysTimeToString(t4_time, false), "2021.10.29 10:32:48")
+
+	// Time 5
+	t5_time := common.ToTime(float64(1634892254.128))
+	CompareTime(t, common.SysTimeToString(t5_time, true), "2021.10.22 08:44:14.12800")
 
 }

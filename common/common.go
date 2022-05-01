@@ -6,6 +6,7 @@ import (
 	"os"
 	"path"
 	"path/filepath"
+	"strconv"
 	"strings"
 )
 
@@ -165,4 +166,20 @@ func HeadersAndRowListToOrderedDict(keys []string, values []string) *ordereddict
 	}
 	return o
 
+}
+
+func AppendNumberToPath(path_ string, nr int) string {
+	dir, filename := path.Split(path_)
+	var extension = filepath.Ext(filename)
+	var filename_without_ext = strings.TrimRight(filename, extension)
+
+	return path.Join(dir, filename_without_ext+"_"+strconv.Itoa(nr)+".xlsx")
+}
+
+func Min(a int, b int) int {
+	if a < b {
+		return a
+	} else {
+		return b
+	}
 }

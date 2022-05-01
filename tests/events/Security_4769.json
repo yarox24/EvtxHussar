@@ -1,0 +1,43 @@
+{
+	"Event": {
+		"System": {
+			"Provider": {
+				"Name": "Microsoft-Windows-Security-Auditing",
+				"Guid": "54849625-5478-4994-A5BA-3E3B0328C30D"
+			},
+			"EventID": {
+				"Value": 4769
+			},
+			"Version": 0,
+			"Level": 0,
+			"Task": 14337,
+			"Opcode": 0,
+			"Keywords": 9232379236109516800,
+			"TimeCreated": {
+				"SystemTime": 1638798000.1111112
+			},
+			"EventRecordID": 111,
+			"Correlation": {},
+			"Execution": {
+				"ProcessID": 652,
+				"ThreadID": 11776
+			},
+			"Channel": "Security",
+			"Computer": "DESKTOP-EvtxHussar",
+			"Security": {}
+		},
+		"EventData": {
+			"TargetUserName": "huus@huss",
+			"TargetDomainName": "HUSS",
+			"ServiceName": "WINGED$",
+			"ServiceSid": "S-1-5-19",
+			"TicketOptions": 65536,
+			"TicketEncryptionType": 18,
+			"IpAddress": "::ffff:192.1.1.1",
+			"IpPort": "41386",
+			"Status": 0,
+			"LogonGuid": "B2ABA7AB-4FDE-A309-598D-A5DCC7553372",
+			"TransmittedServices": "-"
+		}
+	}
+}

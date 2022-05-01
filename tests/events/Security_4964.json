@@ -1,0 +1,45 @@
+{
+	"Event": {
+		"System": {
+			"Provider": {
+				"Name": "Microsoft-Windows-Security-Auditing",
+				"Guid": "54849625-5478-4994-A5BA-3E3B0328C30D"
+			},
+			"EventID": {
+				"Value": 4964
+			},
+			"Version": 0,
+			"Level": 0,
+			"Task": 12548,
+			"Opcode": 0,
+			"Keywords": 9232379236109516800,
+			"TimeCreated": {
+				"SystemTime": 1638798000.1111112
+			},
+			"EventRecordID": 111,
+			"Correlation": {
+				"ActivityID": "B030F76E-DA2E-0000-CCF7-30A02EBAD201"
+			},
+			"Execution": {
+				"ProcessID": 816,
+				"ThreadID": 2208
+			},
+			"Channel": "Security",
+			"Computer": "DESKTOP-EvtxHussar",
+			"Security": {}
+		},
+		"EventData": {
+			"SubjectUserSid": "S-1-5-18",
+			"SubjectUserName": "WIN10-1703$",
+			"SubjectDomainName": "HQCORP",
+			"SubjectLogonId": 999,
+			"LogonGuid": "00000000-0000-0000-0000-000000000000",
+			"TargetUserSid": "S-1-5-21-1913345275-1711810662-261465553-500",
+			"TargetUserName": "Administrator",
+			"TargetDomainName": "HQCORP",
+			"TargetLogonId": 33687144,
+			"TargetLogonGuid": "00000000-0000-0000-0000-000000000000",
+			"SidList": "\r\n\t\t%{S-1-5-21-1913345275-1711810662-261465553-512}"
+		}
+	}
+}

@@ -147,7 +147,7 @@ func (dc *OutputManager) SaveAllDataToProperFormat(format_name string) error {
 		}
 	case "excel":
 		{
-			return dc.SaveAllDataToExcelFormatStreaming()
+			return dc.SaveAllDataToMultipleExcelsFormatStreaming()
 		}
 	default:
 		panic("Wrong format name")

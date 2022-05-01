@@ -1,0 +1,80 @@
+info:
+  typ: "layer2"
+  name: LogonsUniversal
+
+output:
+  typ: flat
+  category: logons
+  filename: logons
+
+fields_remap:
+  "AuthenticationPackage": AuthenticationPackageName
+  "PackageName": AuthenticationPackageName
+  "TargetSid": TargetUserSid
+  "FailureReason": FailureReason/FailureCode
+  "FailureCode": FailureReason/FailureCode
+  "MappingBy": AuthenticationPackageName
+  "ClientUserName": SubjectUserName
+  "MappedName": TargetUserName
+  "Workstation": WorkstationName
+  "ClientName": WorkstationName
+  "ClientAddress": IpAddress
+  "AccountName": SubjectUserName
+  "AccountDomain": SubjectDomainName
+  "LogonID": SubjectLogonId
+  "DeviceName": WorkstationName
+  "TransmittedServices": TransmittedServices/TransitedServices
+  "TransitedServices": TransmittedServices/TransitedServices
+
+ordered_fields:
+  - SubjectUserSid
+  - SubjectUserName
+  - SubjectDomainName
+  - SubjectLogonId:display_as=hex
+  - LogonGuid
+  - TargetUserSid
+  - TargetUserName
+  - TargetDomainName
+  - TargetLogonId:display_as=hex
+  - LogonType:mapper_number_to_string=logontype,copy_raw_value_to_output_field=LogonType (Use cases) # Mapping to: servicestarttype
+  - LogonType (Use cases):mapper_number_to_string=logontypeusecase
+  - TargetLogonGuid
+  - TargetServerName
+  - TargetInfo
+  - PrivilegeList
+  - Status:mapper_number_to_string=ntstatus
+  - SubStatus:mapper_number_to_string=ntstatus
+  - FailureReason/FailureCode:resolve=doublequotes
+  - LogonProcessName
+  - AuthenticationPackageName
+  - WorkstationName
+  - IpAddress
+  - IpPort
+  - ServiceName
+  - ServiceSid
+  - SidList
+  - SessionName
+  - SessionId
+  - TransmittedServices/TransitedServices
+  - LmPackageName
+  - KeyLength
+  - ProcessId:display_as=hex
+  - ProcessName
+  - ImpersonationLevel:resolve=doublequotes
+  - RestrictedAdminMode:resolve=doublequotes
+  - TargetOutboundUserName
+  - TargetOutboundDomainName
+  - VirtualAccount:resolve=doublequotes
+  - TargetLinkedLogonId:display_as=hex
+  - ElevatedToken:resolve=doublequotes
+  - GroupMembership
+  - RequestType
+  - TicketOptions:mapper_bitwise_to_string=ticketoptions
+  - TicketEncryptionType:mapper_number_to_string=ticketencryptiontype
+  - PreAuthType:mapper_number_to_string=preauthtype
+  - CertIssuerName
+  - CertSerialNumber
+  - CertThumbprint
+  - SiloName
+  - PolicyName
+  - TGT Lifetime

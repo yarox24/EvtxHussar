@@ -3,6 +3,7 @@ package common
 import (
 	"math"
 	"strconv"
+	"strings"
 	"time"
 )
 
@@ -34,6 +35,9 @@ func SysTimeToString(t time.Time, highprecisioneventtime bool) string {
 		nano_str := strconv.Itoa(nano)
 		if len(nano_str) > 5 {
 			nano_str = nano_str[:5]
+		}
+		if len(nano_str) < 5 {
+			nano_str += strings.Repeat("0", 5-len(nano_str))
 		}
 		nanosecond += nano_str
 	}

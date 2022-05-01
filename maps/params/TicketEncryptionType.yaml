@@ -1,0 +1,14 @@
+info:
+    typ: "mapper_number_to_string"
+    name: ticketencryptiontype
+    display_original: none
+
+
+params_number:
+    1: "DES-CBC-CRC"
+    0x3: "DES-CBC-MD5"
+    0x11: "AES128-CTS-HMAC-SHA1-96"
+    0x12: "AES256-CTS-HMAC-SHA1-96"
+    0x17: "RC4-HMAC"
+    0x18: "RC4-HMAC-EXP"
+    0xffffffff: "-"

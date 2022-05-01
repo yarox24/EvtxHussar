@@ -1,6 +1,6 @@
 # <img src="https://github.com/yarox24/EvtxHussar/blob/447cd68ab8f3a4e5bd9d0197461d81cc162b8202/icon/icons8-forensics-96.png" alt="Icon" width="40"/> EvtxHussar
 
-Initial triage of Windows Event logs (Pre-built package for Windows as for now). This is beta quality software.
+Initial triage of Windows Event logs. This is beta quality software.
 
 ### Input data
 - .evtx - Windows event log files coming from various hosts or single host

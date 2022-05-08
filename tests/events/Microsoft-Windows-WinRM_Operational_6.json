@@ -1,0 +1,40 @@
+{
+	"Event": {
+		"System": {
+			"Provider": {
+				"Name": "Microsoft-Windows-WinRM",
+				"Guid": "A7975C8F-AC13-49F1-87DA-5A984A4AB417"
+			},
+			"EventID": {
+				"Value": 6
+			},
+			"Version": 0,
+			"Level": 4,
+			"Task": 3,
+			"Opcode": 1,
+			"Keywords": 4611686018427387906,
+			"TimeCreated": {
+				"SystemTime": 1638798000.1111112
+			},
+			"EventRecordID": 111,
+			"Correlation": {
+				"ActivityID": "26DAFDB8-ADB6-4317-2B88-83140B849778"
+			},
+			"Execution": {
+				"ProcessID": 4012,
+				"ThreadID": 504
+			},
+			"Channel": "Microsoft-Windows-WinRM/Operational",
+			"Computer": "DESKTOP-EvtxHussar",
+			"Security": {
+				"UserID": "S-1-5-18"
+			}
+		},
+		"EventData": {
+			"Data": {
+				"Name": "connection",
+				"Value": "mydemohost/wsman?PSVersion=5.1.20348.320"
+			}
+		}
+	}
+}

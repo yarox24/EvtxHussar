@@ -1,0 +1,37 @@
+{
+	"Event": {
+		"System": {
+			"Provider": {
+				"Name": "Microsoft-Windows-WinRM",
+				"Guid": "{a7975c8f-ac13-49f1-87da-5a984a4ab417}"
+			},
+			"EventID": {
+				"Value": 91
+			},
+			"Version": 0,
+			"Level": 4,
+			"Task": 9,
+			"Opcode": 0,
+			"Keywords": 4611686018427387908,
+			"TimeCreated": {
+				"SystemTime": 1638798000.1111112
+			},
+			"EventRecordID": 111,
+			"Correlation": {},
+			"Execution": {
+				"ProcessID": 11336,
+				"ThreadID": 12568
+			},
+			"Channel": "Microsoft-Windows-WinRM/Operational",
+			"Computer": "DESKTOP-EvtxHussar",
+			"Security": {
+				"UserID": "S-1-5-18"
+			}
+		},
+		"ProcessingErrorData": {
+			"ErrorCode": 15005,
+			"DataItemName": "shellId",
+			"EventPayload": "aAB0AHQAcAA6AC8ALwBzAGMAaABlAG0AYQBzAC4AbQBpAGMAcgBvAHMAbwBmAHQALgBjAG8AbQAvAHAAbwB3AGUAcgBzAGgAZQBsAGwALwBNAGkAYwByAG8AcwBvAGYAdAAuAFAAbwB3AGUAcgBTAGgAZQBsAGwAAAA="
+		}
+	}
+}

@@ -319,8 +319,15 @@ func (e *Engine) ParseL2FieldsOrderedDict(l2_name string, ev_map *eventmap.Event
 	// Attrib extraction - RAW data types
 	attrib_map := eventmap.ExtractAttribs(ev_map, e.UnifiedChannelEvents[channel].EIDs[eid].Attrib_extraction)
 
+	// Check
+	len_before := ord_map.Len()
+
 	// Convert to string type
 	eventmap.MapAttribToOrderedMap(attrib_map, ord_map, l2_current.Fields_remap_dict, l2_current.Ordered_fields_enhanced)
+
+	if ord_map.Len() != len_before {
+		common.LogError("Wrong numbers of arguments mapped - MapAttribToOrderedMap")
+	}
 
 	// Resolve - Mappers & Double Quotes (Optional)
 	eventmap.ResolveMappersAndDoubleQuotesInPlace(ord_map, l2_current.Ordered_fields_enhanced, e.VariousMappers, e.GetDoubleQuotesForChannel(channel))

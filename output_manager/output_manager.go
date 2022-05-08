@@ -108,14 +108,23 @@ func (dc *OutputManager) CloseAndFlushFileDescriptors() {
 }
 
 func (dc *OutputManager) SortByAllColumnsAssumingFirstIsDate(newest_first bool) {
+
 	if len(dc.headers_list) > 0 && len(dc.rows_list_of_lists) > 2 {
 		if newest_first {
-			sort.Slice(dc.rows_list_of_lists, func(i, j int) bool {
-				return strings.Join(dc.rows_list_of_lists[i], ".") > strings.Join(dc.rows_list_of_lists[j], ".")
+			sort.SliceStable(dc.rows_list_of_lists, func(i, j int) bool {
+				if dc.rows_list_of_lists[i][0] > dc.rows_list_of_lists[j][0] {
+					return true
+				} else {
+					return strings.Join(dc.rows_list_of_lists[i], ".") > strings.Join(dc.rows_list_of_lists[j], ".")
+				}
 			})
 		} else {
-			sort.Slice(dc.rows_list_of_lists, func(i, j int) bool {
-				return strings.Join(dc.rows_list_of_lists[i], ".") < strings.Join(dc.rows_list_of_lists[j], ".")
+			sort.SliceStable(dc.rows_list_of_lists, func(i, j int) bool {
+				if dc.rows_list_of_lists[i][0] < dc.rows_list_of_lists[j][0] {
+					return true
+				} else {
+					return strings.Join(dc.rows_list_of_lists[i], ".") < strings.Join(dc.rows_list_of_lists[j], ".")
+				}
 			})
 		}
 	}

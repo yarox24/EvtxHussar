@@ -1,0 +1,187 @@
+info:
+    typ: "layer1"
+    source_comment: "Microsoft-Windows-WinRM%4Operational.evtx"
+    channel: "Microsoft-Windows-WinRM/Operational"
+
+sendto_layer2: WinRMUniversal
+
+events:
+    2:
+        attrib_extraction: []
+        short_description: "Initializing WSMan API"
+        
+    4:
+        attrib_extraction: []
+        short_description: "Deinitializing WSMan API"
+        
+    6:
+        attrib_extraction: []
+        short_description: "Creating WSMan Session. The connection string is: %1"
+        
+    7:
+        attrib_extraction: []
+        short_description: "WSMan Create Session operation failed, error code %1"
+        
+    8:
+        attrib_extraction: []
+        short_description: "Closing WSMan Session"
+        
+    9:
+        attrib_extraction: []
+        short_description: "Closing WSMan Session failed, error code %1"
+        
+    11:
+        attrib_extraction: []
+        short_description: "Creating WSMan shell with the ResourceUri: %1 and ShellId: %2"
+        
+    12:
+        attrib_extraction: []
+        short_description: "WSMan shell creation failed, error code %1"
+        
+    13:
+        attrib_extraction: []
+        short_description: "Running WSMan command with CommandId: %1"
+        
+    14:
+        attrib_extraction: []
+        short_description: "Running WSMan command failed, error code %1"
+        
+    15:
+        attrib_extraction: []
+        short_description: "Closing WSMan command"
+        
+    16:
+        attrib_extraction: []
+        short_description: "Closing WSMan shell"
+        
+    29:
+        attrib_extraction: []
+        short_description: "Initialization of WSMan API completed successfuly"
+        
+    30:
+        attrib_extraction: []
+        short_description: "Deinitialization of WSMan API completed successfuly"
+        
+    31:
+        attrib_extraction: []
+        short_description: "WSMan Create Session operation completed successfuly"
+        
+    33:
+        attrib_extraction: []
+        short_description: "Closing WSMan Session completed successfuly"
+        
+    41:
+        attrib_extraction: []
+        short_description: "The WinRM protocol handler has began loading for application %1"
+        
+    44:
+        attrib_extraction: []
+        short_description: "The WinRM protocol handler started to create a session at the following destination: %1"
+        
+    47:
+        attrib_extraction: []
+        short_description: "The WinRM protocol session began an operation of type %1 to the server. The operation accesses class %3 under the %2 namespace."
+        
+    80:
+        attrib_extraction: []
+        short_description: "Sending the request for operation %1 to destination machine and port %2:%3"
+        
+    81:
+        attrib_extraction: []
+        short_description: "Processing client request for operation %1"
+        
+    82:
+        attrib_extraction: []
+        short_description: "Entering the plugin for operation %1 with a ResourceURI of <%2>"
+        
+    91:
+        attrib_extraction: []
+        short_description: "Creating WSMan shell on server with ResourceUri: %1"
+        
+    132:
+        attrib_extraction: []
+        short_description: "WSMan operation %1 completed successfully"
+        
+    134:
+        attrib_extraction: []
+        short_description: "Sending response for operation %1"
+        
+    142:
+        attrib_extraction: []
+        short_description: "WSMan operation %1 failed, error code %2"
+        
+    143:
+        attrib_extraction: []
+        short_description: "Sending response for operation %1 / Same as 134?"
+        
+    160:
+        attrib_extraction: []
+        short_description: "Authenticating the user using %1 mechanism"
+        
+    161:
+        attrib_extraction: []
+        short_description: "%1 / WinRM cannot process the request"
+        
+    162:
+        attrib_extraction: []
+        short_description: "Authenticating the user failed. The credentials didn't work"
+        
+    163:
+        attrib_extraction: []
+        short_description: "The authentication mechanism (%1) requested by the client is not supported by the server.  Possible authentication mechanisms reported by server: %2 %3 %4 %5 %6"
+        
+    164:
+        attrib_extraction: []
+        short_description: "The destination computer (%1) returned an 'access denied' error. Verify your credentials are correct."
+        
+    165:
+        attrib_extraction: []
+        short_description: "The authentication mechanism requested by the proxy is not supported by the client. The only proxy authentication mechanism supported are Negotiate, Basic or Digest.   Possible authentication mechanisms reported by proxy: %1 %2 %3 %4 %5"
+        
+    166:
+        attrib_extraction: []
+        short_description: "The chosen authentication mechanism is %1"
+
+    168:
+        attrib_extraction: []
+        short_description: "Sending HTTP 401 response to the client and disconnect the connection after sending the response"
+
+    169:
+        attrib_extraction: []
+        short_description: "User %1 authenticated successfully using %2 authentication"
+
+    170:
+        attrib_extraction: []
+        short_description: "The authentication using client certificate with subject %1 done successfully"
+
+    171:
+        attrib_extraction: []
+        short_description: "Authenticating the user with the proxy failed. The credentials didn't work."
+
+    173:
+        attrib_extraction: []
+        short_description: "The WinRM service has terminated %1 unauthenticated connections over the past %2 minutes to maintain healthy system state."
+
+    192:
+        attrib_extraction: []
+        short_description: "The authorization of the user failed with error %1"
+
+    208:
+        attrib_extraction: []
+        short_description: "The Winrm service is starting"
+
+    209:
+        attrib_extraction: []
+        short_description: "The Winrm service started successfully"
+
+    210:
+        attrib_extraction: []
+        short_description: "The WinRM service is unable to start because of a failure during initialization. The error code is %1"
+
+    211:
+        attrib_extraction: []
+        short_description: "The Winrm service is stopping"
+
+    212:
+        attrib_extraction: []
+        short_description: "The Winrm service was stopped successfully"

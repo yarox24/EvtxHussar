@@ -57,6 +57,56 @@ func (dc *OutputManager) AppendJSONLDataToFile(od *ordereddict.Dict) error {
 	return nil
 }
 
+//func (dc *OutputManager) LoadPathDataAsJSONL(compressed bool) error {
+//
+//	err1 := dc.LoadPathFileDescriptor()
+//	if err1 != nil {
+//		return err1
+//	}
+//
+//	var gzip_reader *gzip.Reader = nil
+//	var err2 error
+//	var scanner *bufio.Scanner = nil
+//
+//	if compressed {
+//		gzip_reader, err2 = gzip.NewReader(dc.f)
+//
+//		if err2 != nil {
+//			return err2
+//		}
+//		defer gzip_reader.Close()
+//		scanner = bufio.NewScanner(gzip_reader)
+//	} else {
+//		scanner = bufio.NewScanner(dc.f)
+//	}
+//	defer dc.f.Close()
+//
+//	scanner.Split(bufio.ScanLines)
+//
+//	for scanner.Scan() {
+//		text := scanner.Bytes()
+//
+//		if len(text) > 0 {
+//			od := ordereddict.NewDict()
+//			err_json := od.UnmarshalJSON(text)
+//
+//			if err_json != nil {
+//				panic("Error when unmarshalling ongoing file")
+//			}
+//
+//			// First time assign headers
+//			if len(dc.headers_list) == 0 {
+//				dc.headers_list = od.Keys()
+//			}
+//
+//			// Append values
+//			dc.rows_list_of_lists = append(dc.rows_list_of_lists, common.OrderedDictToOrderedStringListValues(od))
+//		}
+//	}
+//
+//	return nil
+//}
+
 func (dc *OutputManager) LoadPathDataAsJSONL(compressed bool) error {
 
 	err1 := dc.LoadPathFileDescriptor()

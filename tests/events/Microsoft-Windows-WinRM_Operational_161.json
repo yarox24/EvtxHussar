@@ -1,0 +1,40 @@
+{
+	"Event": {
+		"System": {
+			"Provider": {
+				"Name": "Microsoft-Windows-WinRM",
+				"Guid": "A7975C8F-AC13-49F1-87DA-5A984A4AB417"
+			},
+			"EventID": {
+				"Value": 161
+			},
+			"Version": 0,
+			"Level": 2,
+			"Task": 7,
+			"Opcode": 0,
+			"Keywords": 4611686018427387914,
+			"TimeCreated": {
+				"SystemTime": 1638798000.1111112
+			},
+			"EventRecordID": 111,
+			"Correlation": {
+				"ActivityID": "CAE5094A-5AA4-0000-A10A-E5CBA452D801"
+			},
+			"Execution": {
+				"ProcessID": 4788,
+				"ThreadID": 4804
+			},
+			"Channel": "Microsoft-Windows-WinRM/Operational",
+			"Computer": "DESKTOP-EvtxHussar",
+			"Security": {
+				"UserID": "S-1-5-18"
+			}
+		},
+		"EventData": {
+			"Data": {
+				"Name": "authFailureMessage",
+				"Value": "WinRM cannot process the request. The following error with errorcode 0x80090350 occurred while using Negotiate authentication: An unknown security error occurred.  \r\n Possible causes are:\r\n  -The user name or password specified are invalid.\r\n  -Kerberos is used when no authentication method and no user name are specified.\r\n  -Kerberos accepts domain user names, but not local user names.\r\n  -The Service Principal Name (SPN) for the remote computer name and port does not exist.\r\n  -The client and remote computers are in different domains and there is no trust between the two domains.\r\n After checking for the above issues, try the following:\r\n  -Check the Event Viewer for events related to authentication.\r\n  -Change the authentication method; add the destination computer to the WinRM TrustedHosts configuration setting or use HTTPS transport.\r\n Note that computers in the TrustedHosts list might not be authenticated.\r\n   -For more information about WinRM configuration, run the following command: winrm help config."
+			}
+		}
+	}
+}

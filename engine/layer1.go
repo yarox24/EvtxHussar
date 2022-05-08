@@ -1,10 +1,12 @@
 package engine
 
 import (
+	"errors"
 	"fmt"
 	"github.com/Velocidex/ordereddict"
 	"github.com/yarox24/EvtxHussar/common"
 	"github.com/yarox24/EvtxHussar/eventmap"
+	"golang.org/x/exp/slices"
 	"os"
 	"reflect"
 	"strings"
@@ -152,62 +154,62 @@ func l1close_wait_groups_in_loop(l2s_wg_to_close_channel_list []*sync.WaitGroup)
 	}
 }
 
-//func serialize_event(ev *ordereddict.Dict) {
-//	ev_map, _ := ordereddict.GetMap(ev, "Event")
-//
-//	// Filename
-//	filename := fmt.Sprintf("%s_%s.json", eventmap.GetChannel(ev_map), eventmap.GetEID(ev_map))
-//	filename = strings.ReplaceAll(filename, "/", "_")
-//	filename = strings.ReplaceAll(filename, "\\", "_")
-//	filename = strings.ReplaceAll(filename, " ", "_")
-//	out_path := "X:\\saved_test_events\\" + filename
-//
-//	// Tamper time
-//	system_ev, is_ok1 := ev_map.Get("System")
-//	if !is_ok1 {
-//		panic("is_ok1")
-//	}
-//
-//	system_ev_dict, _ := system_ev.(*ordereddict.Dict)
-//	time_created, is_ok2 := system_ev_dict.Get("TimeCreated")
-//
-//	if !is_ok2 {
-//		panic("is_ok2")
-//	}
-//	time_created_dict, _ := time_created.(*ordereddict.Dict)
-//	time_created_dict.Update("SystemTime", 1638798000.1111111)
-//
-//	// Tamper hostname
-//	system_ev_dict.Update("Computer", "DESKTOP-EvtxHussar")
-//
-//	// Tamper Event Record ID
-//	system_ev_dict.Update("EventRecordID", 111)
-//
-//	// Tamper Security UserID
-//	security, is_ok3 := system_ev_dict.Get("Security")
-//
-//	if is_ok3 {
-//		security_dict, is_ok_security := security.(*ordereddict.Dict)
-//
-//		if is_ok_security && slices.Contains(security_dict.Keys(), "UserID") {
-//			security_dict.Update("UserID", "S-1-5-18")
-//		}
-//
-//	}
-//
-//	// Check if file already exists
-//	if _, err := os.Stat(out_path); errors.Is(err, os.ErrNotExist) {
-//		b, err_serial := ev.MarshalJSON()
-//
-//		if err_serial == nil {
-//			f_out, _ := os.Create(out_path)
-//
-//			f_out.Write(b)
-//			f_out.Close()
-//		}
-//	}
-//
-//}
+func serialize_event(ev *ordereddict.Dict) {
+	ev_map, _ := ordereddict.GetMap(ev, "Event")
+
+	// Filename
+	filename := fmt.Sprintf("%s_%s.json", eventmap.GetChannel(ev_map), eventmap.GetEID(ev_map))
+	filename = strings.ReplaceAll(filename, "/", "_")
+	filename = strings.ReplaceAll(filename, "\\", "_")
+	filename = strings.ReplaceAll(filename, " ", "_")
+	out_path := "X:\\saved_test_events\\" + filename
+
+	// Tamper time
+	system_ev, is_ok1 := ev_map.Get("System")
+	if !is_ok1 {
+		panic("is_ok1")
+	}
+
+	system_ev_dict, _ := system_ev.(*ordereddict.Dict)
+	time_created, is_ok2 := system_ev_dict.Get("TimeCreated")
+
+	if !is_ok2 {
+		panic("is_ok2")
+	}
+	time_created_dict, _ := time_created.(*ordereddict.Dict)
+	time_created_dict.Update("SystemTime", 1638798000.1111111)
+
+	// Tamper hostname
+	system_ev_dict.Update("Computer", "DESKTOP-EvtxHussar")
+
+	// Tamper Event Record ID
+	system_ev_dict.Update("EventRecordID", 111)
+
+	// Tamper Security UserID
+	security, is_ok3 := system_ev_dict.Get("Security")
+
+	if is_ok3 {
+		security_dict, is_ok_security := security.(*ordereddict.Dict)
+
+		if is_ok_security && slices.Contains(security_dict.Keys(), "UserID") {
+			security_dict.Update("UserID", "S-1-5-18")
+		}
+
+	}
+
+	// Check if file already exists
+	if _, err := os.Stat(out_path); errors.Is(err, os.ErrNotExist) {
+		b, err_serial := ev.MarshalJSON()
+
+		if err_serial == nil {
+			f_out, _ := os.Create(out_path)
+
+			f_out.Write(b)
+			f_out.Close()
+		}
+	}
+
+}
 
 func RunL1Worker(Wg_l1_all *sync.WaitGroup, efi *common.EvtxFileInfo, Hclist HostnameToChannels, l2s_wg_to_close_channel_list []*sync.WaitGroup, ch_limit_worker chan struct{}, Atomic_Counter_Workers *uint64) {
 	// Run only when not exceeding limit
@@ -232,12 +234,20 @@ func RunL1Worker(Wg_l1_all *sync.WaitGroup, efi *common.EvtxFileInfo, Hclist Hos
 
 	chunks, err_chunks := evtx.GetChunks(fd)
 
-	// Cut off chunks over header number
-	header_chunks_counts := int(efi.GetAlternativeHeader().ChunkCount)
-	found_chunks_count := len(chunks)
+	// Flags is dirty
+	const IS_DIRTY = 0x1
 
-	if header_chunks_counts < found_chunks_count {
-		chunks = chunks[0:header_chunks_counts]
+	if efi.GetAlternativeHeader().FileFlags == IS_DIRTY {
+		common.LogInfo(fmt.Sprintf("Dirty file detected: %s", efi.GetPath()))
+		// => Parsing all found chunks
+	} else {
+		// => Cut off chunks over header number
+		header_chunks_counts := int(efi.GetAlternativeHeader().ChunkCount)
+		found_chunks_count := len(chunks)
+
+		if header_chunks_counts < found_chunks_count {
+			chunks = chunks[0:header_chunks_counts]
+		}
 	}
 
 	if err_chunks != nil {
@@ -295,6 +305,29 @@ func RunL1Worker(Wg_l1_all *sync.WaitGroup, efi *common.EvtxFileInfo, Hclist Hos
 		}
 	}
 	efi.SetNumberOfRecords(record_counter)
+
+	// PowerShell records validation
+	//out, err := exec.Command("powershell", "-NoProfile", fmt.Sprintf("Get-Winevent -path \"%s\" | Measure-Object | Select-Object Count| ConvertTo-Json", efi.GetPath())).CombinedOutput()
+	//if err != nil {
+	//	panic("Powershell error")
+	//}
+	//// JSON convert
+	//type Measure struct {
+	//	Count int
+	//}
+	//var m Measure
+	//
+	//err2 := json.Unmarshal(out, &m)
+	//if err2 != nil {
+	//	panic(err2)
+	//}
+	//fmt.Println(m.Count)
+	//
+	//// Ultimate check
+	//if int(record_counter) != m.Count {
+	//	fmt.Println("evtx mismatch error found!")
+	//}
+
 	common.LogDebug(fmt.Sprintf("Finished L1Worker: %s | %s | Records: %d", efi.GetLatestComputer(), efi.GetChannel(), record_counter))
 }
 

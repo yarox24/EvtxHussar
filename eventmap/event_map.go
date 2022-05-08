@@ -5,6 +5,8 @@ import (
 	"github.com/Velocidex/ordereddict"
 	"github.com/yarox24/EvtxHussar/common"
 	"github.com/yarox24/EvtxHussar/special_transformations"
+	"golang.org/x/text/encoding/unicode"
+	"golang.org/x/text/transform"
 	"regexp"
 	"sort"
 	"strconv"
@@ -169,9 +171,22 @@ func ConvertAllTypesToString(val interface{}, display_as string) string {
 		} else {
 			return strconv.FormatUint(uint64(val.(uint32)), 10)
 		}
+	case []uint8:
+		if display_as == "uint8slice_utf-16" {
+			bs_UTF16LE, _, err2 := transform.Bytes(unicode.UTF16(unicode.LittleEndian, unicode.IgnoreBOM).NewDecoder(), val.([]uint8))
+
+			if err2 == nil {
+				return strings.TrimRight(string(bs_UTF16LE), "\x00")
+			} else {
+				common.LogErrorWithError("uint8slice_utf-16 decoding error", err2)
+			}
+		} else {
+			common.LogError(fmt.Sprintf("Wrong format for value: %v", val))
+			common.LogError(fmt.Sprintf("Wrong format for value: %s", val))
+		}
 	default:
-		//fmt.Println("FAKE PANIC")
-		panic("Unknown type - ConvertAllTypesToString")
+		common.LogError(fmt.Sprintf("Wrong format for value: %v", val))
+		common.LogError(fmt.Sprintf("Wrong format for value: %s", val))
 	}
 
 	return ""
@@ -243,6 +258,7 @@ func MapAttribToOrderedMap(attrib_map *ordereddict.Dict, ord_map *ordereddict.Di
 
 		// DIRECTLY
 		if _, exists := ord_map.Get(key); exists {
+			proper_key_case := common.ProperOrderedMapKeyCase(ord_map, key)
 			always_string := ConvertAllTypesToString(val, ReadSpecialOptionForKey(Ordered_fields_enhanced, key, "display_as"))
 
 			// Extra fix
@@ -255,15 +271,15 @@ func MapAttribToOrderedMap(attrib_map *ordereddict.Dict, ord_map *ordereddict.Di
 			}
 
 			// Extra copy
-
-			ord_map.Update(key, always_string)
+			ord_map.Update(proper_key_case, always_string)
 		} else {
 
 			// Remap exists in YAML
 			if remmaped_key, remap_ok := Fields_remap.GetString(key); remap_ok {
 				always_string := ConvertAllTypesToString(val, ReadSpecialOptionForKey(Ordered_fields_enhanced, remmaped_key, "display_as"))
 				if _, ord_key_exists := ord_map.Get(remmaped_key); ord_key_exists {
-					ord_map.Update(remmaped_key, always_string)
+					proper_remmaped_key_case := common.ProperOrderedMapKeyCase(ord_map, remmaped_key)
+					ord_map.Update(proper_remmaped_key_case, always_string)
 				}
 			}
 		}
@@ -495,6 +511,8 @@ func ApplySpecialTransformations(ord_map *ordereddict.Dict, Field_extra_transfor
 			special_transformations.Base64powershellhunter(ord_map, opt)
 		} else if strings.ToLower(st.Special_transform) == "xml_scheduled_task" {
 			special_transformations.XMLScheduledTask(ord_map, opt)
+		} else if strings.ToLower(st.Special_transform) == "winrm_string_extract" {
+			special_transformations.WinRMStringExtract(ord_map, opt)
 		}
 	}
 

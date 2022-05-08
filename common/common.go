@@ -183,3 +183,13 @@ func Min(a int, b int) int {
 		return b
 	}
 }
+
+func ProperOrderedMapKeyCase(od *ordereddict.Dict, key string) string {
+	key_lower := strings.ToLower(key)
+	for _, proper_key := range od.Keys() {
+		if key_lower == strings.ToLower(proper_key) {
+			return proper_key
+		}
+	}
+	return key_lower
+}

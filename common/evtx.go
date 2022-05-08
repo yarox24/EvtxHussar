@@ -278,6 +278,16 @@ func is_supported(minor, major uint16) bool {
 	return false
 }
 
+/* If the log is dirty, patch the log header with the values from the EOF record */
+// ReactOS
+//if (!LogFile->ReadOnly && IsLogDirty)
+//{
+//LogFile->Header.StartOffset = EofRec.BeginRecord;
+//LogFile->Header.EndOffset   = EofRec.EndRecord;
+//LogFile->Header.CurrentRecordNumber = EofRec.CurrentRecordNumber;
+//LogFile->Header.OldestRecordNumber  = EofRec.OldestRecordNumber;
+//}
+
 func (efi *EvtxFileInfo) Validate() error {
 
 	fstat, err := os.Stat(efi.path)
@@ -304,7 +314,14 @@ func (efi *EvtxFileInfo) Validate() error {
 	if err2 != nil {
 		return errors.New("Invalid Evtx header")
 	}
-	readStructFromFile2(fd, 0, &efi.alternative_header)
+	err2 = readStructFromFile2(fd, 0, &efi.alternative_header)
+	if err2 != nil {
+		return errors.New("Invalid Evtx alternative header")
+	}
+
+	//MarshalIndent
+	//hJSON, _ := json.MarshalIndent(efi.alternative_header, "", "  ")
+	//LogDebug(fmt.Sprint("Analyzed file: %s:\n#v\n", efi.path, string(hJSON)))
 
 	if string(efi.header.Magic[:]) != evtx.EVTX_HEADER_MAGIC {
 		return errors.New("File is not an EVTX file (wrong magic).")
@@ -315,7 +332,6 @@ func (efi *EvtxFileInfo) Validate() error {
 	}
 
 	efi.is_valid = true
-
 	return nil
 }
 

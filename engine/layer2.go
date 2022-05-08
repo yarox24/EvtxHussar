@@ -134,6 +134,11 @@ func RunL2WorkerFlat(l2s *Layer2SingleLayer) {
 		// Common fields
 		final_od := l2s.engine.ParseCommonFieldsOrderedDict(ev_map)
 
+		//eid, _ := final_od.GetString("EID")
+		//if eid == "91" {
+		//	fmt.Println("Break")
+		//}
+
 		// Layer 2 fields
 		l2_od := l2s.engine.ParseL2FieldsOrderedDict(l2s.l2_name, ev_map)
 
@@ -167,7 +172,9 @@ func RunL2WorkerFlat(l2s *Layer2SingleLayer) {
 
 	// Sorting and deduplications
 	common.LogDebug(fmt.Sprintf("[Start] Sorting: %s", ongoing_path))
+
 	om2.SortByAllColumnsAssumingFirstIsDate(true)
+	//om2.SortByAllColumnsAssumingFirstIsDate(false)
 	common.LogDebug(fmt.Sprintf("[End] Sorting %s", ongoing_path))
 	om2.RemoveDuplicatesAssumingSorted()
 	common.LogDebug(fmt.Sprintf("[End] Removing duplicates %s", ongoing_path))

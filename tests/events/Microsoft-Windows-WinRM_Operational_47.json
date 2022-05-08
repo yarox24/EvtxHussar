@@ -1,0 +1,37 @@
+{
+	"Event": {
+		"System": {
+			"Provider": {
+				"Name": "Microsoft-Windows-WinRM",
+				"Guid": "A7975C8F-AC13-49F1-87DA-5A984A4AB417"
+			},
+			"EventID": {
+				"Value": 47
+			},
+			"Version": 0,
+			"Level": 4,
+			"Task": 16,
+			"Opcode": 1,
+			"Keywords": 4611686018427387906,
+			"TimeCreated": {
+				"SystemTime": 1638798000.1111112
+			},
+			"EventRecordID": 111,
+			"Correlation": {},
+			"Execution": {
+				"ProcessID": 5288,
+				"ThreadID": 488
+			},
+			"Channel": "Microsoft-Windows-WinRM/Operational",
+			"Computer": "DESKTOP-EvtxHussar",
+			"Security": {
+				"UserID": "S-1-5-18"
+			}
+		},
+		"EventData": {
+			"operationType": "EnumerateInstances",
+			"namespaceName": "root\\microsoft\\windows\\storage",
+			"className": "*"
+		}
+	}
+}

@@ -1,0 +1,56 @@
+info:
+  typ: "layer2"
+  name: WinRMUniversal
+
+output:
+  typ: flat
+  category: winrm
+  filename: winrm
+
+fields_remap:
+  "url": resourceUri
+  "operation": operationName
+  "authClient": authentication
+  "destinationMachine": destination
+  "auth": authentication
+  "authenticationMechanism": authentication
+  
+  
+field_extra_transformations:
+  - input_field: connection
+    output_field: "connection (hostname)"
+    special_transform: winrm_string_extract:extract_part=hostname
+  - input_field: connection
+    output_field: "connection (powershell version)"
+    special_transform: winrm_string_extract:extract_part=psversion
+
+ordered_fields:
+  - connection
+  - connection (hostname)
+  - connection (powershell version)
+  - username
+  - authentication
+  - destination
+  - errorcode
+  - authFailureMessage
+  - resourceUri
+  - shellId
+  - commandId
+  - applicationID
+  - operationType
+  - namespaceName
+  - className
+  - operationName
+  - EventPayload:display_as=uint8slice_utf-16
+  - port
+  - subject  
+  - authServer1
+  - authServer2
+  - authServer3
+  - authServer4
+  - authServer5
+  - authProxy1
+  - authProxy2
+  - authProxy3
+  - authProxy4
+  - authProxy5

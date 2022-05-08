@@ -240,7 +240,7 @@ func RunL2WorkerPowershellScriptblock(l2s *Layer2SingleLayer) {
 	}
 
 	// Create output directory
-	os.MkdirAll(l2s.GetScriptBlockOutputPath(""), 666)
+	os.MkdirAll(l2s.GetScriptBlockOutputPath(""), 0777)
 
 	// Reconstruct scriptblocks - UTF-8 with no BOM
 	for id, block_info := range memory {
@@ -254,6 +254,10 @@ func RunL2WorkerPowershellScriptblock(l2s *Layer2SingleLayer) {
 		// New filename
 		part_filename := ""
 		if len(block_info.Path) > 0 {
+
+			// Linux support for Windows paths
+			block_info.Path = filepath.FromSlash(block_info.Path)
+
 			extracted_filename := filepath.Base(block_info.Path)
 			if len(extracted_filename) > 0 {
 				part_filename = extracted_filename + "__"
@@ -268,7 +272,7 @@ func RunL2WorkerPowershellScriptblock(l2s *Layer2SingleLayer) {
 		psblock_datawriter := bufio.NewWriter(psblock_file)
 
 		if err != nil {
-			common.LogCriticalError("When writing ScriptBlock to : " + final_filename)
+			common.LogCriticalErrorWithError("When writing ScriptBlock to : "+final_filename, err)
 		}
 
 		// Save segments to file

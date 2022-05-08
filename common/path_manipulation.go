@@ -19,7 +19,7 @@ func Handle_output_directory(p string) {
 	// Directory doesn't exists
 	if os.IsNotExist(err) {
 		LogDebug("Create output report directory: " + p)
-		err2 := os.MkdirAll(p, 0755)
+		err2 := os.MkdirAll(p, 0777)
 
 		if err2 != nil {
 			LogCriticalError("Cannot create output directory")
@@ -36,5 +36,5 @@ func Handle_output_directory(p string) {
 func EnsureDirectoryStructureIsCreated(full_path string) error {
 	output_dirs := filepath.Dir(full_path)
 
-	return os.MkdirAll(output_dirs, os.ModePerm)
+	return os.MkdirAll(output_dirs, 0777)
 }

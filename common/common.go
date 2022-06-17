@@ -20,7 +20,7 @@ func Determine_Maps_Path(MapsDirectoryConfig string) (string, error) {
 
 	maps_dir := ""
 
-	MapsDirectoryConfig = "F:\\GoLangBase\\EvtxHussarProject\\maps"
+	//MapsDirectoryConfig = "F:\\GoLangBase\\EvtxHussarProject\\maps"
 
 	// Auto-detection based on binary
 	if MapsDirectoryConfig == "" {

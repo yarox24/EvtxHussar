@@ -8,7 +8,7 @@ import (
 	"strings"
 )
 
-var VERSION = "1.3"
+var VERSION = "1.4"
 var URL = "github.com/yarox24/EvtxHussar"
 
 type Config struct {
@@ -97,6 +97,7 @@ func main() {
 	engi.LoadLayer1()
 	engi.LoadLayer2(conf.Output_dir)
 	engi.LoadParams()
+	engi.PrepareEventCache()
 
 	// Generate list of .evtx files
 	common.LogInfo("Generating list of .evtx files in provided paths...")

@@ -1,0 +1,37 @@
+{
+	"Event": {
+		"System": {
+			"Provider": {
+				"Name": "Microsoft-Windows-Security-Auditing",
+				"Guid": "54849625-5478-4994-A5BA-3E3B0328C30D"
+			},
+			"EventID": {
+				"Value": 4946
+			},
+			"Version": 0,
+			"Level": 0,
+			"Task": 13571,
+			"Opcode": 0,
+			"Keywords": 9232379236109516800,
+			"TimeCreated": {
+				"SystemTime": 1638798000.1111112
+			},
+			"EventRecordID": 111,
+			"Correlation": {
+				"ActivityID": "1ACEFBA0-851F-402B-BBEF-779F5F40B574"
+			},
+			"Execution": {
+				"ProcessID": 1104,
+				"ThreadID": 1140
+			},
+			"Channel": "Security",
+			"Computer": "DESKTOP-EvtxHussar",
+			"Security": {}
+		},
+		"EventData": {
+			"ProfileChanged": "All",
+			"RuleId": "{8B012210-4B06-4476-9D00-C141388C16AA}",
+			"RuleName": "Acrobat Reader"
+		}
+	}
+}

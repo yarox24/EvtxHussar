@@ -1,0 +1,41 @@
+{
+	"Event": {
+		"System": {
+			"Provider": {
+				"Name": "Microsoft-Windows-Windows Firewall With Advanced Security",
+				"Guid": "D1BC9AFF-2ABF-4D71-9146-ECB2A986EB85"
+			},
+			"EventID": {
+				"Value": 2002
+			},
+			"Version": 0,
+			"Level": 4,
+			"Task": 0,
+			"Opcode": 0,
+			"Keywords": 9223372036854775808,
+			"TimeCreated": {
+				"SystemTime": 1638798000.1111112
+			},
+			"EventRecordID": 111,
+			"Correlation": {},
+			"Execution": {
+				"ProcessID": 2140,
+				"ThreadID": 14316
+			},
+			"Channel": "Microsoft-Windows-Windows Firewall With Advanced Security/Firewall",
+			"Computer": "DESKTOP-EvtxHussar",
+			"Security": {
+				"UserID": "S-1-5-18"
+			}
+		},
+		"EventData": {
+			"SettingType": 2,
+			"SettingValueSize": 4,
+			"SettingValue": "BAAAAA==",
+			"SettingValueDisplay": "Offentlig",
+			"Origin": 1,
+			"ModifyingUser": "S-1-5-18",
+			"ModifyingApplication": ""
+		}
+	}
+}

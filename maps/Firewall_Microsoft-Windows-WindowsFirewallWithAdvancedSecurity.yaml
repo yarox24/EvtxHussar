@@ -1,0 +1,85 @@
+info:
+    typ: "layer1"
+    source_comment: "Microsoft-Windows-Windows Firewall With Advanced Security%4Firewall.evtx"
+    channel: "Microsoft-Windows-Windows Firewall With Advanced Security/Firewall"
+
+sendto_layer2: FirewallUniversal
+
+events:
+    2000:
+        attrib_extraction: []
+        short_description: "The following settings were applied to the Windows Firewall at startup"
+        provider_guid: "{D1BC9AFF-2ABF-4D71-9146-ECB2A986EB85}"
+
+    2001:
+        attrib_extraction: []
+        short_description: "The following per profile settings were applied by Windows Firewall"
+        provider_guid: "{D1BC9AFF-2ABF-4D71-9146-ECB2A986EB85}"
+        
+    2002:
+        attrib_extraction: 
+           - "rename_field:input_field=SettingValueDisplay,output_field=SettingValueText"
+        short_description: "A Windows Firewall setting has changed"
+        provider_guid: "{D1BC9AFF-2ABF-4D71-9146-ECB2A986EB85}"
+        
+    2003:
+        attrib_extraction:
+           - "rename_field:input_field=SettingValueString,output_field=SettingValueText"
+        short_description: "A Windows Firewall setting in the %1 profile has changed"
+        provider_guid: "{D1BC9AFF-2ABF-4D71-9146-ECB2A986EB85}"
+        
+    2004:
+        attrib_extraction: []
+        short_description: "A rule has been added to the Windows Firewall exception list"
+        provider_guid: "{D1BC9AFF-2ABF-4D71-9146-ECB2A986EB85}"
+        
+    2005:
+        attrib_extraction: []
+        short_description: "A rule has been modified in the Windows Firewall exception list"
+        provider_guid: "{D1BC9AFF-2ABF-4D71-9146-ECB2A986EB85}"
+        
+    2006:
+        attrib_extraction: []
+        short_description: "A rule has been deleted in the Windows Firewall exception list"
+        provider_guid: "{D1BC9AFF-2ABF-4D71-9146-ECB2A986EB85}"
+        
+    2007:
+        attrib_extraction: []
+        short_description: "A rule has been listed when the Windows Firewall started"
+        provider_guid: "{D1BC9AFF-2ABF-4D71-9146-ECB2A986EB85}"
+        
+    2008:
+        attrib_extraction: []
+        short_description: "Windows Firewall Group Policy settings have changed. The new settings have been applied"
+        provider_guid: "{D1BC9AFF-2ABF-4D71-9146-ECB2A986EB85}"        
+        
+    2009:
+        attrib_extraction: []
+        short_description: "The Windows Firewall service failed to load Group Policy"
+        provider_guid: "{D1BC9AFF-2ABF-4D71-9146-ECB2A986EB85}"        
+
+    2010:
+        attrib_extraction: []
+        short_description: "Network profile changed on an interface"
+        provider_guid: "{D1BC9AFF-2ABF-4D71-9146-ECB2A986EB85}"           
+        
+    2011:
+        attrib_extraction: []
+        short_description: "Windows Firewall was unable to notify the user that it blocked an application from accepting incoming connections on the network"
+        provider_guid: "{D1BC9AFF-2ABF-4D71-9146-ECB2A986EB85}"        
+        
+    2032:
+        attrib_extraction: []
+        short_description: "Windows Firewall has been reset to its default configuration"
+        provider_guid: "{D1BC9AFF-2ABF-4D71-9146-ECB2A986EB85}"             
+        
+    2033:
+        attrib_extraction: []
+        short_description: "All rules have been deleted from the Windows Firewall configuration on this computer"
+        provider_guid: "{D1BC9AFF-2ABF-4D71-9146-ECB2A986EB85}"          
+        
+    2038:
+        attrib_extraction: []
+        short_description: "Windows Firewall did not apply the following rule because the rule was not properly configured on this computer"
+        provider_guid: "{D1BC9AFF-2ABF-4D71-9146-ECB2A986EB85}"             
+        

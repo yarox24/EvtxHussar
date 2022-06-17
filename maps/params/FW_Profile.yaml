@@ -1,0 +1,17 @@
+info:
+    typ: "mapper_number_to_string"
+    name: "fw_profile"
+    display_original: none
+
+# https://github.com/repnz/etw-providers-docs/blob/d5f68e8acda5da154ab44e405b610dd8c2ba1164/Manifests-Win7-7600/Microsoft-Windows-Windows%20Firewall%20With%20Advanced%20Security.xml
+params_number:
+    0: "Unknown"
+    1: "Domain"	
+    2: "Private"
+    3: "Domain, Private"
+    4: "Public"
+    5: "Domain, Public"
+    6: "Private, Public"
+    7: "All profiles"
+    2147483647: "All profiles"
+    2147483649: "None"

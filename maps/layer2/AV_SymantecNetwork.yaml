@@ -1,0 +1,18 @@
+info:
+  typ: "layer2"
+  name: AV_SymantecNetwork
+
+output:
+  typ: flat
+  category: av
+  filename: symantec_networkprotection
+
+field_extra_transformations:
+  - input_field: Description
+    output_field: "Description (Path)"
+    special_transform: av_symantec:scope=description_path
+
+ordered_fields:
+  - Description
+  - "Description (Path)"
+  

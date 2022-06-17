@@ -1,0 +1,38 @@
+{
+	"Event": {
+		"System": {
+			"Provider": {
+				"Name": "Microsoft-Windows-Security-Auditing",
+				"Guid": "54849625-5478-4994-A5BA-3E3B0328C30D"
+			},
+			"EventID": {
+				"Value": 4953
+			},
+			"Version": 0,
+			"Level": 0,
+			"Task": 13571,
+			"Opcode": 0,
+			"Keywords": 9227875636482146304,
+			"TimeCreated": {
+				"SystemTime": 1638798000.1111112
+			},
+			"EventRecordID": 111,
+			"Correlation": {
+				"ActivityID": "71B8A0E8-2FD6-0005-2BA1-A871D69FD701"
+			},
+			"Execution": {
+				"ProcessID": 604,
+				"ThreadID": 640
+			},
+			"Channel": "Security",
+			"Computer": "DESKTOP-EvtxHussar",
+			"Security": {}
+		},
+		"EventData": {
+			"Profile": "All",
+			"ReasonForRejection": "Der opstod en fejl.",
+			"RuleId": "WMPNetworkSvc-2",
+			"RuleName": "-"
+		}
+	}
+}

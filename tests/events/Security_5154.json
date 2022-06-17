@@ -1,0 +1,40 @@
+{
+	"Event": {
+		"System": {
+			"Provider": {
+				"Name": "Microsoft-Windows-Security-Auditing",
+				"Guid": "54849625-5478-4994-A5BA-3E3B0328C30D"
+			},
+			"EventID": {
+				"Value": 5154
+			},
+			"Version": 0,
+			"Level": 0,
+			"Task": 12810,
+			"Opcode": 0,
+			"Keywords": 9232379236109516800,
+			"TimeCreated": {
+				"SystemTime": 1638798000.1111112
+			},
+			"EventRecordID": 111,
+			"Correlation": {},
+			"Execution": {
+				"ProcessID": 4,
+				"ThreadID": 88
+			},
+			"Channel": "Security",
+			"Computer": "DESKTOP-EvtxHussar",
+			"Security": {}
+		},
+		"EventData": {
+			"ProcessId": 4,
+			"Application": "System",
+			"SourceAddress": "11.11.11.11",
+			"SourcePort": "139",
+			"Protocol": 6,
+			"FilterRTID": 0,
+			"LayerName": "%%14609",
+			"LayerRTID": 40
+		}
+	}
+}

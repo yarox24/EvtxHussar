@@ -1,0 +1,12 @@
+info:
+    typ: "mapper_number_to_string"
+    name: "fw_securityoptions"
+    display_original: none
+
+
+params_number:
+    0: "None"
+    1: "Require Authentication"
+    2: "Require Encryption"
+    3: "Require Authentication, Negotiate Encryption"
+    4: "Require Authentication, Allow no encapsulation"

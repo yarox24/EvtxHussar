@@ -1,0 +1,92 @@
+info:
+    typ: "layer1"
+    source_comment: "Microsoft-Windows-TerminalServices-LocalSessionManager%4Operational.evtx"
+    channel: "Microsoft-Windows-TerminalServices-LocalSessionManager/Operational"
+
+sendto_layer2: RDPUniversal
+
+events:
+
+    17:
+        attrib_extraction: 
+            - userdata_flatten_first_value
+            - "rename_field:input_field=Param1,output_field=Status Code"
+        short_description: "Remote Desktop Service start failed. The relevant status code was"
+        provider_guid: "{5d896912-022d-40aa-a3a8-4fa5515c76d7}"
+
+    18:
+        attrib_extraction: []
+        short_description: "Remote Desktop Service is shutdown for unknown reason. Will recover in one minute."
+        provider_guid: "{5d896912-022d-40aa-a3a8-4fa5515c76d7}"
+
+    20:
+        attrib_extraction: 
+            - userdata_flatten_first_value
+        short_description: "Attempt to send %1 message to Windows video subsystem failed. The relevant status code was %2."
+        provider_guid: "{5d896912-022d-40aa-a3a8-4fa5515c76d7}"  
+        
+    21:
+        attrib_extraction: 
+            - userdata_flatten_first_value
+            - "rename_field:input_field=Address,output_field=SourceIP"
+        short_description: "Remote Desktop Services: Session logon succeeded:    User: %1  Session ID: %2  Source Network Address: %3"
+        provider_guid: "{5d896912-022d-40aa-a3a8-4fa5515c76d7}"  
+        
+    22:
+        attrib_extraction: 
+            - userdata_flatten_first_value
+            - "rename_field:input_field=Address,output_field=SourceIP"
+        short_description: "Remote Desktop Services: Shell start notification received:    User: %1  Session ID: %2  Source Network Address: %3"
+        provider_guid: "{5d896912-022d-40aa-a3a8-4fa5515c76d7}"  
+        
+    23:
+        attrib_extraction: 
+            - userdata_flatten_first_value
+        short_description: "Remote Desktop Services: Session logoff succeeded:    User: %1  Session ID: %2"
+        provider_guid: "{5d896912-022d-40aa-a3a8-4fa5515c76d7}"  
+        
+    24:
+        attrib_extraction: 
+            - userdata_flatten_first_value
+            - "rename_field:input_field=Address,output_field=SourceIP"
+        short_description: "Remote Desktop Services: Session has been disconnected:    User: %1  Session ID: %2  Source Network Address: %3"
+        provider_guid: "{5d896912-022d-40aa-a3a8-4fa5515c76d7}"          
+        
+    25:
+        attrib_extraction: 
+            - userdata_flatten_first_value
+            - "rename_field:input_field=Address,output_field=SourceIP"
+        short_description: "Remote Desktop Services: Session reconnection succeeded:    User: %1  Session ID: %2  Source Network Address: %3"
+        provider_guid: "{5d896912-022d-40aa-a3a8-4fa5515c76d7}"                  
+        
+    36:
+        attrib_extraction: []
+        short_description: "An error occurred when transitioning from %3 in response to %5. (ErrorCode %6)"
+        provider_guid: "{5d896912-022d-40aa-a3a8-4fa5515c76d7}"
+        
+    39:
+        attrib_extraction: 
+            - userdata_flatten_first_value
+            - "rename_field:input_field=TargetSession,output_field=SessionID"
+            - "rename_field:input_field=Source,output_field=SourceSessionID"
+        short_description: "Session %1 has been disconnected by session %2"
+        provider_guid: "{5d896912-022d-40aa-a3a8-4fa5515c76d7}"             
+        
+    40:
+        attrib_extraction: 
+            - userdata_flatten_first_value
+            - "rename_field:input_field=Session,output_field=SessionID"
+        short_description: "Session %1 has been disconnected, reason code %2"
+        provider_guid: "{5d896912-022d-40aa-a3a8-4fa5515c76d7}"                   
+        
+    41:
+        attrib_extraction: 
+            - userdata_flatten_first_value
+        short_description: "Begin session arbitration:    User: %1  Session ID: %2"
+        provider_guid: "{5d896912-022d-40aa-a3a8-4fa5515c76d7}"
+        
+    42:
+        attrib_extraction: 
+            - userdata_flatten_first_value
+        short_description: "End session arbitration:    User: %1  Session ID: %2"
+        provider_guid: "{5d896912-022d-40aa-a3a8-4fa5515c76d7}"        

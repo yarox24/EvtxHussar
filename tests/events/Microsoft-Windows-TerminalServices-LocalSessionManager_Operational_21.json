@@ -1,0 +1,41 @@
+{
+	"Event": {
+		"System": {
+			"Provider": {
+				"Name": "Microsoft-Windows-TerminalServices-LocalSessionManager",
+				"Guid": "5D896912-022D-40AA-A3A8-4FA5515C76D7"
+			},
+			"EventID": {
+				"Value": 21
+			},
+			"Version": 0,
+			"Level": 4,
+			"Task": 0,
+			"Opcode": 0,
+			"Keywords": 1152921504606846976,
+			"TimeCreated": {
+				"SystemTime": 1638798000.1111112
+			},
+			"EventRecordID": 111,
+			"Correlation": {
+				"ActivityID": "B420843A-2912-4201-BA18-CB8787CB0000"
+			},
+			"Execution": {
+				"ProcessID": 960,
+				"ThreadID": 17624
+			},
+			"Channel": "Microsoft-Windows-TerminalServices-LocalSessionManager/Operational",
+			"Computer": "DESKTOP-EvtxHussar",
+			"Security": {
+				"UserID": "S-1-5-18"
+			}
+		},
+		"UserData": {
+			"EventXML": {
+				"User": "HUSS\\buz",
+				"SessionID": 13,
+				"Address": "11.11.11.11"
+			}
+		}
+	}
+}

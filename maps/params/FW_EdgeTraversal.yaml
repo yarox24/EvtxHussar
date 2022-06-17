@@ -1,0 +1,11 @@
+info:
+    typ: "mapper_number_to_string"
+    name: "fw_edgetraversal"
+    display_original: none
+
+
+params_number:
+    0: "None"	
+    1: "Allow"
+    2: "Defer to application"
+    3: "Defer to user"

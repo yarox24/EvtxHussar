@@ -34,6 +34,7 @@ func LoadEngine() *engine.Engine {
 	engi.LoadLayer1()
 	engi.LoadLayer2("")
 	engi.LoadParams()
+	engi.PrepareEventCache()
 
 	return &engi
 }
@@ -48,7 +49,7 @@ func GetTestFilesPath(maps_path string) string {
 	return strings.Join(events_files_temp[:len(events_files_temp)-2], string(os.PathSeparator)) + fmt.Sprintf("%stests%sfiles%s", string(os.PathSeparator), string(os.PathSeparator), string(os.PathSeparator))
 }
 
-func UnmarshallAndParseEvent(filename string, eng *engine.Engine, l2_name string) *ordereddict.Dict {
+func UnmarshallEvent(filename string, eng *engine.Engine) *ordereddict.Dict {
 	test_event_path := GetTestEventsPath(eng.Maps_path) + filename
 
 	o := ordereddict.NewDict()
@@ -64,7 +65,7 @@ func UnmarshallAndParseEvent(filename string, eng *engine.Engine, l2_name string
 			err3 := o.UnmarshalJSON(b)
 
 			if err3 == nil {
-				return ParseEvent(eng, l2_name, o)
+				return o
 			} else {
 				panic("When reading file")
 			}
@@ -72,8 +73,10 @@ func UnmarshallAndParseEvent(filename string, eng *engine.Engine, l2_name string
 	} else {
 		panic("When reading file")
 	}
+}
 
-	return nil
+func UnmarshallAndParseEvent(filename string, eng *engine.Engine, l2_name string) *ordereddict.Dict {
+	return ParseEvent(eng, l2_name, UnmarshallEvent(filename, eng))
 }
 
 func ParseEvent(eng *engine.Engine, l2_name string, ev *ordereddict.Dict) *ordereddict.Dict {
@@ -86,7 +89,7 @@ func ParseEvent(eng *engine.Engine, l2_name string, ev *ordereddict.Dict) *order
 	}
 
 	// Common fields
-	final_od := eng.ParseCommonFieldsOrderedDict(ev_map)
+	final_od := eng.ParseCommonFieldsOrderedDict(ev_map, l2_name)
 
 	// Layer 2 fields
 	l2_od := eng.ParseL2FieldsOrderedDict(l2_name, ev_map)

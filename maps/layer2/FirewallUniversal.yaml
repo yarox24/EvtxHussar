@@ -1,0 +1,120 @@
+info:
+  typ: "layer2"
+  name: FirewallUniversal
+
+output:
+  typ: flat
+  category: firewall
+  filename: windows_firewall
+
+fields_remap:
+  "Application": ApplicationPath
+  "CurrentProfile": Profiles/NewProfile
+  "Profile": Profiles/NewProfile
+  "Profiles": Profiles/NewProfile
+  "ProfileChanged": Profiles/NewProfile
+  "ProfileUsed": Profiles/NewProfile
+  "ActiveProfile": Profiles/NewProfile
+  "NewProfile": Profiles/NewProfile
+  "ID": RuleId
+  "Name": RuleName
+  "LocalPorts": LocalPorts/SourcePort
+  "SourcePort": LocalPorts/SourcePort
+  "Port": LocalPorts/SourcePort
+  "RemotePorts": RemotePorts/DestPort
+  "DestPort": RemotePorts/DestPort
+  "LocalAddresses": Local/SourceAddresses
+  "SourceAddress": Local/SourceAddresses
+  "RemoteAddresses": Remote/DestAddresses
+  "DestAddress": Remote/DestAddresses
+  "Error": ErrorCode
+  #"RemoteAdministrationEnabled": RemoteAdminEnabled
+
+ordered_fields:
+  - RuleId
+  - RuleName
+  - RuleAttr
+  - ApplicationPath
+  - ModifyingApplication # don't merge with Application
+  - ModifyingUser
+  - ServiceName
+  - "Local/SourceAddresses"
+  - LocalPorts/SourcePort
+  - "Remote/DestAddresses"
+  - RemotePorts/DestPort
+  - Direction:mapper_number_to_string=fw_direction,resolve=doublequotes
+  - Protocol:mapper_number_to_string=fw_protocol
+  - Profiles/NewProfile:mapper_number_to_string=fw_profile
+  - OldProfile:mapper_number_to_string=fw_profile
+  - Action:mapper_number_to_string=fw_action
+  - Active:mapper_number_to_string=fw_boolean
+  - IPVersion:mapper_number_to_string=fw_ipversion
+  - FilterRTID
+  - LayerName:resolve=doublequotes
+  - LayerRTID
+  - ReasonCode:mapper_number_to_string=fw_reasoncode
+  - RemoteMachineAuthorizationList
+  - RemoteMachineID
+  - RemoteUserAuthorizationList
+  - RemoteUserID
+  - RemoteMachineAuthorizationList
+  - RemoteUserAuthorizationList
+  - EmbeddedContext
+  - Flags
+  - EdgeTraversal:mapper_number_to_string=fw_edgetraversal
+  #- LooseSourceMapped
+  - SecurityOptions:mapper_number_to_string=fw_securityoptions
+  - SchemaVersion
+  #- RuleStatus
+  #- LocalOnlyMapped
+  - SettingType:mapper_number_to_string=fw_settingtype
+  - SettingValueText
+  - Origin:mapper_number_to_string=fw_origin
+  - ErrorCode
+  - Reason
+  #- ReasonForRejection
+  - ProcessId
+  - Publisher
+  - CallerProcessName
+  - InterfaceGuid
+  - InterfaceName
+  - Store Type
+  - ProductName
+  - Categories
+  # - Type
+  #- SAIdleTime
+  #- PresharedKeyEncoding
+  #- IPSecExempt
+  #- CrlCheck
+  #- IPSecThroughNAT
+  #- PolicyVersionSupported
+  #- PolicyVersion
+  #- BinaryVersionSupported
+  #- DisableStatefulFTP
+  #- GroupPolicyApplied
+  #- OpMode
+  #- OperationMode
+  #- DisableStealthMode
+  #- BlockAllInbound
+  #- DisableUnicastResponseToMultiCastBroadCast
+  #- LogDroppedPackets
+  #- LogDroppedPacketsEnabled
+  #- LogSuccessfulConnections
+  #- LogSuccessfulConnectionsEnabled
+  #- LogIgnoredRules
+  #- DisableInboundNotifications
+  #- AllowUserPrefMergeForApps
+  #- AllowUserPrefMergeForGlobalPorts
+  #- AllowLocalPolicyMerge
+  #- AllowIPSecPolicyMerge
+  #- DefaultOutboundAction
+  #- DefaultInboundAction
+  #- RemoteAdministrationEnabled
+  #- MaxLogFileSize
+  #- LogFilePath
+  #- DisabledInterfacesSize
+  #- DisabledInterfaces
+  #- DisableStealthModeIPsecSecuredPacketExemption
+  #- RemoteAdminEnabled
+  # - MulticastFlowsEnabled
+

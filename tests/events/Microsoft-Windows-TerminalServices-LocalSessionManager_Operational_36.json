@@ -1,0 +1,42 @@
+{
+	"Event": {
+		"System": {
+			"Provider": {
+				"Name": "Microsoft-Windows-TerminalServices-LocalSessionManager",
+				"Guid": "5D896912-022D-40AA-A3A8-4FA5515C76D7"
+			},
+			"EventID": {
+				"Value": 36
+			},
+			"Version": 0,
+			"Level": 2,
+			"Task": 0,
+			"Opcode": 0,
+			"Keywords": 1152921504606846976,
+			"TimeCreated": {
+				"SystemTime": 1638798000.1111112
+			},
+			"EventRecordID": 111,
+			"Correlation": {
+				"ActivityID": "C2209DDC-1AF9-4A0A-BA4C-685722DD0000"
+			},
+			"Execution": {
+				"ProcessID": 608,
+				"ThreadID": 7100
+			},
+			"Channel": "Microsoft-Windows-TerminalServices-LocalSessionManager/Operational",
+			"Computer": "DESKTOP-EvtxHussar",
+			"Security": {
+				"UserID": "S-1-5-18"
+			}
+		},
+		"EventData": {
+			"SessionId": 4294967295,
+			"State": 0,
+			"StateName": "Initialized",
+			"Event": 1,
+			"EventName": "EvCreated",
+			"ErrorCode": 3489661694
+		}
+	}
+}

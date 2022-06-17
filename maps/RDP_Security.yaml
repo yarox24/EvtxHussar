@@ -1,0 +1,62 @@
+info:
+    typ: "layer1"
+    source_comment: "Security.evtx"
+    channel: "Security"
+
+sendto_layer2: RDPUniversal
+
+events:
+    4624:
+        attrib_extraction: 
+           - "rename_field:input_field=TargetUserName,output_field=User"
+           - "rename_field:input_field=TargetDomainName,output_field=DomainName"
+           - "rename_field:input_field=IpAddress,output_field=SourceIP"
+           - "rename_field:input_field=WorkstationName,output_field=SourceWorkstation"
+        short_description: "An account was successfully logged on"
+        provider_guid: "{54849625-5478-4994-A5BA-3E3B0328C30D}"
+        matching_rules:
+            global_logic: "OR"
+            container_or:
+                - 
+                  - single_match:Function=DecimalEqual,Field=LogonType,Value=10
+                  - single_match:Function=DecimalEqual,Field=LogonType,Value=12
+    4625:
+        attrib_extraction: 
+           - "rename_field:input_field=TargetUserName,output_field=User"
+           - "rename_field:input_field=TargetDomainName,output_field=DomainName"
+           - "rename_field:input_field=IpAddress,output_field=SourceIP"
+           - "rename_field:input_field=WorkstationName,output_field=SourceWorkstation"
+           - "rename_field:input_field=Status,output_field=Status Code"
+           - "rename_field:input_field=SubStatus,output_field=ErrorCode"
+        short_description: "An account failed to log on"
+        provider_guid: "{54849625-5478-4994-A5BA-3E3B0328C30D}"
+        matching_rules:
+            global_logic: "OR"
+            container_or:
+                - 
+                  - single_match:Function=DecimalEqual,Field=LogonType,Value=10
+                  - single_match:Function=DecimalEqual,Field=LogonType,Value=12
+    4634:
+        attrib_extraction: 
+           - "rename_field:input_field=TargetUserName,output_field=User"
+           - "rename_field:input_field=TargetDomainName,output_field=DomainName"
+        short_description: "An account was logged off"
+        provider_guid: "{54849625-5478-4994-A5BA-3E3B0328C30D}"
+        matching_rules:
+            global_logic: "OR"
+            container_or:
+                - 
+                  - single_match:Function=DecimalEqual,Field=LogonType,Value=10
+                  - single_match:Function=DecimalEqual,Field=LogonType,Value=12
+    4688:
+        attrib_extraction: 
+           - "rename_field:input_field=TargetUserName,output_field=User"
+           - "rename_field:input_field=TargetDomainName,output_field=DomainName"
+           - "rename_field:input_field=NewProcessName,output_field=MessageName"
+        short_description: "A new process has been created."
+        provider_guid: "{54849625-5478-4994-A5BA-3E3B0328C30D}"
+        matching_rules:
+            global_logic: "OR"
+            container_or:
+                - 
+                  - single_match:Function=Substring,Field=NewProcessName,CaseSensitive=0,Value=rdpclip.exe

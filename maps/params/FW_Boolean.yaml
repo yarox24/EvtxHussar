@@ -1,0 +1,9 @@
+info:
+    typ: "mapper_number_to_string"
+    name: "fw_boolean"
+    display_original: none
+
+
+params_number:
+    0: "No"	
+    1: "Yes"

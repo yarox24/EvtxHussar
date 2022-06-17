@@ -1,0 +1,14 @@
+info:
+    typ: "layer1"
+    source_comment: "Application.evtx"
+    channel: "Application"
+
+sendto_layer2: AV_SymantecNetwork
+
+events:
+    400:
+        attrib_extraction:
+          - "content_data_autonumbering"
+          - "rename_field:input_field=autonumbered0,output_field=Description"
+        short_description: "Symantec Network Protection event"
+        provider_name: "Symantec Network Protection"

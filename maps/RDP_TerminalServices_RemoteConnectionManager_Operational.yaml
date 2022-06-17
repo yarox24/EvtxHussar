@@ -1,0 +1,128 @@
+info:
+    typ: "layer1"
+    source_comment: "Microsoft-Windows-TerminalServices-RemoteConnectionManager%4Operational.evtx"
+    channel: "Microsoft-Windows-TerminalServices-RemoteConnectionManager/Operational"
+
+sendto_layer2: RDPUniversal
+
+events:
+
+    261:
+        attrib_extraction: 
+            - userdata_flatten_first_value
+        short_description: "Listener %1 received a connection"
+        provider_guid: "{c76baa63-ae81-421c-b425-340b4b24157f}"
+
+    1003:
+        attrib_extraction: 
+            - userdata_flatten_first_value
+        short_description: "The remote desktop client '%1' has provided an invalid license."
+        provider_guid: "{c76baa63-ae81-421c-b425-340b4b24157f}"
+        
+    1011:
+        attrib_extraction: 
+            - userdata_flatten_first_value
+            - "rename_field:input_field=Param1,output_field=SourceIP"
+        short_description: "The remote session could not be established from remote desktop client %1 because its temporary license has expired."
+        provider_guid: "{c76baa63-ae81-421c-b425-340b4b24157f}"
+
+    1012:
+        attrib_extraction: []
+            # - userdata_flatten_first_value
+            # NOT TESTED!!
+        short_description: "Remote session from client name %1 exceeded the maximum allowed failed logon attempts. The session was forcibly terminated."
+        provider_guid: "{c76baa63-ae81-421c-b425-340b4b24157f}"
+
+    1028:
+        attrib_extraction: []
+            # - userdata_flatten_first_value
+            # NOT TESTED!!
+        short_description: "The remote session could not be established from remote desktop client %1 because its license could not be renewed."
+        provider_guid: "{c76baa63-ae81-421c-b425-340b4b24157f}"
+
+    1041:
+        attrib_extraction: []
+            # - userdata_flatten_first_value
+            # NOT TESTED!!
+        short_description: "Autoreconnect failed to reconnect user to session because authentication failed. (%1)"
+        provider_guid: "{c76baa63-ae81-421c-b425-340b4b24157f}"
+
+    1146:
+        attrib_extraction: 
+            - userdata_flatten_first_value
+            - "rename_field:input_field=Param2,output_field=User"
+            - "rename_field:input_field=Param3,output_field=DomainName"
+            # NOT TESTED!!
+        short_description: "Remote Desktop Services: Remote control session initiated:    %1 initiated a remote control session:  User: %2  Domain: %3"
+        provider_guid: "{c76baa63-ae81-421c-b425-340b4b24157f}"
+
+    1147:
+        attrib_extraction: 
+            - userdata_flatten_first_value
+            - "rename_field:input_field=Param2,output_field=User"
+            - "rename_field:input_field=Param3,output_field=DomainName"
+            # NOT TESTED!!
+        short_description: "Remote Desktop Services: Remote control session connection succeeded:    %1 initiated a remote control session:  User: %2  Domain: %3"
+        provider_guid: "{c76baa63-ae81-421c-b425-340b4b24157f}"
+
+    1148:
+        attrib_extraction: 
+            - userdata_flatten_first_value
+            - "rename_field:input_field=Param2,output_field=User"
+            - "rename_field:input_field=Param3,output_field=DomainName"
+            # NOT TESTED!!
+        short_description: "Remote Desktop Services: Remote control session connection failed:    %1 initiated a remote control session:  User: %2  Domain: %3"
+        provider_guid: "{c76baa63-ae81-421c-b425-340b4b24157f}"
+
+    1149:
+        attrib_extraction: 
+            - userdata_flatten_first_value
+            - "rename_field:input_field=Param1,output_field=User"
+            - "rename_field:input_field=Param2,output_field=DomainName"
+            - "rename_field:input_field=Param3,output_field=SourceIP"
+        short_description: "Remote Desktop Services: User authentication succeeded:    User: %1  Domain: %2  Source Network Address: %3"
+        provider_guid: "{c76baa63-ae81-421c-b425-340b4b24157f}"
+
+    1151:
+        attrib_extraction: 
+            - userdata_flatten_first_value
+            - "rename_field:input_field=Param1,output_field=User"
+            - "rename_field:input_field=Param2,output_field=DomainName"
+            - "rename_field:input_field=Param3,output_field=SourceIP"
+        short_description: "The remote user's connection was declined by the logged on user.    User Account: %2  Domain: %1  Source IP Address: %3"
+        provider_guid: "{c76baa63-ae81-421c-b425-340b4b24157f}"
+
+    20515:
+        attrib_extraction: 
+            - userdata_flatten_first_value
+            - "rename_field:input_field=Session,output_field=SessionID"
+        short_description: "Session %1 has been idle over its time limit, and was logged off"
+        provider_guid: "{c76baa63-ae81-421c-b425-340b4b24157f}"
+
+    20516:
+        attrib_extraction: 
+            - userdata_flatten_first_value
+            - "rename_field:input_field=Session,output_field=SessionID"
+        short_description: "Session %1 has been idle over its time limit, and was disconnected"
+        provider_guid: "{c76baa63-ae81-421c-b425-340b4b24157f}"
+
+    20517:
+        attrib_extraction: 
+            - userdata_flatten_first_value
+            - "rename_field:input_field=Session,output_field=SessionID"
+        short_description: "Session %1 has exceeded its time limit, and was logged off"
+        provider_guid: "{c76baa63-ae81-421c-b425-340b4b24157f}"
+
+    20518:
+        attrib_extraction: 
+            - userdata_flatten_first_value
+            - "rename_field:input_field=Session,output_field=SessionID"
+        short_description: "Session %1 has exceeded its time limit, and was disconnected"
+        provider_guid: "{c76baa63-ae81-421c-b425-340b4b24157f}"
+
+    20519:
+        attrib_extraction: 
+            - userdata_flatten_first_value
+            - "rename_field:input_field=Session,output_field=SessionID"
+        short_description: "Session %1 has exceeded its disconnect time limit, and was logged off"
+        provider_guid: "{c76baa63-ae81-421c-b425-340b4b24157f}"

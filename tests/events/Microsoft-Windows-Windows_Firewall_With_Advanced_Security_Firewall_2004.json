@@ -1,0 +1,62 @@
+{
+	"Event": {
+		"System": {
+			"Provider": {
+				"Name": "Microsoft-Windows-Windows Firewall With Advanced Security",
+				"Guid": "D1BC9AFF-2ABF-4D71-9146-ECB2A986EB85"
+			},
+			"EventID": {
+				"Value": 2004
+			},
+			"Version": 0,
+			"Level": 4,
+			"Task": 0,
+			"Opcode": 0,
+			"Keywords": 9223374235878031360,
+			"TimeCreated": {
+				"SystemTime": 1638798000.1111112
+			},
+			"EventRecordID": 111,
+			"Correlation": {
+				"ActivityID": "B104FEC9-9871-4FB9-9672-5A7CAE045FA6"
+			},
+			"Execution": {
+				"ProcessID": 2140,
+				"ThreadID": 11664
+			},
+			"Channel": "Microsoft-Windows-Windows Firewall With Advanced Security/Firewall",
+			"Computer": "DESKTOP-EvtxHussar",
+			"Security": {
+				"UserID": "S-1-5-18"
+			}
+		},
+		"EventData": {
+			"RuleId": "{2E3B4B93-F13C-4155-8D2A-4BDC974ADB6F}",
+			"RuleName": "WLpacSenseNdr",
+			"Origin": 1,
+			"ApplicationPath": "",
+			"ServiceName": "",
+			"Direction": 1,
+			"Protocol": 256,
+			"LocalPorts": "",
+			"RemotePorts": "",
+			"Action": 2,
+			"Profiles": 2147483647,
+			"LocalAddresses": "*",
+			"RemoteAddresses": "*",
+			"RemoteMachineAuthorizationList": "",
+			"RemoteUserAuthorizationList": "",
+			"EmbeddedContext": "WLpacSenseNdr",
+			"Flags": 1,
+			"Active": 1,
+			"EdgeTraversal": 0,
+			"LooseSourceMapped": 0,
+			"SecurityOptions": 0,
+			"ModifyingUser": "S-1-5-18",
+			"ModifyingApplication": "C:\\Windows\\System32\\svchost.exe",
+			"SchemaVersion": 541,
+			"RuleStatus": 65536,
+			"LocalOnlyMapped": 0
+		}
+	}
+}

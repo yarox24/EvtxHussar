@@ -1,0 +1,59 @@
+info:
+  typ: "layer2"
+  name: RDPUniversal
+
+output:
+  typ: flat
+  category: rdp
+  filename: rdp
+
+fields_remap:
+  "Error Code": ErrorCode
+  "TraceMessage": MessageName
+  "NewProcessName": MessageName
+
+ordered_fields:
+  - SourceIP
+  - SourceWorkstation
+  - ServerName
+  - TargetIP
+  - User
+  - DomainName
+  - LogonType
+  - SessionID
+  - SourceSessionID
+  - Status Code:display_as=hex
+  - MessageName
+  - ErrorCode:display_as=hex
+  - ConnectionName
+  - State
+  - StateName
+  - Event
+  - EventName
+  - Reason
+  - ReasonCode
+  - TimezoneBiasHour
+  - ConnType
+  - MonitorWidth
+  - MonitorHeight
+  - MajorType
+  - MinorType
+
+#  - ComponentName
+#  - StateTransitionName
+#  - PreviousState
+#  - PreviousStateName
+#  - NewState
+#  - NewStateName
+#  - listenerName
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  

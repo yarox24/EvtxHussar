@@ -1,0 +1,40 @@
+{
+	"Event": {
+		"System": {
+			"Provider": {
+				"Name": "Microsoft-Windows-RemoteDesktopServices-RdpCoreTS",
+				"Guid": "1139C61B-B549-4251-8ED3-27250A1EDEC8"
+			},
+			"EventID": {
+				"Value": 65
+			},
+			"Version": 0,
+			"Level": 4,
+			"Task": 4,
+			"Opcode": 13,
+			"Keywords": 4611686018427387904,
+			"TimeCreated": {
+				"SystemTime": 1638798000.1111112
+			},
+			"EventRecordID": 111,
+			"Correlation": {
+				"ActivityID": "B420EAB9-9A22-4230-9AE1-BDB6536E0000"
+			},
+			"Execution": {
+				"ProcessID": 1160,
+				"ThreadID": 2252
+			},
+			"Channel": "Microsoft-Windows-RemoteDesktopServices-RdpCoreTS/Operational",
+			"Computer": "DESKTOP-EvtxHussar",
+			"Security": {
+				"UserID": "S-1-5-18"
+			}
+		},
+		"EventData": {
+			"Data": {
+				"Name": "ConnectionName",
+				"Value": "RDP-Tcp#0"
+			}
+		}
+	}
+}

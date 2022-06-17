@@ -1,0 +1,10 @@
+info:
+    typ: "mapper_number_to_string"
+    name: "fw_ipversion"
+    display_original: none
+
+
+params_number:
+    0: "IPv4"
+    1: "IPv6"
+    2: "Any"

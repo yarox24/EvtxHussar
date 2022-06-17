@@ -1,0 +1,28 @@
+{
+	"Event": {
+		"System": {
+			"Provider": {
+				"Name": "Symantec Network Protection"
+			},
+			"EventID": {
+				"Qualifiers": 0,
+				"Value": 400
+			},
+			"Level": 3,
+			"Task": 0,
+			"Keywords": 36028797018963968,
+			"TimeCreated": {
+				"SystemTime": 1638798000.1111112
+			},
+			"EventRecordID": 111,
+			"Channel": "Application",
+			"Computer": "DESKTOP-EvtxHussar",
+			"Security": {}
+		},
+		"EventData": {
+			"Data": [
+				"[SID: 30369] Audit: Nessus Vulnerability Scanner Activity 3 attack detected but not blocked. Application path: C:\\PROGRAM FILES\\JAVA\\JAVA.EXE"
+			]
+		}
+	}
+}

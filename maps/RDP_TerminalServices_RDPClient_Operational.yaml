@@ -1,0 +1,71 @@
+info:
+    typ: "layer1"
+    source_comment: "Microsoft-Windows-TerminalServices-RDPClient%254Operational.evtx"
+    channel: "Microsoft-Windows-TerminalServices-RDPClient/Operational"
+
+sendto_layer2: RDPUniversal
+
+events:
+
+    226:
+        attrib_extraction: []
+        short_description: "%1: An error was encountered when transitioning from %3 to %5 in response to %6 (error code %8)."
+        provider_guid: "{28aa95bb-d444-4719-a36f-40462168127e}"
+
+    1024:
+        attrib_extraction: 
+            - "rename_field:input_field=Value,output_field=TargetIP"
+        short_description: "RDP ClientActiveX is trying to connect to the server (%2)"
+        provider_guid: "{28aa95bb-d444-4719-a36f-40462168127e}" 
+
+    1025:
+        attrib_extraction: []
+        short_description: "RDP ClientActiveX has connected to the server"
+        provider_guid: "{28aa95bb-d444-4719-a36f-40462168127e}" 
+        
+    1026:
+        attrib_extraction: 
+            - "rename_field:input_field=Value,output_field=ReasonCode"
+        short_description: "RDP ClientActiveX has been disconnected (Reason= %2)"
+        provider_guid: "{28aa95bb-d444-4719-a36f-40462168127e}" 
+        
+    1027:
+        attrib_extraction: []
+        short_description: "Connected to domain (%1) with session %2."
+        provider_guid: "{28aa95bb-d444-4719-a36f-40462168127e}"         
+        
+    1028:
+        attrib_extraction: []
+        short_description: "Server supports SSL = %1"
+        provider_guid: "{28aa95bb-d444-4719-a36f-40462168127e}"
+        
+    1029:
+        attrib_extraction: []
+        short_description: "Base64(SHA1/SHA256(UserName)) is = %1"
+        provider_guid: "{28aa95bb-d444-4719-a36f-40462168127e}"
+        
+    1102:
+        attrib_extraction: 
+            - "rename_field:input_field=Value,output_field=TargetIP"
+        short_description: "The client has initiated a multi-transport connection to the server %2."
+        provider_guid: "{28aa95bb-d444-4719-a36f-40462168127e}"        
+        
+    1103:
+        attrib_extraction: []
+        short_description: "The client has established a multi-transport connection to the server."
+        provider_guid: "{28aa95bb-d444-4719-a36f-40462168127e}"           
+        
+    1104:
+        attrib_extraction: []
+        short_description: "The client failed to establish the multi-transport connection."
+        provider_guid: "{28aa95bb-d444-4719-a36f-40462168127e}"           
+                
+    1105:
+        attrib_extraction: []
+        short_description: "The multi-transport connection has been disconnected."
+        provider_guid: "{28aa95bb-d444-4719-a36f-40462168127e}"              
+        
+    1401:
+        attrib_extraction: []
+        short_description: "The server is using version %1 of the RDP graphics protocol (client mode: %2, AVC available: %3)."
+        provider_guid: "{28aa95bb-d444-4719-a36f-40462168127e}"              

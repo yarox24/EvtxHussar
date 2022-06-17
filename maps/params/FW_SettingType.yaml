@@ -1,0 +1,15 @@
+info:
+    typ: "mapper_number_to_string"
+    name: "fw_settingtype"
+    display_original: dec
+
+# https://github.com/erdnussflips/WindowsFirewallDashboard/blob/634ce1d24807bea21755741fe7b57ff270582774/WindowsAdvancedFirewallApi/Events/Objects/FirewallSetting.cs
+params_number:
+    -1: "Unknown"
+    1: "WindowsFirewallActivating"	
+    2: "WindowsFirewallCurrentProfile"
+    3: "WindowsFirewallShieldMode - Blocks all incoming connections"
+    10: "DeactivateIncomingNotification"
+    15: "DeactivatedInterfaces "
+    16: "OutgoingStandardAction"
+    17: "IncomingStandardAction"

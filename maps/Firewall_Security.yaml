@@ -1,0 +1,213 @@
+info:
+    typ: "layer1"
+    source_comment: "Security.evtx"
+    channel: "Security"
+
+sendto_layer2: FirewallUniversal
+
+events:
+    4944:
+        attrib_extraction: []
+        short_description: "The following policy was active when the Windows Firewall started"
+        provider_guid: "{54849625-5478-4994-A5BA-3E3B0328C30D}"
+
+    4945:
+        attrib_extraction: []
+        short_description: "A rule was listed when the Windows Firewall started"
+        provider_guid: "{54849625-5478-4994-A5BA-3E3B0328C30D}"
+        
+    4946:
+        attrib_extraction: []
+        short_description: "A change has been made to Windows Firewall exception list. A rule was added"
+        provider_guid: "{54849625-5478-4994-A5BA-3E3B0328C30D}"
+        
+    4947:
+        attrib_extraction: []
+        short_description: "A change has been made to Windows Firewall exception list. A rule was modified."
+        provider_guid: "{54849625-5478-4994-A5BA-3E3B0328C30D}"
+        
+    4948:
+        attrib_extraction: []
+        short_description: "A change was made to the Windows Firewall exception list. A rule was deleted"
+        provider_guid: "{54849625-5478-4994-A5BA-3E3B0328C30D}"        
+        
+    4949:
+        attrib_extraction: []
+        short_description: "Windows Firewall settings were restored to the default values"
+        provider_guid: "{54849625-5478-4994-A5BA-3E3B0328C30D}"            
+        
+    4950:
+        attrib_extraction:
+           - "rename_field:input_field=SettingValue,output_field=SettingValueText"
+        short_description: "A Windows Firewall setting has changed"
+        provider_guid: "{54849625-5478-4994-A5BA-3E3B0328C30D}"         
+        
+    4951:
+        attrib_extraction: []
+        short_description: "A rule has been ignored because its major version number was not recognized by Windows Firewall"
+        provider_guid: "{54849625-5478-4994-A5BA-3E3B0328C30D}"
+        
+    4952:
+        attrib_extraction: []
+        short_description: "Parts of a rule have been ignored because its minor version number was not recognized by Windows Firewall. The other parts of the rule will be enforced"
+        provider_guid: "{54849625-5478-4994-A5BA-3E3B0328C30D}"        
+        
+    4953:
+        attrib_extraction: []
+        short_description: "A rule has been ignored by Windows Firewall because it could not parse the rule"
+        provider_guid: "{54849625-5478-4994-A5BA-3E3B0328C30D}"        
+        
+    4954:
+        attrib_extraction: []
+        short_description: "Group Policy settings for Windows Firewall were changed, and the new settings were applied"
+        provider_guid: "{54849625-5478-4994-A5BA-3E3B0328C30D}"          
+        
+    4956:
+        attrib_extraction: []
+        short_description: "Windows Firewall changed the active profile"
+        provider_guid: "{54849625-5478-4994-A5BA-3E3B0328C30D}"                  
+        
+    4957:
+        attrib_extraction: []
+        short_description: "Windows Firewall did not apply the following rule"
+        provider_guid: "{54849625-5478-4994-A5BA-3E3B0328C30D}"           
+
+    4958:
+        attrib_extraction: []
+        short_description: "Windows Firewall did not apply the following rule because the rule referred to items not configured on this computer"
+        provider_guid: "{54849625-5478-4994-A5BA-3E3B0328C30D}"           
+        
+    5024:
+        attrib_extraction: []
+        short_description: "The Windows Firewall Service has started successfully"
+        provider_guid: "{54849625-5478-4994-A5BA-3E3B0328C30D}"              
+        
+    5025:
+        attrib_extraction: []
+        short_description: "The Windows Firewall Service has been stopped"
+        provider_guid: "{54849625-5478-4994-A5BA-3E3B0328C30D}" 
+        
+    5027:
+        attrib_extraction: []
+        short_description: "The Windows Firewall Service was unable to retrieve the security policy from the local storage. The service will continue enforcing the current policy"
+        provider_guid: "{54849625-5478-4994-A5BA-3E3B0328C30D}"         
+        
+    5028:
+        attrib_extraction: []
+        short_description: "The Windows Firewall Service was unable to parse the new security policy. The service will continue with currently enforced policy"
+        provider_guid: "{54849625-5478-4994-A5BA-3E3B0328C30D}"
+        
+    5029:
+        attrib_extraction: []
+        short_description: "The Windows Firewall Service failed to initialize the driver. The service will continue to enforce the current policy"
+        provider_guid: "{54849625-5478-4994-A5BA-3E3B0328C30D}"        
+        
+    5030:
+        attrib_extraction: []
+        short_description: "The Windows Firewall Service failed to start"
+        provider_guid: "{54849625-5478-4994-A5BA-3E3B0328C30D}"            
+        
+    5031:
+        attrib_extraction: []
+        short_description: "The Windows Firewall Service blocked an application from accepting incoming connections on the network"
+        provider_guid: "{54849625-5478-4994-A5BA-3E3B0328C30D}"           
+        
+    5032:
+        attrib_extraction: []
+        short_description: "Windows Firewall was unable to notify the user that it blocked an application from accepting incoming connections on the network"
+        provider_guid: "{54849625-5478-4994-A5BA-3E3B0328C30D}"                   
+        
+    5033:
+        attrib_extraction: []
+        short_description: "The Windows Firewall Driver has started successfully"
+        provider_guid: "{54849625-5478-4994-A5BA-3E3B0328C30D}"          
+        
+    5034:
+        attrib_extraction: []
+        short_description: "The Windows Firewall Driver has been stopped"
+        provider_guid: "{54849625-5478-4994-A5BA-3E3B0328C30D}"        
+        
+    5035:
+        attrib_extraction: []
+        short_description: "The Windows Firewall Driver failed to start"
+        provider_guid: "{54849625-5478-4994-A5BA-3E3B0328C30D}"        
+        
+    5037:
+        attrib_extraction: []
+        short_description: "The Windows Firewall Driver detected critical runtime error. Terminating."
+        provider_guid: "{54849625-5478-4994-A5BA-3E3B0328C30D}"        
+        
+    5050:
+        attrib_extraction: []
+        short_description: "An attempt to programmatically disable the Windows Firewall using a call to INetFwProfile.FirewallEnabled(FALSE) interface was rejected because this API is not supported on Windows Vista"
+        provider_guid: "{54849625-5478-4994-A5BA-3E3B0328C30D}"            
+        
+    5148:
+        attrib_extraction: []
+        short_description: "The Windows Filtering Platform has detected a DoS attack and entered a defensive mode; packets associated with this attack will be discarded"
+        provider_guid: "{54849625-5478-4994-A5BA-3E3B0328C30D}"             
+        
+    5152:
+        attrib_extraction: []
+        short_description: "The Windows Filtering Platform has blocked a packet"
+        provider_guid: "{54849625-5478-4994-A5BA-3E3B0328C30D}"              
+        
+    5154:
+        attrib_extraction: []
+        short_description: "The Windows Filtering Platform has permitted an application or service to listen on a port for incoming connections"
+        provider_guid: "{54849625-5478-4994-A5BA-3E3B0328C30D}"                      
+        
+    5156:
+        attrib_extraction: []
+        short_description: "The Windows Filtering Platform has allowed a connection"
+        provider_guid: "{54849625-5478-4994-A5BA-3E3B0328C30D}"                              
+        
+    5157:
+        attrib_extraction: []
+        short_description: "The Windows Filtering Platform has blocked a connection"
+        provider_guid: "{54849625-5478-4994-A5BA-3E3B0328C30D}"                            
+        
+    5158:
+        attrib_extraction: []
+        short_description: "The Windows Filtering Platform has permitted a bind to a local port"
+        provider_guid: "{54849625-5478-4994-A5BA-3E3B0328C30D}"                                    
+        
+    5159:
+        attrib_extraction: []
+        short_description: "The Windows Filtering Platform has blocked a bind to a local port"
+        provider_guid: "{54849625-5478-4994-A5BA-3E3B0328C30D}"
+        
+    6406:
+        attrib_extraction: []
+        short_description: "%1 registered to Windows Firewall to control filtering for the following"
+        provider_guid: "{54849625-5478-4994-A5BA-3E3B0328C30D}"
+        
+    6408:
+        attrib_extraction: []
+        short_description: "Registered product %1 failed and Windows Firewall is now controlling the filtering for"
+        provider_guid: "{54849625-5478-4994-A5BA-3E3B0328C30D}"        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        

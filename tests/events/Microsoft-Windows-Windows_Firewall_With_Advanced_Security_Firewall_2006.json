@@ -1,0 +1,40 @@
+{
+	"Event": {
+		"System": {
+			"Provider": {
+				"Name": "Microsoft-Windows-Windows Firewall With Advanced Security",
+				"Guid": "D1BC9AFF-2ABF-4D71-9146-ECB2A986EB85"
+			},
+			"EventID": {
+				"Value": 2006
+			},
+			"Version": 0,
+			"Level": 4,
+			"Task": 0,
+			"Opcode": 0,
+			"Keywords": 9223374235878031360,
+			"TimeCreated": {
+				"SystemTime": 1638798000.1111112
+			},
+			"EventRecordID": 111,
+			"Correlation": {
+				"ActivityID": "2E8553C8-0515-465C-BB4C-445C20EBF941"
+			},
+			"Execution": {
+				"ProcessID": 2140,
+				"ThreadID": 13384
+			},
+			"Channel": "Microsoft-Windows-Windows Firewall With Advanced Security/Firewall",
+			"Computer": "DESKTOP-EvtxHussar",
+			"Security": {
+				"UserID": "S-1-5-18"
+			}
+		},
+		"EventData": {
+			"RuleId": "{061FB391-2B2D-4CE5-A3B8-F3111A557E15}",
+			"RuleName": "WLpacSenseNdr",
+			"ModifyingUser": "S-1-5-18",
+			"ModifyingApplication": "C:\\Windows\\System32\\svchost.exe"
+		}
+	}
+}

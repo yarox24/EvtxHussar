@@ -1,0 +1,78 @@
+info:
+    typ: "layer1"
+    source_comment: "Microsoft-Windows-RemoteDesktopServices-RdpCoreTS%4Operational.evtx"
+    channel: "Microsoft-Windows-RemoteDesktopServices-RdpCoreTS/Operational"
+
+sendto_layer2: RDPUniversal
+
+events:
+
+    65:
+        attrib_extraction: []
+        short_description: "Connection %1 created"
+        provider_guid: "{1139c61b-b549-4251-8ed3-27250a1edec8}"
+
+    66:
+        attrib_extraction: []
+        short_description: "The connection %1 was assigned to session %2"
+        provider_guid: "{1139c61b-b549-4251-8ed3-27250a1edec8}"    
+
+    97:
+        attrib_extraction: []
+        short_description: "The RDP protocol component %1 detected an error (%2) in the protocol stream and the client was disconnected."
+        provider_guid: "{1139c61b-b549-4251-8ed3-27250a1edec8}"   
+        
+    98:
+        attrib_extraction: []
+        short_description: "A TCP connection has been successfully established."
+        provider_guid: "{1139c61b-b549-4251-8ed3-27250a1edec8}"   
+          
+    99:
+        attrib_extraction: 
+            - "rename_field:input_field=ResultCode,output_field=ErrorCode"
+        short_description: "The TCP connection has failed with the error code %1."
+        provider_guid: "{1139c61b-b549-4251-8ed3-27250a1edec8}"   
+        
+    102:
+        attrib_extraction: []
+        short_description: "The server has terminated main RDP connection with the client."
+        provider_guid: "{1139c61b-b549-4251-8ed3-27250a1edec8}" 
+        
+    103:
+        attrib_extraction: []
+        short_description: "The disconnect reason is %1"
+        provider_guid: "{1139c61b-b549-4251-8ed3-27250a1edec8}"        
+        
+    104:
+        attrib_extraction: []
+        short_description: "Client timezone is %1 hour from UTC"
+        provider_guid: "{1139c61b-b549-4251-8ed3-27250a1edec8}"                
+
+    131:
+        attrib_extraction: 
+            - "rename_field:input_field=ClientIP,output_field=SourceIP"
+        short_description: "The server accepted a new %1 connection from client %2."
+        provider_guid: "{1139c61b-b549-4251-8ed3-27250a1edec8}"        
+        
+    139:
+        attrib_extraction: 
+            - "rename_field:input_field=IPString,output_field=SourceIP"
+            - "rename_field:input_field=ResultCode,output_field=ErrorCode"
+        short_description: "The server security layer detected an error (%1) in the protocol stream and the client (Client IP:%2) has been disconnected."
+        provider_guid: "{1139c61b-b549-4251-8ed3-27250a1edec8}"                
+        
+    140:
+        attrib_extraction: 
+            - "rename_field:input_field=IPString,output_field=SourceIP"
+        short_description: "A connection from the client computer with an IP address of %1 failed because the user name or password is not correct."
+        provider_guid: "{1139c61b-b549-4251-8ed3-27250a1edec8}"           
+        
+    168:
+        attrib_extraction: []
+        short_description: "The resolution requested by the client: Monitor %1: (%2, %3), origin: (%4, %5). Server: %6"
+        provider_guid: "{1139c61b-b549-4251-8ed3-27250a1edec8}"             
+        
+    169:
+        attrib_extraction: []
+        short_description: "The client operating system type is (%1, %2).  Server: %3"
+        provider_guid: "{1139c61b-b549-4251-8ed3-27250a1edec8}"             

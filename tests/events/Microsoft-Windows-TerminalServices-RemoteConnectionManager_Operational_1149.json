@@ -1,0 +1,41 @@
+{
+	"Event": {
+		"System": {
+			"Provider": {
+				"Name": "Microsoft-Windows-TerminalServices-RemoteConnectionManager",
+				"Guid": "C76BAA63-AE81-421C-B425-340B4B24157F"
+			},
+			"EventID": {
+				"Value": 1149
+			},
+			"Version": 0,
+			"Level": 4,
+			"Task": 0,
+			"Opcode": 0,
+			"Keywords": 1152921504606846976,
+			"TimeCreated": {
+				"SystemTime": 1638798000.1111112
+			},
+			"EventRecordID": 111,
+			"Correlation": {
+				"ActivityID": "B4202C37-73F6-4C17-AE27-C553626C0000"
+			},
+			"Execution": {
+				"ProcessID": 2868,
+				"ThreadID": 3932
+			},
+			"Channel": "Microsoft-Windows-TerminalServices-RemoteConnectionManager/Operational",
+			"Computer": "DESKTOP-EvtxHussar",
+			"Security": {
+				"UserID": "S-1-5-18"
+			}
+		},
+		"UserData": {
+			"EventXML": {
+				"Param1": "adminadmin",
+				"Param2": "huss",
+				"Param3": "11.11.11.11"
+			}
+		}
+	}
+}

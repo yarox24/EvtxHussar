@@ -1,0 +1,38 @@
+{
+	"Event": {
+		"System": {
+			"Provider": {
+				"Name": "Microsoft-Windows-TerminalServices-ClientActiveXCore",
+				"Guid": "28AA95BB-D444-4719-A36F-40462168127E"
+			},
+			"EventID": {
+				"Value": 1027
+			},
+			"Version": 0,
+			"Level": 4,
+			"Task": 101,
+			"Opcode": 10,
+			"Keywords": 4611686018427387904,
+			"TimeCreated": {
+				"SystemTime": 1638798000.1111112
+			},
+			"EventRecordID": 111,
+			"Correlation": {
+				"ActivityID": "2D6BA03D-9E82-417C-BBB0-0542E93F0000"
+			},
+			"Execution": {
+				"ProcessID": 12224,
+				"ThreadID": 5492
+			},
+			"Channel": "Microsoft-Windows-TerminalServices-RDPClient/Operational",
+			"Computer": "DESKTOP-EvtxHussar",
+			"Security": {
+				"UserID": "S-1-5-18"
+			}
+		},
+		"EventData": {
+			"DomainName": "HUSS",
+			"SessionId": 4
+		}
+	}
+}

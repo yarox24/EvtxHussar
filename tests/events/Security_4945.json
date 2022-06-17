@@ -1,0 +1,37 @@
+{
+	"Event": {
+		"System": {
+			"Provider": {
+				"Name": "Microsoft-Windows-Security-Auditing",
+				"Guid": "54849625-5478-4994-A5BA-3E3B0328C30D"
+			},
+			"EventID": {
+				"Value": 4945
+			},
+			"Version": 0,
+			"Level": 0,
+			"Task": 13571,
+			"Opcode": 0,
+			"Keywords": 9232379236109516800,
+			"TimeCreated": {
+				"SystemTime": 1638798000.1111112
+			},
+			"EventRecordID": 111,
+			"Correlation": {
+				"ActivityID": "71B8A0E8-9FD6-0005-2BA1-A871D69FD701"
+			},
+			"Execution": {
+				"ProcessID": 604,
+				"ThreadID": 1096
+			},
+			"Channel": "Security",
+			"Computer": "DESKTOP-EvtxHussar",
+			"Security": {}
+		},
+		"EventData": {
+			"ProfileUsed": "Offentlig",
+			"RuleId": "WiFiDirect-Driver-In-TCP",
+			"RuleName": "WFD-driver (TCP-In)"
+		}
+	}
+}

@@ -58,9 +58,27 @@ func GetProviderGUID(ev_map *ordereddict.Dict) string {
 	return ""
 }
 
+func GetProviderName(ev_map *ordereddict.Dict) string {
+	temp, _ := ordereddict.GetString(ev_map, "System.Provider.Name")
+	return temp
+}
+
 func GetEventRecordID(ev_map *ordereddict.Dict) string {
 	temp, _ := ordereddict.GetInt(ev_map, "System.EventRecordID")
 	return strconv.Itoa(temp)
+}
+
+func GetCorrelationActivityID(ev_map *ordereddict.Dict) string {
+	temp, _ := ordereddict.GetString(ev_map, "System.Correlation.ActivityID")
+
+	// brackets are not present!
+	if temp == "" {
+		return temp
+	} else if strings.Contains(temp, "{") {
+		return temp
+	} else {
+		return "{" + temp + "}"
+	}
 }
 
 func GetEventRecordIDasNumber(ev_map *ordereddict.Dict) uint64 {
@@ -77,7 +95,7 @@ func GetSecurityUserID(ev_map *ordereddict.Dict) string {
 	return temp
 }
 
-func ExtractAttribs(ev_map *ordereddict.Dict, attrib_extraction []common.ExtractedFunction) *ordereddict.Dict {
+func ExtractAttribs(ev_map *ordereddict.Dict, attrib_extraction []common.ExtractedFunction, l1mode bool) *ordereddict.Dict {
 	// Initial output dictionary
 	var o = ordereddict.NewDict()
 	o.SetCaseInsensitive()
@@ -139,7 +157,9 @@ func ExtractAttribs(ev_map *ordereddict.Dict, attrib_extraction []common.Extract
 		case "split_by_char_and_equal":
 			o = split_by_char_and_equal(o, ef.Options)
 		case "rename_field":
-			o = rename_field(o, ef.Options)
+			if !l1mode {
+				o = rename_field(o, ef.Options)
+			}
 		case "remove_key":
 			o = remove_key(o, ef.Options)
 
@@ -159,6 +179,18 @@ func ConvertAllTypesToString(val interface{}, display_as string) string {
 	switch val.(type) {
 	case string:
 		return val.(string)
+	case uint8:
+		if display_as == "hex" {
+			return "0x" + strconv.FormatUint(uint64(val.(uint8)), 16)
+		} else {
+			return strconv.FormatUint(uint64(val.(uint8)), 10)
+		}
+	case uint16:
+		if display_as == "hex" {
+			return "0x" + strconv.FormatUint(uint64(val.(uint16)), 16)
+		} else {
+			return strconv.FormatUint(uint64(val.(uint16)), 10)
+		}
 	case uint64:
 		if display_as == "hex" {
 			return "0x" + strconv.FormatUint(val.(uint64), 16)
@@ -454,6 +486,7 @@ func ResolveMappersAndDoubleQuotesInPlace(ord_map *ordereddict.Dict, Ordered_fie
 					}
 				case "resolve":
 					current_val, found_val := ord_map.GetString(sf_name)
+
 					if found_val && len(current_val) > 0 {
 						ord_map.Update(sf.NiceName, ResolveDoubleQuotesInPlace(doublequotes, opt_v, current_val, sf_name))
 					}
@@ -513,6 +546,8 @@ func ApplySpecialTransformations(ord_map *ordereddict.Dict, Field_extra_transfor
 			special_transformations.XMLScheduledTask(ord_map, opt)
 		} else if strings.ToLower(st.Special_transform) == "winrm_string_extract" {
 			special_transformations.WinRMStringExtract(ord_map, opt)
+		} else if strings.ToLower(st.Special_transform) == "av_symantec" {
+			special_transformations.AVSymantecExtract(ord_map, opt)
 		}
 	}
 

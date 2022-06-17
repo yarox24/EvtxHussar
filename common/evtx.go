@@ -155,6 +155,12 @@ func (efi *EvtxFileInfo) DetermineParameters() {
 		}
 
 		if string(chunk.Header.Magic[:]) == evtx.EVTX_CHUNK_HEADER_MAGIC {
+			// Validate chunk
+			records_validation, errv := chunk.Parse(0)
+			if errv != nil || len(records_validation) == 0 {
+				continue
+			}
+
 			last_chunk = chunk
 			break
 		}

@@ -10,37 +10,27 @@ import (
 	"strings"
 )
 
-type UnifiedChannelEvents struct {
-	EIDs map[string]Layer1EventsEnhanced
-}
-
-func NewUnifiedChannelEvents() UnifiedChannelEvents {
-	return UnifiedChannelEvents{
-		EIDs: make(map[string]Layer1EventsEnhanced, 0),
-	}
-}
-
 type Engine struct {
-	Layer1               []Layer1
-	Layer2               []Layer2
-	DoubleQuotes         map[string]common.Params
-	VariousMappers       map[string]common.Params
-	UnifiedChannelEvents map[string]UnifiedChannelEvents
-	Common               Layer1
-	Maps_path            string
-	OutputFormat         string
+	Layer1         []Layer1
+	Layer2         []Layer2
+	EventsCache    map[string]map[string]map[string]Layer1EventsEnhanced // EventsCache[l2_name][channel][eid] = l1events_enhanced
+	DoubleQuotes   map[string]common.Params
+	VariousMappers map[string]common.Params
+	Common         Layer1
+	Maps_path      string
+	OutputFormat   string
 }
 
 func NewEngine(output_format string, maps_path string) Engine {
 	return Engine{
-		Layer1:               make([]Layer1, 0),
-		Layer2:               make([]Layer2, 0),
-		DoubleQuotes:         make(map[string]common.Params, 0),
-		VariousMappers:       make(map[string]common.Params, 0),
-		UnifiedChannelEvents: make(map[string]UnifiedChannelEvents, 0),
-		Common:               Layer1{},
-		Maps_path:            maps_path,
-		OutputFormat:         output_format,
+		Layer1:         make([]Layer1, 0),
+		Layer2:         make([]Layer2, 0),
+		EventsCache:    make(map[string]map[string]map[string]Layer1EventsEnhanced, 0),
+		DoubleQuotes:   make(map[string]common.Params, 0),
+		VariousMappers: make(map[string]common.Params, 0),
+		Common:         Layer1{},
+		Maps_path:      maps_path,
+		OutputFormat:   output_format,
 	}
 }
 
@@ -78,11 +68,33 @@ func (e *Engine) LoadLayer1() {
 			e.Common = *l1
 			common.LogDebug("Loaded common map (L1)")
 		} else if l1.Info.Typ == "layer1" {
+
+			// Logic engine
+			for eid, _ := range l1.Events {
+				event := l1.Events[eid]
+
+				// Global logic lowercase
+				event.Matching_Rules.Global_Logic = strings.ToLower(event.Matching_Rules.Global_Logic)
+
+				// Initalize
+				event.Matching_Rules.Container_OrEnhanced = make([][]common.ExtractedLogic, 0)
+
+				// Enhance logic OR
+				event.Matching_Rules.EnhanceRulesInPlace()
+
+				l1.Events[eid] = event
+			}
+
+			// Enhance
+
+			l1.EventsEnhanced = make(map[string]Layer1EventsEnhanced, 0)
+
+			for eid, l1event := range l1.Events {
+				l1.EventsEnhanced[eid] = NewLayer1EventsEnhanced(&l1event)
+			}
+
 			e.Layer1 = append(e.Layer1, *l1)
 			common.LogDebug("Loaded L1 (layer1) map: " + f.Name())
-
-			// UnifiedChannelEvents
-			e.AppendLayer1ToUnifiedChannelEvents(l1)
 
 		} else {
 			panic("YAML - LoadLayer1() - Unsupported Info.Typ")
@@ -256,7 +268,7 @@ func (e *Engine) GetCSVHeadersOrdered(l2_name string) []string {
 	return common.OrderedDictToKeysOrderedStringList(ord_map)
 }
 
-func (e *Engine) ParseCommonFieldsOrderedDict(ev_map *eventmap.EventMap) *ordereddict.Dict {
+func (e *Engine) ParseCommonFieldsOrderedDict(ev_map *eventmap.EventMap, l2_name string) *ordereddict.Dict {
 	ord_map := e.PrepareCommonFieldsEmptyOrderedDict()
 
 	//EventTime
@@ -271,7 +283,7 @@ func (e *Engine) ParseCommonFieldsOrderedDict(ev_map *eventmap.EventMap) *ordere
 
 	//EID [Description]
 	if _, eidok := ord_map.Get("Description"); eidok {
-		ord_map.Update("Description", e.GetEIDDescription(ev_map))
+		ord_map.Update("Description", e.GetEIDDescription(ev_map, l2_name))
 	}
 
 	//Computer
@@ -292,6 +304,11 @@ func (e *Engine) ParseCommonFieldsOrderedDict(ev_map *eventmap.EventMap) *ordere
 	//EventRecord ID
 	if _, erid_ok := ord_map.Get("EventRecord ID"); erid_ok {
 		ord_map.Update("EventRecord ID", eventmap.GetEventRecordID(ev_map))
+	}
+
+	//Correlation ActivityID
+	if _, erid_ok := ord_map.Get("Correlation ActivityID"); erid_ok {
+		ord_map.Update("Correlation ActivityID", eventmap.GetCorrelationActivityID(ev_map))
 	}
 
 	//System Process ID
@@ -317,7 +334,7 @@ func (e *Engine) ParseL2FieldsOrderedDict(l2_name string, ev_map *eventmap.Event
 	ord_map := e.PrepareLayer2FieldsEmptyOrderedDict(l2_name)
 
 	// Attrib extraction - RAW data types
-	attrib_map := eventmap.ExtractAttribs(ev_map, e.UnifiedChannelEvents[channel].EIDs[eid].Attrib_extraction)
+	attrib_map := eventmap.ExtractAttribs(ev_map, e.EventsCache[l2_name][channel][eid].Attrib_extraction, false)
 
 	// Check
 	len_before := ord_map.Len()
@@ -370,26 +387,11 @@ func (e *Engine) SingleFieldExtractor(function string) common.SingleField {
 	return sf
 }
 
-func (e *Engine) AppendLayer1ToUnifiedChannelEvents(l1 *Layer1) {
-	channel := l1.Info.Channel
-
-	// Create if not exists
-	if _, exists := e.UnifiedChannelEvents[channel]; !exists {
-		e.UnifiedChannelEvents[channel] = NewUnifiedChannelEvents()
-	}
-
-	// Iterate over current 1st layer events
-	for eid, l1events := range l1.Events {
-		e.UnifiedChannelEvents[channel].EIDs[eid] = NewLayer1EventsEnhanced(l1events.Attrib_extraction, l1events.Short_description)
-	}
-
-}
-
-func (e *Engine) GetEIDDescription(ev_map *ordereddict.Dict) string {
+func (e *Engine) GetEIDDescription(ev_map *ordereddict.Dict, l2_name string) string {
 	eid := eventmap.GetEID(ev_map)
 	channel := eventmap.GetChannel(ev_map)
 
-	return e.UnifiedChannelEvents[channel].EIDs[eid].Short_description
+	return e.EventsCache[l2_name][channel][eid].Short_description
 }
 
 func (e *Engine) LoadParams() {
@@ -445,4 +447,49 @@ func (e *Engine) GetDoubleQuotesForChannel(channel string) map[string]string {
 	}
 
 	return nil
+}
+
+func (e *Engine) PrepareEventCache() {
+	for _, l2 := range e.Layer2 {
+
+		// l2_name
+		l2_name := l2.Info.Name
+		if _, l2_name_exists := e.EventsCache[l2_name]; !l2_name_exists {
+			e.EventsCache[l2_name] = make(map[string]map[string]Layer1EventsEnhanced, 0)
+		}
+
+		// channel
+		l1list := e.GetAllLayer1WhichSupportsLayer2(l2_name)
+
+		for _, l1 := range l1list {
+			channel := l1.Info.Channel
+
+			if _, channel_exists := e.EventsCache[l2_name][channel]; !channel_exists {
+				e.EventsCache[l2_name][channel] = make(map[string]Layer1EventsEnhanced, 0)
+			}
+
+			// eid and v
+			for eid, l1e_enhanced := range l1.EventsEnhanced {
+				if _, eid_exists := e.EventsCache[l2_name][channel][eid]; !eid_exists {
+					e.EventsCache[l2_name][channel][eid] = l1e_enhanced
+				}
+
+			}
+
+		}
+
+	}
+
+}
+
+func (e *Engine) GetAllLayer1WhichSupportsLayer2(l2_name string) []Layer1 {
+	out := make([]Layer1, 0)
+
+	for _, l1 := range e.Layer1 {
+		if strings.ToLower(l1.Sendto_layer2) == strings.ToLower(l2_name) {
+			out = append(out, l1)
+		}
+	}
+
+	return out
 }

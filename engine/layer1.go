@@ -20,32 +20,49 @@ type Layer1Events struct {
 	Attrib_extraction []string
 	Short_description string
 	Provider_guid     string
+	Provider_name     string
+	Matching_Rules    MatchingRulesT
 }
 
 type Layer1EventsEnhanced struct {
 	Attrib_extraction []common.ExtractedFunction
 	Short_description string
+	Provider_guid     string
+	Provider_name     string
+	Matching_Rules    MatchingRulesT
 }
 
-func NewLayer1EventsEnhanced(Attrib_extraction []string, Short_description string) Layer1EventsEnhanced {
+type MatchingRulesT struct {
+	Global_Logic          string
+	Container_Or          [][]string
+	Container_OrEnhanced  [][]common.ExtractedLogic
+	Container_And         [][]string
+	Container_AndEnhanced [][]common.ExtractedLogic
+}
 
-	var l1enh = Layer1EventsEnhanced{
-		Attrib_extraction: make([]common.ExtractedFunction, 0),
-		Short_description: Short_description,
+func NewLayer1EventsEnhanced(l1e *Layer1Events) Layer1EventsEnhanced {
+
+	Attrib_extraction_enhanced := make([]common.ExtractedFunction, 0)
+
+	for _, attr := range l1e.Attrib_extraction {
+		Attrib_extraction_enhanced = append(Attrib_extraction_enhanced, common.FunctionExtractor(attr))
 	}
 
-	for _, attr := range Attrib_extraction {
-		l1enh.Attrib_extraction = append(l1enh.Attrib_extraction, common.FunctionExtractor(attr))
+	var l1enh = Layer1EventsEnhanced{
+		Attrib_extraction: Attrib_extraction_enhanced,
+		Short_description: l1e.Short_description,
+		Provider_guid:     l1e.Provider_guid,
+		Provider_name:     l1e.Provider_name,
+		Matching_Rules:    l1e.Matching_Rules,
 	}
 
 	return l1enh
 }
 
 type Layer1Info struct {
-	Typ             string
-	Source_comment  string
-	Channel         string
-	Content_data_in string
+	Typ            string
+	Source_comment string
+	Channel        string
 }
 
 type Layer1 struct {
@@ -53,6 +70,7 @@ type Layer1 struct {
 	Sendto_layer2  string
 	Ordered_fields []string
 	Events         map[string]Layer1Events
+	EventsEnhanced map[string]Layer1EventsEnhanced
 	Options        map[string]string
 }
 
@@ -83,8 +101,8 @@ func (l1globmem *Layer1GlobalMemory) SetupWorkers(e *Engine, efi []common.EvtxFi
 			l2s.IncrementWorkerCounter()
 			common.LogDebug(fmt.Sprintf("Preparing worker %s %s to send to L2: %s", latest_computer, channel, l2s.l2_name))
 
-			for eid, _ := range l1.Events {
-				l1globmem.HClistAddChan(latest_computer, l1.Info.Channel, eid, l1.Events[eid].Provider_guid, l2s.ch)
+			for eid, _ := range l1.EventsEnhanced {
+				l1globmem.HClistAddChan(latest_computer, l1.Info.Channel, eid, l1.Events[eid].Provider_guid, l1.Events[eid].Provider_name, l1.EventsEnhanced[eid].Attrib_extraction, l1.Events[eid].Matching_Rules, l2s.ch)
 			}
 		}
 	}
@@ -112,7 +130,7 @@ func (l1globmem *Layer1GlobalMemory) HClistAddChannel(latest_computer string, ch
 	}
 }
 
-func (l1globmem *Layer1GlobalMemory) HClistAddEID(latest_computer string, channel string, eid string, provider_guid string) {
+func (l1globmem *Layer1GlobalMemory) HClistAddEID(latest_computer string, channel string, eid string, provider_guid string, provider_name string, Matching_Rules MatchingRulesT) {
 	// Hostname + Channel
 	l1globmem.HClistAddChannel(latest_computer, channel)
 
@@ -120,22 +138,21 @@ func (l1globmem *Layer1GlobalMemory) HClistAddEID(latest_computer string, channe
 
 	if !ok {
 		l1globmem.Hclist[latest_computer].Channels[channel].Eid[eid] = EIDToChan{
-			Chans:         make([]chan *eventmap.EventMap, 0),
-			Provider_guid: provider_guid,
+			Chans: make([]ChanFullInfo, 0),
 		}
 	}
 }
 
-func (l1globmem *Layer1GlobalMemory) HClistAddChan(latest_computer string, channel string, eid string, provider_guid string, ch chan *eventmap.EventMap) {
+func (l1globmem *Layer1GlobalMemory) HClistAddChan(latest_computer string, channel string, eid string, provider_guid string, provider_name string, attrib_extraction []common.ExtractedFunction, Matching_Rules MatchingRulesT, ch chan *eventmap.EventMap) {
 
 	// Hostname + Channel + EID
-	l1globmem.HClistAddEID(latest_computer, channel, eid, provider_guid)
+	l1globmem.HClistAddEID(latest_computer, channel, eid, provider_guid, provider_name, Matching_Rules)
 
 	// Add chan if not exists
 	new_addr := reflect.ValueOf(ch).Pointer()
 
 	for i := 0; i < len(l1globmem.Hclist[latest_computer].Channels[channel].Eid[eid].Chans); i++ {
-		existing_addr := reflect.ValueOf(l1globmem.Hclist[latest_computer].Channels[channel].Eid[eid].Chans[i]).Pointer()
+		existing_addr := reflect.ValueOf(l1globmem.Hclist[latest_computer].Channels[channel].Eid[eid].Chans[i].Chan).Pointer()
 		if existing_addr == new_addr {
 			common.LogDebug(fmt.Sprintf("Don't append Channel (Duplicate) | %s | %s | %s | %p", latest_computer, channel, eid, new_addr))
 			return
@@ -143,9 +160,18 @@ func (l1globmem *Layer1GlobalMemory) HClistAddChan(latest_computer string, chann
 	}
 
 	// Append to last element
-	var etc = l1globmem.Hclist[latest_computer].Channels[channel].Eid[eid]
-	etc.Chans = append(etc.Chans, ch)
-	l1globmem.Hclist[latest_computer].Channels[channel].Eid[eid] = etc
+	var cfi = ChanFullInfo{
+		Chan:              ch,
+		Provider_guid:     provider_guid,
+		Provider_name:     provider_name,
+		Attrib_extraction: attrib_extraction,
+		Matching_Rules:    Matching_Rules,
+	}
+
+	// Make this addressable
+	var eid_struct = l1globmem.Hclist[latest_computer].Channels[channel].Eid[eid]
+	eid_struct.Chans = append(eid_struct.Chans, cfi)
+	l1globmem.Hclist[latest_computer].Channels[channel].Eid[eid] = eid_struct
 }
 
 func l1close_wait_groups_in_loop(l2s_wg_to_close_channel_list []*sync.WaitGroup) {
@@ -220,7 +246,10 @@ func RunL1Worker(Wg_l1_all *sync.WaitGroup, efi *common.EvtxFileInfo, Hclist Hos
 	defer l1close_wait_groups_in_loop(l2s_wg_to_close_channel_list)
 	defer atomic.AddUint64(Atomic_Counter_Workers, ^uint64(0))
 
+	// Logic engine
+	le := NewLogicEngine()
 	supported_eids := Hclist.Channels[efi.GetChannel()]
+	le.SetSupportedEIDs(supported_eids)
 
 	// Open evtx file
 	fd, err := os.OpenFile(efi.GetPath(), os.O_RDONLY, os.FileMode(0666))
@@ -279,27 +308,12 @@ func RunL1Worker(Wg_l1_all *sync.WaitGroup, efi *common.EvtxFileInfo, Hclist Hos
 					continue
 				}
 
-				eid := eventmap.GetEID(ev_map)
+				chanfullinfo_list := le.ReturnMatchingChanFullInfo(ev_map)
 
-				eid_struct, eid_supported := supported_eids.Eid[eid]
-
-				// Check if EID should be further send
-				if eid_supported {
-
-					// Check Provider GUID if present
-					if len(eid_struct.Provider_guid) > 0 {
-						provider_guid := eventmap.GetProviderGUID(ev_map)
-						if strings.ToLower(eid_struct.Provider_guid) != strings.ToLower(provider_guid) {
-							continue
-						}
-					}
-
+				// Send to all related channels matched event
+				for _, cfi := range chanfullinfo_list {
 					//serialize_event(ev)
-
-					// Send to all related channels matched event
-					for _, cha := range eid_struct.Chans {
-						cha <- ev_map
-					}
+					cfi.Chan <- ev_map
 				}
 			}
 		}
@@ -396,9 +410,16 @@ type HostnameToChannels struct {
 	Channels map[string]ChannelTOEID
 }
 
+type ChanFullInfo struct {
+	Chan              chan *eventmap.EventMap
+	Provider_guid     string
+	Provider_name     string
+	Attrib_extraction []common.ExtractedFunction
+	Matching_Rules    MatchingRulesT
+}
+
 type EIDToChan struct {
-	Chans         []chan *eventmap.EventMap
-	Provider_guid string
+	Chans []ChanFullInfo
 }
 
 type ChannelTOEID struct {

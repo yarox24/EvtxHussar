@@ -132,10 +132,11 @@ func RunL2WorkerFlat(l2s *Layer2SingleLayer) {
 	for ev_map := range l2s.ch {
 
 		// Common fields
-		final_od := l2s.engine.ParseCommonFieldsOrderedDict(ev_map)
+
+		final_od := l2s.engine.ParseCommonFieldsOrderedDict(ev_map, l2s.l2_name)
 
 		//eid, _ := final_od.GetString("EID")
-		//if eid == "91" {
+		//if eid == "2009" {
 		//	fmt.Println("Break")
 		//}
 

@@ -30,6 +30,7 @@ Initial triage of Windows Event logs. This is beta quality software.
 - Supported events can be easily added by adding .yaml files to maps/ directory
 - Parameters resolution (e.g. %%1936 changed to TokenElevationTypeDefault (1))
 - Fields resolution (e.g. servicestarttype = 2 is replaced with "Auto start")
+- Fields with different names are normalized to single field (whenever possible) e.g. Filename -> TargetFileName
 
 ### Which events are supported?
 Please look into [maps/](https://github.com/yarox24/EvtxHussar/tree/main/maps "L1 maps") (which contains Layer 1 maps)

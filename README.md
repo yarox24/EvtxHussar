@@ -17,7 +17,7 @@ Initial triage of Windows Event logs. This is beta quality software.
 ![image](https://user-images.githubusercontent.com/18016218/164982801-4fdc2786-0bfb-439a-8679-1ab35537e4c0.png)
 
 ###### Output directory structure
-![obraz](https://user-images.githubusercontent.com/18016218/174342056-792fa75d-11e9-49b8-8f58-d7f9acb076b8.png)
+![image](https://user-images.githubusercontent.com/18016218/180607885-ece585ea-7d07-4108-a83b-7005f41a4d82.png)
 
 
 ### Interesting features

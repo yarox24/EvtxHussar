@@ -1,0 +1,10 @@
+info:
+    typ: "mapper_number_to_string"
+    name: "defender_scansource"
+    display_original: none
+
+
+params_number:
+    0: "scan didn't run"
+    1: "user initiated"
+    2: "system initiated"

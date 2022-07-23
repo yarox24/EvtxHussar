@@ -1,0 +1,78 @@
+{
+	"Event": {
+		"System": {
+			"Provider": {
+				"Name": "Microsoft-Windows-Windows Defender",
+				"Guid": "11CD958A-C507-4EF3-B3F2-5FD9DFBD2C78"
+			},
+			"EventID": {
+				"Value": 1117
+			},
+			"Version": 0,
+			"Level": 4,
+			"Task": 0,
+			"Opcode": 0,
+			"Keywords": 9223372036854775808,
+			"TimeCreated": {
+				"SystemTime": 1638798000.1111112
+			},
+			"EventRecordID": 111,
+			"Correlation": {
+				"ActivityID": "141CBFD4-5F7A-4BDE-A768-568D82E3C9B9"
+			},
+			"Execution": {
+				"ProcessID": 2576,
+				"ThreadID": 7212
+			},
+			"Channel": "Microsoft-Windows-Windows Defender/Operational",
+			"Computer": "DESKTOP-EvtxHussar",
+			"Security": {
+				"UserID": "S-1-5-18"
+			}
+		},
+		"EventData": {
+			"Product Name": "Microsoft Defender Antivirus",
+			"Product Version": "4.18.2111.5",
+			"Detection ID": "{AB7DF069-7272-4099-B7AE-3BD0852E265D}",
+			"Detection Time": "2020-01-16T14:14:14.312Z",
+			"Unused": "",
+			"Unused2": "",
+			"Threat ID": "2147768413",
+			"Threat Name": "HackTool:Win32/Ntscan!MSR",
+			"Severity ID": "4",
+			"Severity Name": "High",
+			"Category ID": "34",
+			"Category Name": "Tool",
+			"FWLink": "https://go.microsoft.com/fwlink/?linkid=37020&name=HackTool:Win32/Ntscan!MSR&threatid=2147768413&enterprise=0",
+			"Status Code": "3",
+			"Status Description": "",
+			"State": "2",
+			"Source ID": "3",
+			"Source Name": "Real-Time Protection",
+			"Process Name": "C:\\Windows\\explorer.exe",
+			"Detection User": "HUSS\\truck",
+			"Unused3": "",
+			"Path": "file:_C:\\truck.exe",
+			"Origin ID": "1",
+			"Origin Name": "Local machine",
+			"Execution ID": "1",
+			"Execution Name": "Suspended",
+			"Type ID": "0",
+			"Type Name": "Concrete",
+			"Pre Execution Status": "0",
+			"Action ID": "2",
+			"Action Name": "Quarantine",
+			"Unused4": "",
+			"Error Code": "0x00000000",
+			"Error Description": "The operation completed successfully. ",
+			"Unused5": "",
+			"Post Clean Status": "0",
+			"Additional Actions ID": "0",
+			"Additional Actions String": "No additional actions required",
+			"Remediation User": "NT AUTHORITY\\SYSTEM",
+			"Unused6": "",
+			"Security intelligence Version": "AV: 1.355.1994.0, AS: 1.355.1994.0, NIS: 1.355.1994.0",
+			"Engine Version": "AM: 1.1.18800.4, NIS: 1.1.18800.4"
+		}
+	}
+}

@@ -1,0 +1,137 @@
+package tests
+
+import (
+	"testing"
+)
+
+func TestAVDefenderEvents(t *testing.T) {
+
+	// Load Engine
+	eng := LoadEngine()
+
+	// 1000
+	easytesting1000 := NewEasyTesting(t, UnmarshallAndParseEvent("Microsoft-Windows-Windows_Defender_Operational_1000.json", eng, "AV_WindowsDefender"))
+	easytesting1000.CheckDesiredValue("Product Name", "Microsoft Defender Antivirus")
+	easytesting1000.CheckDesiredValue("Product Version", "4.18.1909.6")
+	easytesting1000.CheckDesiredValue("Scan ID", "{5B6488B8-7B7B-4EDF-A0AD-A4C74752982A}")
+	easytesting1000.CheckDesiredValue("Scan Type", "Antimalware")
+	easytesting1000.CheckDesiredValue("Scan Parameters", "Quick Scan")
+	easytesting1000.CheckDesiredValue("Domain", "NT AUTHORITY")
+	easytesting1000.CheckDesiredValue("User", "SYSTEM")
+	easytesting1000.CheckDesiredValue("SID", "S-1-5-18")
+	easytesting1000.CheckDesiredValue("Scan Resources", "")
+
+	// 1010
+	easytesting1010 := NewEasyTesting(t, UnmarshallAndParseEvent("Microsoft-Windows-Windows_Defender_Operational_1010.json", eng, "AV_WindowsDefender"))
+	easytesting1010.CheckDesiredValue("Product Name", "Microsoft Defender Antivirus")
+	easytesting1010.CheckDesiredValue("Product Version", "4.18.2001.7")
+	easytesting1010.CheckDesiredValue("Error Code", "0x80508014")
+	easytesting1010.CheckDesiredValue("Error Description", "The quarantined item cannot be restored. ")
+	easytesting1010.CheckDesiredValue("Domain", "HUSS")
+	easytesting1010.CheckDesiredValue("User", "truck")
+	easytesting1010.CheckDesiredValue("SID", "S-1-5-19")
+	easytesting1010.CheckDesiredValue("Threat Name", "Trojan:MSIL/Formbook!MTB")
+	easytesting1010.CheckDesiredValue("Threat ID", "2147751777")
+	easytesting1010.CheckDesiredValue("FWLink", "https://go.microsoft.com/fwlink/?linkid=37020&name=Trojan:MSIL/Formbook!MTB&threatid=2147751777&enterprise=0")
+	easytesting1010.CheckDesiredValue("Path", "file:_C:\\Windows\\assembly\\truck.exe")
+	easytesting1010.CheckDesiredValue("Severity Name", "Severe")
+	easytesting1010.CheckDesiredValue("Category Name", "Trojan")
+	easytesting1010.CheckDesiredValue("Signature Version", "AV: 1.347.54.0, AS: 1.347.54.0")
+	easytesting1010.CheckDesiredValue("Engine Version", "1.1.18400.5")
+
+	// 1116
+	easytesting1116 := NewEasyTesting(t, UnmarshallAndParseEvent("Microsoft-Windows-Windows_Defender_Operational_1116.json", eng, "AV_WindowsDefender"))
+	easytesting1116.CheckDesiredValue("Product Name", "Microsoft Defender Antivirus")
+	easytesting1116.CheckDesiredValue("Product Version", "4.18.2111.5")
+	easytesting1116.CheckDesiredValue("Detection ID", "{EB7DF069-7272-4099-B7AE-3BD0852E265D}")
+	easytesting1116.CheckDesiredValue("Timestamp", "2020-01-16T14:14:14.312Z")
+	easytesting1116.CheckDesiredValue("Threat ID", "2147768413")
+	easytesting1116.CheckDesiredValue("Threat Name", "HackTool:Win32/Ntscan!MSR")
+	easytesting1116.CheckDesiredValue("Severity Name", "High")
+	easytesting1116.CheckDesiredValue("Category Name", "Tool")
+	easytesting1116.CheckDesiredValue("FWLink", "https://go.microsoft.com/fwlink/?linkid=37020&name=HackTool:Win32/Ntscan!MSR&threatid=2147768413&enterprise=0")
+	easytesting1116.CheckDesiredValue("Status Code", "1")
+	easytesting1116.CheckDesiredValue("State", "1")
+	easytesting1116.CheckDesiredValue("Source Name", "Real-Time Protection")
+	easytesting1116.CheckDesiredValue("Process Name", "C:\\Windows\\explorer.exe")
+	easytesting1116.CheckDesiredValue("User", "HUSS\\truck")
+	easytesting1116.CheckDesiredValue("Path", "file:_C:\\truck.exe")
+	easytesting1116.CheckDesiredValue("Origin Name", "Local machine")
+	easytesting1116.CheckDesiredValue("Execution Name", "Suspended")
+	easytesting1116.CheckDesiredValue("Type Name", "Concrete")
+	easytesting1116.CheckDesiredValue("Pre Execution Status", "0")
+	easytesting1116.CheckDesiredValue("Action Name", "Not Applicable")
+	easytesting1116.CheckDesiredValue("Error Code", "0x00000000")
+	easytesting1116.CheckDesiredValue("Error Description", "The operation completed successfully. ")
+	easytesting1116.CheckDesiredValue("Post Clean Status", "0")
+	easytesting1116.CheckDesiredValue("Additional Actions String", "No additional actions required")
+	easytesting1116.CheckDesiredValue("Remediation User", "")
+	easytesting1116.CheckDesiredValue("Security intelligence Version", "AV: 1.355.1994.0, AS: 1.355.1994.0, NIS: 1.355.1994.0")
+	easytesting1116.CheckDesiredValue("Engine Version", "AM: 1.1.18800.4, NIS: 1.1.18800.4")
+
+	// 1117
+	easytesting1117 := NewEasyTesting(t, UnmarshallAndParseEvent("Microsoft-Windows-Windows_Defender_Operational_1117.json", eng, "AV_WindowsDefender"))
+	easytesting1117.CheckDesiredValue("Product Name", "Microsoft Defender Antivirus")
+	easytesting1117.CheckDesiredValue("Product Version", "4.18.2111.5")
+	easytesting1117.CheckDesiredValue("Detection ID", "{AB7DF069-7272-4099-B7AE-3BD0852E265D}")
+	easytesting1117.CheckDesiredValue("Timestamp", "2020-01-16T14:14:14.312Z")
+	easytesting1117.CheckDesiredValue("Threat ID", "2147768413")
+	easytesting1117.CheckDesiredValue("Threat Name", "HackTool:Win32/Ntscan!MSR")
+	easytesting1117.CheckDesiredValue("Severity Name", "High")
+	easytesting1117.CheckDesiredValue("Category Name", "Tool")
+	easytesting1117.CheckDesiredValue("FWLink", "https://go.microsoft.com/fwlink/?linkid=37020&name=HackTool:Win32/Ntscan!MSR&threatid=2147768413&enterprise=0")
+	easytesting1117.CheckDesiredValue("Status Code", "3")
+	easytesting1117.CheckDesiredValue("State", "2")
+	easytesting1117.CheckDesiredValue("Source Name", "Real-Time Protection")
+	easytesting1117.CheckDesiredValue("Process Name", "C:\\Windows\\explorer.exe")
+	easytesting1117.CheckDesiredValue("User", "HUSS\\truck")
+	easytesting1117.CheckDesiredValue("Path", "file:_C:\\truck.exe")
+	easytesting1117.CheckDesiredValue("Origin Name", "Local machine")
+	easytesting1117.CheckDesiredValue("Execution Name", "Suspended")
+	easytesting1117.CheckDesiredValue("Type Name", "Concrete")
+	easytesting1117.CheckDesiredValue("Pre Execution Status", "0")
+	easytesting1117.CheckDesiredValue("Action Name", "Quarantine")
+	easytesting1117.CheckDesiredValue("Error Code", "0x00000000")
+	easytesting1117.CheckDesiredValue("Error Description", "The operation completed successfully. ")
+	easytesting1117.CheckDesiredValue("Post Clean Status", "0")
+	easytesting1117.CheckDesiredValue("Additional Actions String", "No additional actions required")
+	easytesting1117.CheckDesiredValue("Remediation User", "NT AUTHORITY\\SYSTEM")
+	easytesting1117.CheckDesiredValue("Security intelligence Version", "AV: 1.355.1994.0, AS: 1.355.1994.0, NIS: 1.355.1994.0")
+	easytesting1117.CheckDesiredValue("Engine Version", "AM: 1.1.18800.4, NIS: 1.1.18800.4")
+
+	// 2000
+	easytesting2000 := NewEasyTesting(t, UnmarshallAndParseEvent("Microsoft-Windows-Windows_Defender_Operational_2000.json", eng, "AV_WindowsDefender"))
+	easytesting2000.CheckDesiredValue("Product Name", "Microsoft Defender Antivirus")
+	easytesting2000.CheckDesiredValue("Product Version", "4.18.2106.6")
+	easytesting2000.CheckDesiredValue("Security intelligence Version", "1.343.1999.0")
+	easytesting2000.CheckDesiredValue("Domain", "NT AUTHORITY")
+	easytesting2000.CheckDesiredValue("User", "SYSTEM")
+	easytesting2000.CheckDesiredValue("SID", "S-1-5-18")
+	easytesting2000.CheckDesiredValue("Security intelligence Type", "AntiVirus")
+	easytesting2000.CheckDesiredValue("Update Type", "Delta")
+	easytesting2000.CheckDesiredValue("Engine Version", "1.1.18300.4")
+
+	// 2050
+	easytesting2050 := NewEasyTesting(t, UnmarshallAndParseEvent("Microsoft-Windows-Windows_Defender_Operational_2050.json", eng, "AV_WindowsDefender"))
+	easytesting2050.CheckDesiredValue("Product Name", "Windows Defender Antivirus")
+	easytesting2050.CheckDesiredValue("Product Version", "4.18.2107.4")
+	easytesting2050.CheckDesiredValue("TargetFileName", "C:\\Windows\\ccmcache\\f\\imnew.ps1")
+	easytesting2050.CheckDesiredValue("TargetFileHash", "r2ae09817df5b9faedf90418f4a20ffda398b8a3c71222eee265f3f686ad71aa")
+
+	// 3002
+	easytesting3002 := NewEasyTesting(t, UnmarshallAndParseEvent("Microsoft-Windows-Windows_Defender_Operational_3002.json", eng, "AV_WindowsDefender"))
+	easytesting3002.CheckDesiredValue("Product Name", "Microsoft Defender Antivirus")
+	easytesting3002.CheckDesiredValue("Product Version", "4.18.2110.6")
+	easytesting3002.CheckDesiredValue("Feature Name", "Behavior Monitoring")
+	easytesting3002.CheckDesiredValue("Reason", "Real-time protection has stopped functioning for an unknown reason. Restart the service in order to recover.")
+	easytesting3002.CheckDesiredValue("Error Code", "0x80004005")
+	easytesting3002.CheckDesiredValue("Error Description", "Unspecified error ")
+
+	// 5007
+	easytesting5007 := NewEasyTesting(t, UnmarshallAndParseEvent("Microsoft-Windows-Windows_Defender_Operational_5007.json", eng, "AV_WindowsDefender"))
+	easytesting5007.CheckDesiredValue("Product Name", "Windows Defender Antivirus")
+	easytesting5007.CheckDesiredValue("Product Version", "4.18.2107.4")
+	easytesting5007.CheckDesiredValue("Old Value", "Default\\ProductAppDataPath = C:\\ProgramData\\Microsoft\\Windows Defender")
+	easytesting5007.CheckDesiredValue("New Value", "HKLM\\SOFTWARE\\Microsoft\\Windows Defender\\ProductAppDataPath = C:\\ProgramData\\Microsoft\\Windows Defender")
+
+}

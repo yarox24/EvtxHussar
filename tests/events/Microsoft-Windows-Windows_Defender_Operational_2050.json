@@ -1,0 +1,40 @@
+{
+	"Event": {
+		"System": {
+			"Provider": {
+				"Name": "Microsoft-Windows-Windows Defender",
+				"Guid": "11CD958A-C507-4EF3-B3F2-5FD9DFBD2C78"
+			},
+			"EventID": {
+				"Value": 2050
+			},
+			"Version": 0,
+			"Level": 4,
+			"Task": 0,
+			"Opcode": 0,
+			"Keywords": 9223372036854775808,
+			"TimeCreated": {
+				"SystemTime": 1638798000.1111112
+			},
+			"EventRecordID": 111,
+			"Correlation": {
+				"ActivityID": "11FA5452-9823-427E-B32B-4574AB3DD384"
+			},
+			"Execution": {
+				"ProcessID": 2836,
+				"ThreadID": 55372
+			},
+			"Channel": "Microsoft-Windows-Windows Defender/Operational",
+			"Computer": "DESKTOP-EvtxHussar",
+			"Security": {
+				"UserID": "S-1-5-18"
+			}
+		},
+		"EventData": {
+			"Product Name": "Windows Defender Antivirus",
+			"Product Version": "4.18.2107.4",
+			"Filename": "C:\\Windows\\ccmcache\\f\\imnew.ps1",
+			"Sha256": "r2ae09817df5b9faedf90418f4a20ffda398b8a3c71222eee265f3f686ad71aa"
+		}
+	}
+}

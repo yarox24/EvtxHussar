@@ -1,0 +1,150 @@
+info:
+  typ: "layer2"
+  name: AV_WindowsDefender
+
+output:
+  typ: flat
+  category: av
+  filename: windows_defender
+
+fields_remap:
+  "ID": Scan ID
+  "Source Path": FWLink
+  "Path Found": Path
+  "Threat resource path": Path
+  "Current security intelligence Version": Security intelligence Version
+  "Loading security intelligence version": Security intelligence Version
+  "Current Engine Version": Engine Version
+  "Loading engine version": Engine Version
+  "Current Signature Version": Signature Version
+  "Detection Time": Timestamp
+  "Hashes": TargetFileHash
+  "Sha256": TargetFileHash
+  "Filename": TargetFileName
+  "Detection User": User
+  "Platform version": Product Version
+  "Value": New Value
+
+ordered_fields:
+  - Product Name:resolve=doublequotes
+  - Product Version
+  - Scan ID
+  - Detection ID
+  - Threat Name
+  - Threat ID
+  - Severity Name
+  - Category Name
+  - Action Name
+  - Process Name
+  - Process ID
+  - Path
+  - Scan Type:resolve=doublequotes
+  - Scan Parameters:resolve=doublequotes
+  - Domain
+  - User
+  - Remediation User
+  - SID
+  - Scan Resources
+  - Timestamp
+  - Old Value
+  - New Value
+  - Error Code
+  - Error Description
+  - Detection Source:resolve=doublequotes
+  - Detection Origin
+  - Execution Status:resolve=doublequotes
+  - Detection Type:resolve=doublequotes
+  - Security intelligence Version
+  - Engine Version
+  - Status Code # Maybe this one: https://github.com/MicrosoftDocs/windows-powershell-docs/blob/main/docset/winserver2022-ps/defender/Set-MpPreference.md
+  #- Status Description # empty anyway
+  - Cleaning Action
+  - Signature Version
+  - Previous Signature Version
+  - FidelityValue
+  - FidelityLabel
+  - Image File Hash # Keep both
+  - TargetFileHash # Keep both
+  - TargetFileName
+  - State
+  - Source Name
+  - Origin Name
+  - Execution Name
+  - Type Name
+  - Pre Execution Status
+  - Post Clean Status
+  - Additional Actions String
+  - Target Commandline
+  - Parent Commandline
+  - Involved File
+  - Inhertiance Flags
+  - Source app
+  - Target app
+  - Last full scan start time
+  - Last full scan end time
+  - Last full scan source:mapper_number_to_string=defender_scansource # Mapping to: defender_scansource
+  #- Previous security intelligence Version
+  - Security intelligence Type
+  - Update Type:resolve=doublequotes
+  - Update Source:resolve=doublequotes
+  - Signature Type:resolve=doublequotes
+  - Update State:resolve=doublequotes
+  - Feature Name:resolve=doublequotes
+  - Reason:resolve=doublequotes
+  - Configuration
+  - Resource
+  - Failure Type
+  - Exception Code
+  - Changed Type
+  - Scan Time Hours
+  - Scan Time Minutes
+  - Scan Time Seconds
+  - FWLink
+
+  #- Scan Type Index
+  #- Scan Parameters Index
+  #- Detection Source Index
+  #- Severity ID
+  #- Category ID
+  #- Detection Origin Index
+  # - Execution Status Index
+  #- Detection Type Index
+  #- Security intelligence ID
+  #- Cleaning Action Index
+  #- Source ID
+  #- Origin ID
+  #- Execution ID
+  #- Type ID
+  #- Action ID
+  #- Additional Actions ID
+  #- Product status
+  #- RuleType
+  #- Update Type Index
+  #- Security intelligence Type Index
+  #- Previous Engine Version
+  #- Update Source Index
+  #- Signature Type Index
+  #- Update State Index
+  #- Feature Index
+  #- Security intelligence Attempted Index
+  #- Security intelligence Attempted  
+  #- Feature ID
+  #- Failure Type Index
+  # - NRI engine version
+  #- AV security intelligence version
+  #- AS security intelligence version
+  #- NRI security intelligence version
+  #- RTP state
+  #- OA state
+  #- IOAV state
+  #- BM state
+  #- Last AV security intelligence age
+  #- Last AS security intelligence age
+  #- Last quick scan age
+  #- Last full scan age
+  #- AV security intelligence creation time
+  #- AS security intelligence creation time
+  #- Last quick scan start time
+  #- Last quick scan end time
+  #- Last quick scan source
+  

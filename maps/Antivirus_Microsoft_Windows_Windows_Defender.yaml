@@ -1,0 +1,342 @@
+info:
+    typ: "layer1"
+    source_comment: "Microsoft-Windows-Windows Defender%4Operational.evtx"
+    channel: "Microsoft-Windows-Windows Defender/Operational"
+
+sendto_layer2: AV_WindowsDefender
+
+events:
+    1000:
+        attrib_extraction: []
+        short_description: "Scan has started"
+        provider_guid: "{11cd958a-c507-4ef3-b3f2-5fd9dfbd2c78}"
+
+    1001:
+        attrib_extraction: []
+        short_description: "Scan has finished"
+        provider_guid: "{11cd958a-c507-4ef3-b3f2-5fd9dfbd2c78}"
+        
+    1002:
+        attrib_extraction: []
+        short_description: "Scan has been stopped before completion"
+        provider_guid: "{11cd958a-c507-4ef3-b3f2-5fd9dfbd2c78}"
+        
+    1003:
+        attrib_extraction: []
+        short_description: "Scan has been paused"
+        provider_guid: "{11cd958a-c507-4ef3-b3f2-5fd9dfbd2c78}"
+        
+    1004:
+        attrib_extraction: []
+        short_description: "Scan has resumed"
+        provider_guid: "{11cd958a-c507-4ef3-b3f2-5fd9dfbd2c78}"
+        
+    1005:
+        attrib_extraction: []
+        short_description: "Scan has encountered an error and terminated"
+        provider_guid: "{11cd958a-c507-4ef3-b3f2-5fd9dfbd2c78}"
+        
+    1006:
+        attrib_extraction: []
+        short_description: "Scan has detected spyware or other potentially unwanted software"
+        provider_guid: "{11cd958a-c507-4ef3-b3f2-5fd9dfbd2c78}"
+        
+    1007:
+        attrib_extraction: []
+        short_description: "Has taken action to protect this machine from malware or other potentially unwanted software"
+        provider_guid: "{11cd958a-c507-4ef3-b3f2-5fd9dfbd2c78}"
+        
+    1008:
+        attrib_extraction: []
+        short_description: "Has encountered an error when taking action on malware or other potentially unwanted software"
+        provider_guid: "{11cd958a-c507-4ef3-b3f2-5fd9dfbd2c78}"
+        
+    1009:
+        attrib_extraction: []
+        short_description: "Has restored an item from quarantine"
+        provider_guid: "{11cd958a-c507-4ef3-b3f2-5fd9dfbd2c78}"
+        
+    1010:
+        attrib_extraction: []
+        short_description: "Has encountered an error trying to restore an item from quarantine"
+        provider_guid: "{11cd958a-c507-4ef3-b3f2-5fd9dfbd2c78}"
+        
+    1011:
+        attrib_extraction: []
+        short_description: "Has deleted an item from quarantine"
+        provider_guid: "{11cd958a-c507-4ef3-b3f2-5fd9dfbd2c78}"
+        
+    1012:
+        attrib_extraction: []
+        short_description: "Has encountered an error trying to delete an item from quarantine"
+        provider_guid: "{11cd958a-c507-4ef3-b3f2-5fd9dfbd2c78}"
+        
+    1013:
+        attrib_extraction: []
+        short_description: "Has removed history of malware and other potentially unwanted software"
+        provider_guid: "{11cd958a-c507-4ef3-b3f2-5fd9dfbd2c78}"
+        
+    1014:
+        attrib_extraction: []
+        short_description: "Has encountered an error trying to remove history of malware and other potentially unwanted software"
+        provider_guid: "{11cd958a-c507-4ef3-b3f2-5fd9dfbd2c78}"
+        
+    1015:
+        attrib_extraction: []
+        short_description: "Has detected a suspicious behavior"
+        provider_guid: "{11cd958a-c507-4ef3-b3f2-5fd9dfbd2c78}"
+        
+    1116:
+        attrib_extraction: []
+        short_description: "Has detected malware or other potentially unwanted software"
+        provider_guid: "{11cd958a-c507-4ef3-b3f2-5fd9dfbd2c78}"
+        
+    1117:
+        attrib_extraction: []
+        short_description: "Has taken action to protect this machine from malware or other potentially unwanted software"
+        provider_guid: "{11cd958a-c507-4ef3-b3f2-5fd9dfbd2c78}"
+        
+    1118:
+        attrib_extraction: []
+        short_description: "Has encountered a non-critical error when taking action on malware or other potentially unwanted software"
+        provider_guid: "{11cd958a-c507-4ef3-b3f2-5fd9dfbd2c78}"
+        
+    1119:
+        attrib_extraction: []
+        short_description: "Has encountered a critical error when taking action on malware or other potentially unwanted software"
+        provider_guid: "{11cd958a-c507-4ef3-b3f2-5fd9dfbd2c78}"
+        
+    1120:
+        attrib_extraction: []
+        short_description: "Has deduced the hashes for a threat resource"
+        provider_guid: "{11cd958a-c507-4ef3-b3f2-5fd9dfbd2c78}"
+        
+    1121:
+        attrib_extraction: []
+        short_description: "Microsoft Defender Exploit Guard has blocked an operation that is not allowed by your IT administrator."
+        provider_guid: "{11cd958a-c507-4ef3-b3f2-5fd9dfbd2c78}"
+        
+    1130:
+        attrib_extraction: []
+        short_description: "blocked a behavior by"
+        provider_guid: "{11cd958a-c507-4ef3-b3f2-5fd9dfbd2c78}"
+        
+    1150:
+        attrib_extraction: []
+        short_description: "Endpoint Protection client is up and running in a healthy state"
+        provider_guid: "{11cd958a-c507-4ef3-b3f2-5fd9dfbd2c78}"
+        
+    1151:
+        attrib_extraction: []
+        short_description: "Antivirus client health report"
+        provider_guid: "{11cd958a-c507-4ef3-b3f2-5fd9dfbd2c78}"
+        
+    1160:
+        attrib_extraction: []
+        short_description: "Has detected potentially unwanted application(PUA)"
+        provider_guid: "{11cd958a-c507-4ef3-b3f2-5fd9dfbd2c78}"
+        
+    2000:
+        attrib_extraction: []
+        short_description: "Signature version has been updated"
+        provider_guid: "{11cd958a-c507-4ef3-b3f2-5fd9dfbd2c78}"
+        
+    2001:
+        attrib_extraction: []
+        short_description: "Has encountered an error trying to update signatures"
+        provider_guid: "{11cd958a-c507-4ef3-b3f2-5fd9dfbd2c78}"
+        
+    2002:
+        attrib_extraction: []
+        short_description: "Engine version has been updated"
+        provider_guid: "{11cd958a-c507-4ef3-b3f2-5fd9dfbd2c78}"
+        
+    2003:
+        attrib_extraction: []
+        short_description: "Has encountered an error trying to update the engine"
+        provider_guid: "{11cd958a-c507-4ef3-b3f2-5fd9dfbd2c78}"
+        
+    2004:
+        attrib_extraction: []
+        short_description: "Has encountered an error trying to load signatures and will attempt reverting back to a known-good set of signatures"
+        provider_guid: "{11cd958a-c507-4ef3-b3f2-5fd9dfbd2c78}"
+        
+    2005:
+        attrib_extraction: []
+        short_description: "Could not load antimalware engine because current platform version is not supported. will revert back to the last known-good engine and a platform update will be attempted"
+        provider_guid: "{11cd958a-c507-4ef3-b3f2-5fd9dfbd2c78}"
+
+    2006:
+        attrib_extraction: []
+        short_description: "Has encountered an error trying to update the platform"
+        provider_guid: "{11cd958a-c507-4ef3-b3f2-5fd9dfbd2c78}"
+
+    2030:
+        attrib_extraction: []
+        short_description: "Downloaded and configured Windows Defender Offline to run on the next reboot"
+        provider_guid: "{11cd958a-c507-4ef3-b3f2-5fd9dfbd2c78}"
+
+    2031:
+        attrib_extraction: []
+        short_description: "%Has encountered an error trying to download and configure Windows Defender Offline"
+        provider_guid: "{11cd958a-c507-4ef3-b3f2-5fd9dfbd2c78}"
+
+    2040:
+        attrib_extraction: []
+        short_description: "The support for your operating system will expire shortly. Running on an out of support operating system is not an adequate solution to protect against threats"
+        provider_guid: "{11cd958a-c507-4ef3-b3f2-5fd9dfbd2c78}"
+
+    2041:
+        attrib_extraction: []
+        short_description: "The support for your operating system has expired. Running on an out of support operating system is not an adequate solution to protect against threats."
+        provider_guid: "{11cd958a-c507-4ef3-b3f2-5fd9dfbd2c78}"
+
+    2042:
+        attrib_extraction: []
+        short_description: "The support for your operating system has expired. is no longer supported on your operating system, has stopped functioning, and is not protecting against malware threats."
+        provider_guid: "{11cd958a-c507-4ef3-b3f2-5fd9dfbd2c78}"
+
+    2050:
+        attrib_extraction: []
+        short_description: "Has uploaded a suspicious file for further analysis"
+        provider_guid: "{11cd958a-c507-4ef3-b3f2-5fd9dfbd2c78}"
+
+    2051:
+        attrib_extraction: []
+        short_description: "Has encountered an error trying to upload a suspicious file for further analysis"
+        provider_guid: "{11cd958a-c507-4ef3-b3f2-5fd9dfbd2c78}"
+
+    3000:
+        attrib_extraction: []
+        short_description: "Real-Time Protection agents have started"
+        provider_guid: "{11cd958a-c507-4ef3-b3f2-5fd9dfbd2c78}"
+
+    3001:
+        attrib_extraction: []
+        short_description: "Real-Time Protection agents have stopped"
+        provider_guid: "{11cd958a-c507-4ef3-b3f2-5fd9dfbd2c78}"
+
+    3002:
+        attrib_extraction: []
+        short_description: "Real-Time Protection agent has encountered an error and failed to start"
+        provider_guid: "{11cd958a-c507-4ef3-b3f2-5fd9dfbd2c78}"
+
+    3003:
+        attrib_extraction: []
+        short_description: "Real-Time Protection checkpoint has encountered an error and failed to start"
+        provider_guid: "{11cd958a-c507-4ef3-b3f2-5fd9dfbd2c78}"
+
+    3004:
+        attrib_extraction: []
+        short_description: "Real-Time Protection agent has detected changes. Microsoft recommends you analyze the software that made these changes for potential risks"
+        provider_guid: "{11cd958a-c507-4ef3-b3f2-5fd9dfbd2c78}"
+
+    3005:
+        attrib_extraction: []
+        short_description: "Real-Time Protection agent has taken action to protect this machine from spyware or other potentially unwanted software"
+        provider_guid: "{11cd958a-c507-4ef3-b3f2-5fd9dfbd2c78}"
+
+    3006:
+        attrib_extraction: []
+        short_description: "Real-Time Protection agent has encountered an error when taking action on spyware or other potentially unwanted software"
+        provider_guid: "{11cd958a-c507-4ef3-b3f2-5fd9dfbd2c78}"
+
+    3007:
+        attrib_extraction: []
+        short_description: "Real-time Protection feature has restarted. It is recommended that you run a full system scan to detect any items that may have been missed while this agent was down"
+        provider_guid: "{11cd958a-c507-4ef3-b3f2-5fd9dfbd2c78}"
+
+    4000:
+        attrib_extraction: []
+        short_description: "AV OnAccess Filter has detected spyware or other potentially unwanted software"
+        provider_guid: "{11cd958a-c507-4ef3-b3f2-5fd9dfbd2c78}"
+
+    4002:
+        attrib_extraction: []
+        short_description: "AV OnAccess Filter has taken action to protect this machine from detected spyware or other potentially unwanted software"
+        provider_guid: "{11cd958a-c507-4ef3-b3f2-5fd9dfbd2c78}"
+
+    4003:
+        attrib_extraction: []
+        short_description: "AV OnAccess Filter has encountered an error when taking action on detected spyware or other potentially unwanted software"
+        provider_guid: "{11cd958a-c507-4ef3-b3f2-5fd9dfbd2c78}"
+
+    5000:
+        attrib_extraction: []
+        short_description: "Real-time Protection scanning for malware/spyware and other potentially unwanted software was enabled"
+        provider_guid: "{11cd958a-c507-4ef3-b3f2-5fd9dfbd2c78}"        
+        
+    5001:
+        attrib_extraction: []
+        short_description: "Real-time Protection scanning for malware/spyware and other potentially unwanted software was disabled"
+        provider_guid: "{11cd958a-c507-4ef3-b3f2-5fd9dfbd2c78}"        
+        
+    5002:
+        attrib_extraction: []
+        short_description: "OnAccess scanning for viruses was enabled"
+        provider_guid: "{11cd958a-c507-4ef3-b3f2-5fd9dfbd2c78}"        
+        
+    5003:
+        attrib_extraction: []
+        short_description: "OnAccess scanning for viruses was disabled"
+        provider_guid: "{11cd958a-c507-4ef3-b3f2-5fd9dfbd2c78}"        
+        
+    5004:
+        attrib_extraction: []
+        short_description: "Real-time Protection feature configuration has changed"
+        provider_guid: "{11cd958a-c507-4ef3-b3f2-5fd9dfbd2c78}"        
+        
+    5005:
+        attrib_extraction: []
+        short_description: "Real-time Protection checkpoint configuration has changed"
+        provider_guid: "{11cd958a-c507-4ef3-b3f2-5fd9dfbd2c78}"        
+        
+    5006:
+        attrib_extraction: []
+        short_description: "OnAccess filter seems to be a unloaded - OnAccess scanning is disabled - Please restart the service"
+        provider_guid: "{11cd958a-c507-4ef3-b3f2-5fd9dfbd2c78}"        
+        
+    5007:
+        attrib_extraction: []
+        short_description: "Configuration has changed. If this is an unexpected event you should review the settings as this may be the result of malware"
+        provider_guid: "{11cd958a-c507-4ef3-b3f2-5fd9dfbd2c78}"        
+        
+    5008:
+        attrib_extraction: []
+        short_description: "Engine has been terminated due to an unexpected error"
+        provider_guid: "{11cd958a-c507-4ef3-b3f2-5fd9dfbd2c78}"        
+        
+    5009:
+        attrib_extraction: []
+        short_description: "Scanning for spyware and other potentially unwanted software has been enabled"
+        provider_guid: "{11cd958a-c507-4ef3-b3f2-5fd9dfbd2c78}"        
+        
+    5010:
+        attrib_extraction: []
+        short_description: "Scanning for spyware and other potentially unwanted software is disabled"
+        provider_guid: "{11cd958a-c507-4ef3-b3f2-5fd9dfbd2c78}"        
+        
+    5011:
+        attrib_extraction: []
+        short_description: "Scanning for viruses has been enabled"
+        provider_guid: "{11cd958a-c507-4ef3-b3f2-5fd9dfbd2c78}"        
+        
+    5012:
+        attrib_extraction: []
+        short_description: "Scanning for viruses is disabled"
+        provider_guid: "{11cd958a-c507-4ef3-b3f2-5fd9dfbd2c78}"        
+        
+    5013:
+        attrib_extraction: []
+        short_description: "Tamper protection blocked a change to Microsoft Defender Antivirus"
+        provider_guid: "{11cd958a-c507-4ef3-b3f2-5fd9dfbd2c78}"        
+        
+    5100:
+        attrib_extraction: []
+        short_description: "Has entered a grace period and will soon expire. After expiration, this program will disable protection against viruses, spyware, and other potentially unwanted software"
+        provider_guid: "{11cd958a-c507-4ef3-b3f2-5fd9dfbd2c78}"        
+        
+    5101:
+        attrib_extraction: []
+        short_description: "Grace period has expired. Protection against viruses, spyware, and other potentially unwanted software is disabled"
+        provider_guid: "{11cd958a-c507-4ef3-b3f2-5fd9dfbd2c78}"        

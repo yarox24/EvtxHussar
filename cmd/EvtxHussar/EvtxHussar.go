@@ -8,7 +8,7 @@ import (
 	"strings"
 )
 
-var VERSION = "1.4"
+var VERSION = "1.5"
 var URL = "github.com/yarox24/EvtxHussar"
 
 type Config struct {

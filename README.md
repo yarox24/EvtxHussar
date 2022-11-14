@@ -25,6 +25,8 @@ Initial triage of Windows Event logs. This is beta quality software.
 - Reconstruction of PowerShell Scriptblocks
 - Powershell -enc <base64 string> is automatically decoded
 - Scheduled Tasks XML parsing
+- Audit changes
+- Boot up/Restart/Shutdown events
 - Merge events from different sources (e.g. Microsoft-Windows-PowerShellOperational_General and Windows PowerShell) to single output file
 - Deduplication of events (so you can provide logs from backup, VSS, archive)
 - Supported events can be easily added by adding .yaml files to maps/ directory
@@ -61,7 +63,21 @@ EvtxHussar.exe -w 100 -r -o C:\evtxhussar_results C:\evtx_many_machines
 ```cmd
 EvtxHussar.exe -m C:\incident_specific_maps -r -o C:\evtxhussar_results C:\evtx_many_machines
 ```
-  
+
+**Parse only with selected Layer2 maps e.g. PowerShellUniversal,PowerShellScriptBlock**
+```cmd
+EvtxHussar.exe --includeonly PowerShellUniversal,PowerShellScriptBlock -r -o C:\evtxhussar_results C:\evtx_many_machines
+```
+
+**Parse with all Layer2 maps but exclude e.g. FirewallUniversal**
+```cmd
+EvtxHussar.exe --excludeonly FirewallUniversal -r -o C:\evtxhussar_results C:\evtx_many_machines
+```
+
+### Blog article
+:memo:
+https://atos.net/en/lp/securitydive/how-to-accelerate-analysis-of-windows-event-logs
+
 ### Help
 ```cmd
 Usage: EvtxHussar [--recursive] [--output_dir OUTPUT_DIR] [--format FORMAT] [--workers WORKERS] [--maps MAPS] [--debug] [INPUT_EVTX_PATHS [INPUT_EVTX_PATHS ...]]
@@ -78,6 +94,11 @@ Options:
   --workers WORKERS, -w WORKERS
                          Max concurrent workers (.evtx opened) [default: 30]
   --maps MAPS, -m MAPS   Custom directory with maps/ (Default: program directory)
+  --includeonly INCLUDEONLY, -i INCLUDEONLY
+                         Include only Layer2 maps present on the list comma separated (Name taken from YAML) [default: {[]}]
+  --excludeonly EXCLUDEONLY, -e EXCLUDEONLY
+                         Start with all Layer2 maps and exclude only maps present on the comma separated list (Name taken from YAML) [default: {[]}]
+  --scriptblockxor, -x   Apply XOR on reconstructed PS ScriptBlocks with key 'Y' (0x59) to prevent deletion by AV [default: false]
   --debug, -d            Be more verbose [default: false]
   --help, -h             display this help and exit
   --version              display version and exit

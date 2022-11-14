@@ -17,7 +17,7 @@ Initial triage of Windows Event logs. This is beta quality software.
 ![image](https://user-images.githubusercontent.com/18016218/164982801-4fdc2786-0bfb-439a-8679-1ab35537e4c0.png)
 
 ###### Output directory structure
-![obraz](https://user-images.githubusercontent.com/18016218/174342056-792fa75d-11e9-49b8-8f58-d7f9acb076b8.png)
+![image](https://user-images.githubusercontent.com/18016218/180607885-ece585ea-7d07-4108-a83b-7005f41a4d82.png)
 
 
 ### Interesting features
@@ -30,6 +30,7 @@ Initial triage of Windows Event logs. This is beta quality software.
 - Supported events can be easily added by adding .yaml files to maps/ directory
 - Parameters resolution (e.g. %%1936 changed to TokenElevationTypeDefault (1))
 - Fields resolution (e.g. servicestarttype = 2 is replaced with "Auto start")
+- Fields with different names are normalized to single field (whenever possible) e.g. Filename -> TargetFileName
 
 ### Which events are supported?
 Please look into [maps/](https://github.com/yarox24/EvtxHussar/tree/main/maps "L1 maps") (which contains Layer 1 maps)

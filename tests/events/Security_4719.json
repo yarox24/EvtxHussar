@@ -1,0 +1,42 @@
+{
+	"Event": {
+		"System": {
+			"Provider": {
+				"Name": "Microsoft-Windows-Security-Auditing",
+				"Guid": "54849625-5478-4994-A5BA-3E3B0328C30D"
+			},
+			"EventID": {
+				"Value": 4719
+			},
+			"Version": 0,
+			"Level": 0,
+			"Task": 13568,
+			"Opcode": 0,
+			"Keywords": 9232379236109516800,
+			"TimeCreated": {
+				"SystemTime": 1238798000.1111112
+			},
+			"EventRecordID": 111,
+			"Correlation": {
+				"ActivityID": "8C34E24D-B107-0004-31E2-349C07F1D701"
+			},
+			"Execution": {
+				"ProcessID": 1000,
+				"ThreadID": 4896
+			},
+			"Channel": "Security",
+			"Computer": "DESKTOP-EvtxHussar",
+			"Security": {}
+		},
+		"EventData": {
+			"SubjectUserSid": "S-1-5-18",
+			"SubjectUserName": "Yar0$",
+			"SubjectDomainName": "HUSS",
+			"SubjectLogonId": 999,
+			"CategoryId": "%%8273",
+			"SubcategoryId": "%%12544",
+			"SubcategoryGuid": "0CCE9215-69AE-11D9-BED3-505054503030",
+			"AuditPolicyChanges": "%%8448, %%8450"
+		}
+	}
+}

@@ -3,7 +3,6 @@ module github.com/yarox24/EvtxHussar
 go 1.18
 
 require (
-	github.com/KnicKnic/go-powershell v0.0.10
 	github.com/Velocidex/ordereddict v0.0.0-20220411103415-79032cf99b1d
 	github.com/alexflint/go-arg v1.4.3
 	github.com/mattn/go-colorable v0.1.12
@@ -23,9 +22,6 @@ require (
 	github.com/Velocidex/yaml/v2 v2.2.8 // indirect
 	github.com/alexflint/go-scalar v1.1.0 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
-	github.com/fogleman/gg v1.3.0 // indirect
-	github.com/goccy/go-graphviz v0.0.9 // indirect
-	github.com/golang/freetype v0.0.0-20170609003504-e2365dfdc4a0 // indirect
 	github.com/hashicorp/golang-lru v0.5.4 // indirect
 	github.com/mattn/go-isatty v0.0.14 // indirect
 	github.com/mohae/deepcopy v0.0.0-20170929034955-c48cc78d4826 // indirect
@@ -34,7 +30,6 @@ require (
 	github.com/xuri/efp v0.0.0-20220407160117-ad0f7a785be8 // indirect
 	github.com/xuri/nfp v0.0.0-20220409054826-5e722a1d9e22 // indirect
 	golang.org/x/crypto v0.0.0-20220408190544-5352b0902921 // indirect
-	golang.org/x/image v0.0.0-20211028202545-6944b10bf410 // indirect
 	golang.org/x/sys v0.0.0-20211216021012-1d35b9e2eb4e // indirect
 	www.velocidex.com/golang/binparsergen v0.1.1-0.20201101234514-bbdb29f9ee31 // indirect
 	www.velocidex.com/golang/go-pe v0.1.1-0.20211006062218-8f6d1ad6b2d5 // indirect

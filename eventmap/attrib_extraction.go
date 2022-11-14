@@ -116,6 +116,34 @@ func rename_field(o *ordereddict.Dict, opt map[string]string) *ordereddict.Dict 
 	return o
 }
 
+func append_to_field(o *ordereddict.Dict, opt map[string]string) *ordereddict.Dict {
+
+	// Read value
+	new_val, ok := o.GetString(opt["input_field"])
+
+	if !ok {
+		panic("append_to_field - input_field not exists")
+	}
+
+	// Check for: add_space_at_end
+	_, add_space_at_end := opt["add_space_at_end"]
+	temp_space := ""
+	if add_space_at_end {
+		temp_space += " "
+	}
+
+	// Check for output field existence
+	existing_val, out_exists := o.GetString(opt["output_field"])
+
+	if !out_exists {
+		o.Set(opt["output_field"], new_val+temp_space)
+	} else {
+		o.Update(opt["output_field"], existing_val+new_val+temp_space)
+	}
+
+	return o
+}
+
 func remove_key(o *ordereddict.Dict, opt map[string]string) *ordereddict.Dict {
 	o.Delete(opt["input_field"])
 	return o

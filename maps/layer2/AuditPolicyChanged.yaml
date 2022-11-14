@@ -1,0 +1,19 @@
+info:
+  typ: "layer2"
+  name: AuditPolicyChanged
+
+output:
+  typ: flat
+  category: audit
+  filename: policy_change
+
+ordered_fields:
+  - SubjectUserSid
+  - SubjectUserName
+  - SubjectDomainName
+  - SubjectLogonId:display_as=hex
+  - TargetUserSid
+  - CategoryId:resolve=doublequotes
+  - SubcategoryId:resolve=doublequotes
+  - SubcategoryGuid
+  - AuditPolicyChanges:resolve=doublequotes

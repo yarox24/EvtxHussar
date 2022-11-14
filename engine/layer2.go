@@ -50,6 +50,7 @@ type Layer2SingleLayer struct {
 	parsing_info        *Layer2
 	engine              *Engine
 	workers_counter     int32
+	options             map[string]string
 }
 
 func NewLayer2SingleLayer(l2_name string, latest_computer string, engine *Engine) Layer2SingleLayer {
@@ -61,6 +62,7 @@ func NewLayer2SingleLayer(l2_name string, latest_computer string, engine *Engine
 		parsing_info:        engine.FindL2LayerByName(l2_name),
 		engine:              engine,
 		workers_counter:     0,
+		options:             make(map[string]string, 0),
 	}
 }
 
@@ -136,7 +138,7 @@ func RunL2WorkerFlat(l2s *Layer2SingleLayer) {
 		final_od := l2s.engine.ParseCommonFieldsOrderedDict(ev_map, l2s.l2_name)
 
 		//eid, _ := final_od.GetString("EID")
-		//if eid == "2009" {
+		//if eid == "12" {
 		//	fmt.Println("Break")
 		//}
 
@@ -202,6 +204,14 @@ func RunL2WorkerPowershellScriptblock(l2s *Layer2SingleLayer) {
 	// ScriptBlocks memory
 	memory := make(map[string]common.PowerShellScriptBlockInfo, 1000)
 
+	// XOR mode
+	xor_mode := false
+	xor_key := common.ScriptBlocksXorKey
+
+	if l2s.options["ScriptBlocksXor"] == "true" {
+		xor_mode = true
+	}
+
 	// Prepare fields
 	matching_id_field := l2s.parsing_info.Aggregation_options["field_matching_id"]
 	total_number_field := l2s.parsing_info.Aggregation_options["field_total_number"]
@@ -265,7 +275,12 @@ func RunL2WorkerPowershellScriptblock(l2s *Layer2SingleLayer) {
 			}
 		}
 
-		just_filename := fmt.Sprintf("%s%s%s.ps1", part_filename, id, is_complete)
+		xor_extra_extension := ""
+		if xor_mode {
+			xor_extra_extension = ".xor"
+		}
+
+		just_filename := fmt.Sprintf("%s%s%s.ps1%s", part_filename, id, is_complete, xor_extra_extension)
 		final_filename := l2s.GetScriptBlockOutputPath(just_filename)
 
 		// Create new file
@@ -279,9 +294,19 @@ func RunL2WorkerPowershellScriptblock(l2s *Layer2SingleLayer) {
 		// Save segments to file
 		for i := 1; i <= block_info.Total; i++ {
 			if segment, seg_exists := block_info.Segments[i]; seg_exists {
-				psblock_datawriter.WriteString(segment)
+				new_segment := segment
+
+				if xor_mode {
+					new_segment = common.EncryptDecrypt(new_segment, xor_key)
+				}
+				psblock_datawriter.WriteString(new_segment)
 			} else {
-				psblock_datawriter.WriteString("\r\n\r\n[Missing segment]\r\n\n")
+				new_segment2 := "\r\n\r\n[Missing segment]\r\n\n"
+				if xor_mode {
+					new_segment2 = common.EncryptDecrypt(new_segment2, xor_key)
+				}
+
+				psblock_datawriter.WriteString(new_segment2)
 			}
 		}
 
@@ -347,6 +372,15 @@ func (l2mem *Layer2GlobalMemory) SetupChannelKillers() {
 		go ChannelKiller(l2s)
 	}
 
+}
+
+func (l2mem *Layer2GlobalMemory) SetupOptions(ScriptBlocksXor bool) {
+
+	for i := 0; i < len(l2mem.Layers); i++ {
+		l2s := &l2mem.Layers[i]
+		l2s.options["ScriptBlocksXor"] = strconv.FormatBool(ScriptBlocksXor)
+		l2s.options["ScriptBlocksXorKey"] = common.ScriptBlocksXorKey
+	}
 }
 
 func (l2s *Layer2SingleLayer) GetComputerDir() string {

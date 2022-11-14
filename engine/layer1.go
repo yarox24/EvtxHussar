@@ -183,8 +183,13 @@ func l1close_wait_groups_in_loop(l2s_wg_to_close_channel_list []*sync.WaitGroup)
 func serialize_event(ev *ordereddict.Dict) {
 	ev_map, _ := ordereddict.GetMap(ev, "Event")
 
+	var filename string = fmt.Sprintf("%s_%s.json", eventmap.GetChannel(ev_map), eventmap.GetEID(ev_map))
+
 	// Filename
-	filename := fmt.Sprintf("%s_%s.json", eventmap.GetChannel(ev_map), eventmap.GetEID(ev_map))
+	if eventmap.GetChannel(ev_map) == "System" {
+		filename = fmt.Sprintf("%s_%s_%s.json", eventmap.GetChannel(ev_map), eventmap.GetProviderName(ev_map), eventmap.GetEID(ev_map))
+	}
+
 	filename = strings.ReplaceAll(filename, "/", "_")
 	filename = strings.ReplaceAll(filename, "\\", "_")
 	filename = strings.ReplaceAll(filename, " ", "_")

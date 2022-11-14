@@ -1,0 +1,117 @@
+info:
+    typ: "layer1"
+    source_comment: "System.evtx"
+    channel: "System"
+
+sendto_layer2: General_BootupRestartShutdown
+
+events:
+    12:
+        attrib_extraction: []
+        short_description: "The operating system started at system time"
+        provider_guid: "{A68CA8B7-004F-D7B6-A698-07E2DE0F1F5D}"
+
+    13:
+        attrib_extraction: []
+        short_description: "The operating system is shutting down at system time"
+        provider_guid: "{A68CA8B7-004F-D7B6-A698-07E2DE0F1F5D}"
+        
+    16:
+        attrib_extraction: []
+        short_description: "Windows failed to resume from hibernate with error status"
+        provider_guid: "{15CA44FF-4D7A-4BAA-BBA5-0998955E531E}"
+
+    #18:
+    #    attrib_extraction: []
+    #    short_description: "The operating system is starting after soft restart"
+    #    provider_guid: "{A68CA8B7-004F-D7B6-A698-07E2DE0F1F5D}"
+
+    20:
+        attrib_extraction: []
+        short_description: "The last shutdown's success status was X. The last boot's success status was Y"
+        provider_guid: "{15CA44FF-4D7A-4BAA-BBA5-0998955E531E}"
+
+    41:
+        attrib_extraction: []
+        short_description: "Windows failed to load with error status"
+        provider_guid: "{15CA44FF-4D7A-4BAA-BBA5-0998955E531E}"
+
+    108:
+        attrib_extraction: []
+        short_description: "The previous system shutdown was unexpected"
+        provider_guid: "{fc65ddd8-d6ef-4962-83d5-6e5cfe9ce148}"
+
+    1001:
+        attrib_extraction:
+           - "rename_field:input_field=param1,output_field=Bugcheck"
+           - "rename_field:input_field=param2,output_field=DumpPath"
+           - "rename_field:input_field=param3,output_field=ReportID"
+        short_description: "The computer has rebooted from a bugcheck.  The bugcheck was: X. A dump was saved in: Y. Report Id: Z"
+        provider_guid: "{ABCE23E7-DE45-4366-8631-84FA6C525952}"
+
+    1073:
+        attrib_extraction:
+           - "rename_field:input_field=param1,output_field=SourceComputer"
+           - "rename_field:input_field=param2,output_field=SubjectUserName"
+        short_description: "The attempt by user X to restart/shutdown computer Y failed"
+        provider_guid: "{b0aa8734-56f7-41cc-b2f4-de228e98b946}"
+
+    1074:
+        attrib_extraction: 
+           - "rename_field:input_field=param1,output_field=ProcessName"
+           - "rename_field:input_field=param2,output_field=SourceComputer"
+           - "rename_field:input_field=param3,output_field=Reason"
+           - "rename_field:input_field=param4,output_field=ReasonCode"
+           - "rename_field:input_field=param5,output_field=Type"
+           - "rename_field:input_field=param6,output_field=Comment"
+           - "rename_field:input_field=param7,output_field=SubjectUserName"
+        short_description: "The process X has initiated the Y of computer Z on behalf of user G for the following reason: H "
+        provider_guid: "{b0aa8734-56f7-41cc-b2f4-de228e98b946}"
+
+    1076:
+        attrib_extraction:
+           - "rename_field:input_field=param1,output_field=Reason"
+           - "rename_field:input_field=param2,output_field=ReasonCode"
+           - "rename_field:input_field=param6,output_field=SubjectUserName"
+           - "rename_field:input_field=param4,output_field=Bugcheck"
+           # Lost param 5
+           - "rename_field:input_field=param5,output_field=Comment"
+        short_description: "The reason supplied by user X for the last unexpected shutdown of this computer is: Y"
+        provider_guid: "{b0aa8734-56f7-41cc-b2f4-de228e98b946}"
+
+    1100:
+        attrib_extraction: []
+        short_description: "The event logging service has shut down"
+        provider_guid: "{fc65ddd8-d6ef-4962-83d5-6e5cfe9ce148}"
+
+    6005:
+        attrib_extraction: []
+        short_description: "The Event log service was started"
+        provider_name: "EventLog"
+
+    6006:
+        attrib_extraction: []
+        short_description: "The Event log service was stopped"
+        provider_name: "EventLog"
+    
+    6008:
+        attrib_extraction:
+           - "content_data_autonumbering"
+           - "append_to_field:input_field=autonumbered1,output_field=StopTime,add_space_at_end=true"
+           - "append_to_field:input_field=autonumbered0,output_field=StopTime"
+        short_description: "The previous system shutdown at X on Y was unexpected"
+        provider_name: "EventLog"  
+        
+    6009:
+        attrib_extraction: 
+           - "content_data_autonumbering"
+        short_description: "Microsoft (R) Windows (R) [Shows Windows version at boot time]"
+        provider_name: "EventLog"
+        
+    6013:
+        attrib_extraction:
+           - "content_data_autonumbering"
+           - "rename_field:input_field=autonumbered4,output_field=Uptime"
+        short_description: "The system uptime is X seconds"
+        provider_name: "EventLog"
+        

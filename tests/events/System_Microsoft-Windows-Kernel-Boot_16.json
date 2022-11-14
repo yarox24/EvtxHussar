@@ -1,0 +1,36 @@
+{
+	"Event": {
+		"System": {
+			"Provider": {
+				"Name": "Microsoft-Windows-Kernel-Boot",
+				"Guid": "15CA44FF-4D7A-4BAA-BBA5-0998955E531E"
+			},
+			"EventID": {
+				"Value": 16
+			},
+			"Version": 1,
+			"Level": 2,
+			"Task": 0,
+			"Opcode": 0,
+			"Keywords": 9223380832947798016,
+			"TimeCreated": {
+				"SystemTime": 1638798000.1111112
+			},
+			"EventRecordID": 111,
+			"Correlation": {},
+			"Execution": {
+				"ProcessID": 4,
+				"ThreadID": 8
+			},
+			"Channel": "System",
+			"Computer": "DESKTOP-EvtxHussar",
+			"Security": {
+				"UserID": "S-1-5-18"
+			}
+		},
+		"EventData": {
+			"FailureStatus": 3221225473,
+			"FailureMsg": "A fatal error occurred processing the restoration data.\r\n"
+		}
+	}
+}

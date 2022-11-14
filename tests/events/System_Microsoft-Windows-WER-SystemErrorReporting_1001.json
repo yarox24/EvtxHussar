@@ -1,0 +1,37 @@
+{
+	"Event": {
+		"System": {
+			"Provider": {
+				"Name": "Microsoft-Windows-WER-SystemErrorReporting",
+				"Guid": "{ABCE23E7-DE45-4366-8631-84FA6C525952}",
+				"EventSourceName": "BugCheck"
+			},
+			"EventID": {
+				"Qualifiers": 16384,
+				"Value": 1001
+			},
+			"Version": 0,
+			"Level": 2,
+			"Task": 0,
+			"Opcode": 0,
+			"Keywords": 36028797018963968,
+			"TimeCreated": {
+				"SystemTime": 1638798000.1111112
+			},
+			"EventRecordID": 111,
+			"Correlation": {},
+			"Execution": {
+				"ProcessID": 0,
+				"ThreadID": 0
+			},
+			"Channel": "System",
+			"Computer": "DESKTOP-EvtxHussar",
+			"Security": {}
+		},
+		"EventData": {
+			"param1": "0x0000009f (0x0000000000000003, 0xffff940cc8dd1050, 0xfffff805597e0110, 0xffff940cf303d010)",
+			"param2": "C:\\Windows\\MEMORY.DMP",
+			"param3": "3cab8006-21d7-30dc-5298-1a0b621c2383"
+		}
+	}
+}

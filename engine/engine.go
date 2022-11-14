@@ -15,6 +15,7 @@ type Engine struct {
 	Layer2         []Layer2
 	EventsCache    map[string]map[string]map[string]Layer1EventsEnhanced // EventsCache[l2_name][channel][eid] = l1events_enhanced
 	DoubleQuotes   map[string]common.Params
+	SIDList        map[string]string
 	VariousMappers map[string]common.Params
 	Common         Layer1
 	Maps_path      string
@@ -27,6 +28,7 @@ func NewEngine(output_format string, maps_path string) Engine {
 		Layer2:         make([]Layer2, 0),
 		EventsCache:    make(map[string]map[string]map[string]Layer1EventsEnhanced, 0),
 		DoubleQuotes:   make(map[string]common.Params, 0),
+		SIDList:        make(map[string]string, 0),
 		VariousMappers: make(map[string]common.Params, 0),
 		Common:         Layer1{},
 		Maps_path:      maps_path,
@@ -34,7 +36,29 @@ func NewEngine(output_format string, maps_path string) Engine {
 	}
 }
 
-func (e *Engine) LoadLayer1() {
+func (e *Engine) AllowLayerToBeAppendedBasedOnL2Name(IncludeOnly common.CommaSeparated, ExcludeOnly common.CommaSeparated, l2name string) bool {
+
+	// IncludeOnly - MODE
+	if len(IncludeOnly.Entries) > 0 {
+		if common.StringSliceContainsCaseInsensitive(IncludeOnly.Entries, l2name) {
+			return true
+		} else {
+			return false
+		}
+		// ExcludeOnly - MODE
+	} else if len(ExcludeOnly.Entries) > 0 {
+		if common.StringSliceContainsCaseInsensitive(ExcludeOnly.Entries, l2name) {
+			return false
+		} else {
+			return true
+		}
+	}
+
+	// No filtering applied
+	return true
+}
+
+func (e *Engine) LoadLayer1(IncludeOnly common.CommaSeparated, ExcludeOnly common.CommaSeparated) {
 
 	l1_files, err := ioutil.ReadDir(e.Maps_path)
 
@@ -69,6 +93,14 @@ func (e *Engine) LoadLayer1() {
 			common.LogDebug("Loaded common map (L1)")
 		} else if l1.Info.Typ == "layer1" {
 
+			// Skip loading filtered layers
+			if e.AllowLayerToBeAppendedBasedOnL2Name(IncludeOnly, ExcludeOnly, l1.Sendto_layer2) {
+				common.LogDebug("Loaded L1 (layer1) map: " + f.Name())
+			} else {
+				common.LogDebug("Skip loading (based on filter) L1 (layer1) map: " + f.Name())
+				continue
+			}
+
 			// Logic engine
 			for eid, _ := range l1.Events {
 				event := l1.Events[eid]
@@ -86,7 +118,6 @@ func (e *Engine) LoadLayer1() {
 			}
 
 			// Enhance
-
 			l1.EventsEnhanced = make(map[string]Layer1EventsEnhanced, 0)
 
 			for eid, l1event := range l1.Events {
@@ -94,7 +125,6 @@ func (e *Engine) LoadLayer1() {
 			}
 
 			e.Layer1 = append(e.Layer1, *l1)
-			common.LogDebug("Loaded L1 (layer1) map: " + f.Name())
 
 		} else {
 			panic("YAML - LoadLayer1() - Unsupported Info.Typ")
@@ -102,7 +132,7 @@ func (e *Engine) LoadLayer1() {
 	}
 }
 
-func (e *Engine) LoadLayer2(Output_dir string) {
+func (e *Engine) LoadLayer2(Output_dir string, IncludeOnly common.CommaSeparated, ExcludeOnly common.CommaSeparated) {
 
 	l2_layer_dir := e.Maps_path + "layer2" + string(os.PathSeparator)
 	l2_files, err := ioutil.ReadDir(l2_layer_dir)
@@ -134,6 +164,15 @@ func (e *Engine) LoadLayer2(Output_dir string) {
 		}
 
 		if l2.Info.Typ == "layer2" {
+
+			// Skip loading filtered layers
+			if e.AllowLayerToBeAppendedBasedOnL2Name(IncludeOnly, ExcludeOnly, l2.Info.Name) {
+				common.LogDebug("Loaded L2 (layer2) map: " + f.Name())
+			} else {
+				common.LogDebug("Skip loading (based on filter) L2 (layer2) map: " + f.Name())
+				continue
+			}
+
 			// Append OutputDir
 			l2.Output.GlobalOutputDirectory = Output_dir + string(os.PathSeparator)
 
@@ -306,6 +345,11 @@ func (e *Engine) ParseCommonFieldsOrderedDict(ev_map *eventmap.EventMap, l2_name
 		ord_map.Update("EventRecord ID", eventmap.GetEventRecordID(ev_map))
 	}
 
+	// Keywords
+	if _, erid_ok := ord_map.Get("Keywords"); erid_ok {
+		ord_map.Update("Keywords", eventmap.GetKeywords(ev_map))
+	}
+
 	//Correlation ActivityID
 	if _, erid_ok := ord_map.Get("Correlation ActivityID"); erid_ok {
 		ord_map.Update("Correlation ActivityID", eventmap.GetCorrelationActivityID(ev_map))
@@ -347,7 +391,7 @@ func (e *Engine) ParseL2FieldsOrderedDict(l2_name string, ev_map *eventmap.Event
 	}
 
 	// Resolve - Mappers & Double Quotes (Optional)
-	eventmap.ResolveMappersAndDoubleQuotesInPlace(ord_map, l2_current.Ordered_fields_enhanced, e.VariousMappers, e.GetDoubleQuotesForChannel(channel))
+	eventmap.ResolveMappersAndDoubleQuotesInPlace(ord_map, l2_current.Ordered_fields_enhanced, e.VariousMappers, e.GetDoubleQuotesForChannel(channel), e.SIDList)
 
 	// Special transformations
 	if len(l2_current.Field_extra_transformations) > 0 {
@@ -434,6 +478,10 @@ func (e *Engine) LoadParams() {
 			name := p.Info.Name
 			e.VariousMappers[name] = *p
 			common.LogDebug("Loaded params (mapper) map: " + f.Name())
+		} else if p.Info.Typ == "sidlist" {
+			//println(p.Params)
+			e.SIDList = p.Params
+			common.LogDebug("Loaded SIDList (mapper) map: " + f.Name())
 		} else {
 			panic("YAML - LoadLayer2() - Unsupported Info.Typ")
 		}

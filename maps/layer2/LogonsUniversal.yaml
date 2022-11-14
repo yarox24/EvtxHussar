@@ -67,7 +67,7 @@ ordered_fields:
   - VirtualAccount:resolve=doublequotes
   - TargetLinkedLogonId:display_as=hex
   - ElevatedToken:resolve=doublequotes
-  - GroupMembership
+  - GroupMembership:resolve=doublesids
   - RequestType
   - TicketOptions:mapper_bitwise_to_string=ticketoptions
   - TicketEncryptionType:mapper_number_to_string=ticketencryptiontype

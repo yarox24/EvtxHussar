@@ -10,12 +10,6 @@ import (
 	"strings"
 )
 
-const (
-	NOT_EXISTS = iota
-	IS_FILE
-	IS_DIR
-)
-
 func Determine_Maps_Path(MapsDirectoryConfig string) (string, error) {
 
 	maps_dir := ""
@@ -194,4 +188,16 @@ func ProperOrderedMapKeyCase(od *ordereddict.Dict, key string) string {
 		}
 	}
 	return key_lower
+}
+
+func StringSliceContainsCaseInsensitive(sl []string, val string) bool {
+	val_lower := strings.ToLower(val)
+
+	for _, sl_val := range sl {
+		if strings.ToLower(sl_val) == val_lower {
+			return true
+		}
+	}
+
+	return false
 }

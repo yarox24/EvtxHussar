@@ -21,4 +21,7 @@ func TestCommonFields(t *testing.T) {
 	easytesting104.CheckDesiredValue("System Process ID", "1232")
 	easytesting104.CheckDesiredValue("Security User ID", "S-1-5-19")
 
+	// Security 4674 (Keywords applied only to Security)
+	easytesting4674 := NewEasyTesting(t, UnmarshallAndParseEvent("Security_4674.json", eng, "LogonsUniversal"))
+	easytesting4674.CheckDesiredValue("Keywords", "Audit Success")
 }

@@ -8,17 +8,20 @@ import (
 	"strings"
 )
 
-var VERSION = "1.5"
+var VERSION = "1.6"
 var URL = "github.com/yarox24/EvtxHussar"
 
 type Config struct {
-	Recursive        bool     `arg:"-r,--recursive" help:"Recursive traversal for any input directories." default:"false""`
-	Output_dir       string   `arg:"-o,--output_dir" help:"Reports will be saved in this directory (if doesn't exists it will be created)"`
-	Output_format    string   `arg:"-f,--format" help:"Output data in one of the formats: Csv,JSON,JSONL,Excel" default:"Excel"`
-	Input_evtx_paths []string `arg:"positional" help:"Path(s) to .evtx files or directories containing these files (can be mixed)"`
-	WorkersLimit     int      `arg:"-w,--workers" help:"Max concurrent workers (.evtx opened)" default:"30"`
-	MapsDirectory    string   `arg:"-m,--maps" help:"Custom directory with maps/ (Default: program directory)"`
-	Debug            bool     `arg:"-d,--debug" help:"Be more verbose" default:"false""`
+	Recursive        bool                  `arg:"-r,--recursive" help:"Recursive traversal for any input directories." default:"false""`
+	Output_dir       string                `arg:"-o,--output_dir" help:"Reports will be saved in this directory (if doesn't exists it will be created)"`
+	Output_format    string                `arg:"-f,--format" help:"Output data in one of the formats: Csv,JSON,JSONL,Excel" default:"Excel"`
+	Input_evtx_paths []string              `arg:"positional" help:"Path(s) to .evtx files or directories containing these files (can be mixed)"`
+	WorkersLimit     int                   `arg:"-w,--workers" help:"Max concurrent workers (.evtx opened)" default:"30"`
+	MapsDirectory    string                `arg:"-m,--maps" help:"Custom directory with maps/ (Default: program directory)"`
+	IncludeOnly      common.CommaSeparated `arg:"-i,--includeonly" help:"Include only Layer2 maps present on the list comma separated (Name taken from YAML)"`
+	ExcludeOnly      common.CommaSeparated `arg:"-e,--excludeonly" help:"Start with all Layer2 maps and exclude only maps present on the comma separated list (Name taken from YAML)"`
+	ScriptBlocksXor  bool                  `arg:"-x,--scriptblockxor" help:"Apply XOR on reconstructed PS ScriptBlocks with key 'Y' (0x59) to prevent deletion by AV" default:"false""`
+	Debug            bool                  `arg:"-d,--debug" help:"Be more verbose" default:"false""`
 }
 
 func (Config) Version() string {
@@ -64,6 +67,13 @@ func ValidateOutputFormat(p *arg.Parser, c *Config) {
 	}
 }
 
+func ValidateIncludeExcludeMaps(p *arg.Parser, c *Config) {
+	// IncludeOnly and ExcludeOnly
+	if len(c.IncludeOnly.Entries) > 0 && len(c.ExcludeOnly.Entries) > 0 {
+		p.Fail("You cannot use IncludeOnly and ExcludeOnly params at the same time!")
+	}
+}
+
 func main() {
 
 	// ASCI ART
@@ -73,6 +83,7 @@ func main() {
 	conf := Config{}
 	p := arg.MustParse(&conf)
 	ValidateOutputFormat(p, &conf)
+	ValidateIncludeExcludeMaps(p, &conf)
 
 	// Logging
 	common.Logging_init(conf.Debug)
@@ -94,8 +105,8 @@ func main() {
 	}
 
 	engi := engine.NewEngine(conf.Output_format, maps_path)
-	engi.LoadLayer1()
-	engi.LoadLayer2(conf.Output_dir)
+	engi.LoadLayer1(conf.IncludeOnly, conf.ExcludeOnly)
+	engi.LoadLayer2(conf.Output_dir, conf.IncludeOnly, conf.ExcludeOnly)
 	engi.LoadParams()
 	engi.PrepareEventCache()
 
@@ -155,6 +166,7 @@ func main() {
 	l1globmem.SetupWorkers(&engi, common.ReturnCopyOfSupportedEfiFileInfoElements(EfiList), &l2globmem)
 
 	l2globmem.SetupChannelKillers()
+	l2globmem.SetupOptions(conf.ScriptBlocksXor)
 
 	l2globmem.StartL2Workers(&engi)
 	l1globmem.StartL1Workers(&engi, common.ReturnCopyOfSupportedEfiFileInfoElements(EfiList), &l2globmem, conf.WorkersLimit)

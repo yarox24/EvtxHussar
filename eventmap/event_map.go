@@ -68,6 +68,28 @@ func GetEventRecordID(ev_map *ordereddict.Dict) string {
 	return strconv.Itoa(temp)
 }
 
+func GetKeywords(ev_map *ordereddict.Dict) string {
+
+	// Apply only for Security logs
+	if GetChannel(ev_map) == "Security" {
+		kws, is_succ := ordereddict.GetAny(ev_map, "System.Keywords")
+
+		if is_succ {
+			// https://learn.microsoft.com/en-us/dotnet/api/system.diagnostics.eventing.reader.standardeventkeywords?view=netframework-4.8
+
+			// Audit Success
+			if kws.(uint64)&9007199254740992 > 0 {
+				return "Audit Success"
+				//Audit Failure
+			} else if kws.(uint64)&4503599627370496 > 0 {
+				return "Audit Failure"
+			}
+		}
+	}
+
+	return ""
+}
+
 func GetCorrelationActivityID(ev_map *ordereddict.Dict) string {
 	temp, _ := ordereddict.GetString(ev_map, "System.Correlation.ActivityID")
 
@@ -160,6 +182,10 @@ func ExtractAttribs(ev_map *ordereddict.Dict, attrib_extraction []common.Extract
 			if !l1mode {
 				o = rename_field(o, ef.Options)
 			}
+		case "append_to_field":
+			if !l1mode {
+				o = append_to_field(o, ef.Options)
+			}
 		case "remove_key":
 			o = remove_key(o, ef.Options)
 
@@ -179,6 +205,8 @@ func ConvertAllTypesToString(val interface{}, display_as string) string {
 	switch val.(type) {
 	case string:
 		return val.(string)
+	case bool:
+		return strconv.FormatBool(val.(bool))
 	case uint8:
 		if display_as == "hex" {
 			return "0x" + strconv.FormatUint(uint64(val.(uint8)), 16)
@@ -202,6 +230,13 @@ func ConvertAllTypesToString(val interface{}, display_as string) string {
 			return "0x" + strconv.FormatUint(uint64(val.(uint32)), 16)
 		} else {
 			return strconv.FormatUint(uint64(val.(uint32)), 10)
+		}
+	case float64:
+		if display_as == "utctime" {
+			temp_time := common.ToTime(val.(float64))
+			return common.SysTimeToString(temp_time, true) + " UTC"
+		} else {
+			return fmt.Sprintf("%f", val.(float64))
 		}
 	case []uint8:
 		if display_as == "uint8slice_utf-16" {
@@ -462,7 +497,7 @@ func ResolveForMapperBitwiseToString(VariousMappers map[string]common.Params, ma
 	return value
 }
 
-func ResolveMappersAndDoubleQuotesInPlace(ord_map *ordereddict.Dict, Ordered_fields_enhanced map[string]common.SingleField, VariousMappers map[string]common.Params, doublequotes map[string]string) {
+func ResolveMappersAndDoubleQuotesInPlace(ord_map *ordereddict.Dict, Ordered_fields_enhanced map[string]common.SingleField, VariousMappers map[string]common.Params, doublequotes map[string]string, SIDList map[string]string) {
 
 	for sf_name, sf := range Ordered_fields_enhanced {
 		if len(sf.Options) > 0 {
@@ -488,7 +523,7 @@ func ResolveMappersAndDoubleQuotesInPlace(ord_map *ordereddict.Dict, Ordered_fie
 					current_val, found_val := ord_map.GetString(sf_name)
 
 					if found_val && len(current_val) > 0 {
-						ord_map.Update(sf.NiceName, ResolveDoubleQuotesInPlace(doublequotes, opt_v, current_val, sf_name))
+						ord_map.Update(sf.NiceName, ResolveDoubleQuotesInPlace(doublequotes, SIDList, opt_v, current_val, sf_name))
 					}
 				}
 			}
@@ -497,7 +532,7 @@ func ResolveMappersAndDoubleQuotesInPlace(ord_map *ordereddict.Dict, Ordered_fie
 	}
 }
 
-func ResolveDoubleQuotesInPlace(double_quotes map[string]string, opt_v string, current_val string, sf_name string) string {
+func ResolveDoubleQuotesInPlace(double_quotes map[string]string, SIDList map[string]string, opt_v string, current_val string, sf_name string) string {
 
 	if len(double_quotes) == 0 {
 		return current_val
@@ -517,6 +552,29 @@ func ResolveDoubleQuotesInPlace(double_quotes map[string]string, opt_v string, c
 						temp = strings.ReplaceAll(temp, existing_double_percent, nice_value)
 					} else {
 						common.LogImprove(fmt.Sprintf("Find value for %s [%s]", current_val, sf_name))
+					}
+				}
+				return temp
+			}
+		}
+	case "doublesids":
+		{
+			if strings.Contains(current_val, "%{S-") {
+				var re = regexp.MustCompile(`(?mi)(%{(?P<sid>S-[^}]*?)})`)
+
+				values_slice := common.UniqueElementsOfSliceInMemory(re.FindAllString(current_val, -1))
+
+				temp := strings.TrimLeft(current_val, "\r\n")
+				for _, existing_double_sid := range values_slice {
+
+					extracted_sid := strings.Trim(existing_double_sid, "%{}")
+					if nice_value, nice_value_exists := SIDList[extracted_sid]; nice_value_exists {
+						temp = strings.ReplaceAll(temp, existing_double_sid, nice_value)
+					} else {
+						if len(extracted_sid) < 40 {
+							common.LogImprove(fmt.Sprintf("Find SID for %s [%s]", existing_double_sid, sf_name))
+						}
+
 					}
 				}
 				return temp

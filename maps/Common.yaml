@@ -9,6 +9,7 @@ ordered_fields:
     - Channel
     - Provider
     - System Process ID
+    - Keywords
     - Security User ID
     - Correlation ActivityID
     - EventRecord ID

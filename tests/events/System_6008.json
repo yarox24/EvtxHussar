@@ -1,0 +1,40 @@
+{
+	"Event": {
+		"System": {
+			"Provider": {
+				"Name": "EventLog"
+			},
+			"EventID": {
+				"Qualifiers": 32768,
+				"Value": 6008
+			},
+			"Version": 0,
+			"Level": 2,
+			"Task": 0,
+			"Opcode": 0,
+			"Keywords": 36028797018963968,
+			"TimeCreated": {
+				"SystemTime": 1638798000.1111112
+			},
+			"EventRecordID": 111,
+			"Correlation": {},
+			"Execution": {
+				"ProcessID": 0,
+				"ThreadID": 0
+			},
+			"Channel": "System",
+			"Computer": "DESKTOP-EvtxHussar",
+			"Security": {}
+		},
+		"EventData": {
+			"Data": [
+				"11:26:19 AM",
+				"11/24/2021",
+				"",
+				"",
+				"57012"
+			],
+			"Binary": ""
+		}
+	}
+}

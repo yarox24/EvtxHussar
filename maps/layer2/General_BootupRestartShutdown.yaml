@@ -1,0 +1,41 @@
+info:
+  typ: "layer2"
+  name: General_BootupRestartShutdown
+
+output:
+  typ: flat
+  category: general
+  filename: bootup_restart_shutdown
+
+fields_remap:
+  "FailureMsg": Reason
+  "FailureStatus": ReasonCode
+  "ShutdownTime": StopTime
+
+ordered_fields:
+  - SubjectUserName
+  - SubjectUserSid
+  - SubjectDomainName
+  - SubjectLogonId:display_as=hex
+  - ProcessName
+  - Reason
+  - ReasonCode
+  - Status
+  - Type
+  - Comment
+  - SourceComputer
+  - StartTime:display_as=utctime
+  - StopTime:display_as=utctime
+  - Uptime
+  - LastShutdownGood
+  - LastBootGood
+  - Bugcheck
+  - DumpPath
+  - ReportID
+  - ObjectServer
+  - ObjectType
+  - ObjectName
+  - HandleId:display_as=hex
+  - AccessMask
+  - PrivilegeList
+  - ProcessId:display_as=hex

@@ -1,0 +1,41 @@
+{
+	"Event": {
+		"System": {
+			"Provider": {
+				"Name": "Microsoft-Windows-Kernel-General",
+				"Guid": "A68CA8B7-004F-D7B6-A698-07E2DE0F1F5D"
+			},
+			"EventID": {
+				"Value": 12
+			},
+			"Version": 0,
+			"Level": 4,
+			"Task": 1,
+			"Opcode": 0,
+			"Keywords": 9223372036854775936,
+			"TimeCreated": {
+				"SystemTime": 1638798000.1111112
+			},
+			"EventRecordID": 111,
+			"Correlation": {},
+			"Execution": {
+				"ProcessID": 4,
+				"ThreadID": 8
+			},
+			"Channel": "System",
+			"Computer": "DESKTOP-EvtxHussar",
+			"Security": {
+				"UserID": "S-1-5-18"
+			}
+		},
+		"EventData": {
+			"MajorVersion": 10,
+			"MinorVersion": 0,
+			"BuildVersion": 19041,
+			"QfeVersion": 899,
+			"ServiceVersion": 0,
+			"BootMode": 0,
+			"StartTime": 1621933948.5
+		}
+	}
+}

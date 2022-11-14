@@ -1,0 +1,24 @@
+info:
+    typ: "layer1"
+    source_comment: "Security.evtx"
+    channel: "Security"
+
+sendto_layer2: General_BootupRestartShutdown
+
+events:
+
+    4608:
+        attrib_extraction: []
+        short_description: "Windows is starting up. This event is logged when LSASS.EXE starts and the auditing subsystem is initialized"
+        provider_guid: "{54849625-5478-4994-a5ba-3e3b0328c30d}"
+
+    4674:
+        attrib_extraction: []
+        short_description: "An operation was attempted on a privileged object"
+        provider_guid: "{54849625-5478-4994-a5ba-3e3b0328c30d}"
+        matching_rules:
+            global_logic: "OR"
+            container_and:
+                - 
+                  - single_match:Function=Substring,Field=ObjectServer,Value=Win32 SystemShutdown module
+                  - single_match:Function=Substring,Field=PrivilegeList,Value=ShutdownPrivilege

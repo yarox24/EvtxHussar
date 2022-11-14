@@ -1,6 +1,9 @@
 package common
 
-import "github.com/Velocidex/ordereddict"
+import (
+	"github.com/Velocidex/ordereddict"
+	"strings"
+)
 
 type SingleField struct {
 	NiceName string
@@ -45,4 +48,21 @@ type PowerShellScriptBlockInfo struct {
 	Total    int
 	Segments map[int]string
 	Path     string
+}
+
+type CommaSeparated struct {
+	Entries []string
+}
+
+func (c *CommaSeparated) UnmarshalText(b []byte) error {
+	c.Entries = make([]string, 0)
+
+	// Skip {[]} [Empty case]
+	if len(b) > 4 {
+		for _, part := range strings.Split(string(b), ",") {
+			c.Entries = append(c.Entries, strings.ToLower(part))
+		}
+	}
+
+	return nil
 }

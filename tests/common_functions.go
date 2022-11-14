@@ -31,8 +31,8 @@ func LoadEngine() *engine.Engine {
 
 	maps_path2, _ := common.Determine_Maps_Path(maps_path)
 	engi := engine.NewEngine("csv", maps_path2)
-	engi.LoadLayer1()
-	engi.LoadLayer2("")
+	engi.LoadLayer1(common.CommaSeparated{}, common.CommaSeparated{})
+	engi.LoadLayer2("", common.CommaSeparated{}, common.CommaSeparated{})
 	engi.LoadParams()
 	engi.PrepareEventCache()
 

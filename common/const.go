@@ -6,4 +6,4 @@ const (
 	IS_DIR
 )
 
-const ScriptBlocksXorKey string = "Y"
+const ScriptBlocksXorKey string = "Y" // 0x59

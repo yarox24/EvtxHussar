@@ -297,16 +297,25 @@ func RunL2WorkerPowershellScriptblock(l2s *Layer2SingleLayer) {
 				new_segment := segment
 
 				if xor_mode {
-					new_segment = common.EncryptDecrypt(new_segment, xor_key)
-				}
-				psblock_datawriter.WriteString(new_segment)
-			} else {
-				new_segment2 := "\r\n\r\n[Missing segment]\r\n\n"
-				if xor_mode {
-					new_segment2 = common.EncryptDecrypt(new_segment2, xor_key)
+					xored_bytes := common.EncryptDecrypt(new_segment, []byte(xor_key))
+					if _, err := psblock_datawriter.Write(xored_bytes); err != nil {
+						common.LogError("Error when saving XOR'ed PowerShell ScriptBlock: " + err.Error())
+					}
+				} else {
+					psblock_datawriter.WriteString(new_segment)
 				}
 
-				psblock_datawriter.WriteString(new_segment2)
+			} else {
+				new_segment2 := "\r\n\r\n[Missing segment]\r\n\r\n"
+
+				if xor_mode {
+					xored_bytes := common.EncryptDecrypt(new_segment2, []byte(xor_key))
+					if _, err := psblock_datawriter.Write(xored_bytes); err != nil {
+						common.LogError("Error when saving XOR'ed PowerShell ScriptBlock: " + err.Error())
+					}
+				} else {
+					psblock_datawriter.WriteString(new_segment2)
+				}
 			}
 		}
 

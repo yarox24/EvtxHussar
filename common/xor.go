@@ -1,37 +1,11 @@
 package common
 
-// https://github.com/KyleBanks/XOREncryption/blob/master/Go/xor.go
-// EncryptDecrypt runs a XOR encryption on the input string, encrypting it if it hasn't already been,
-// and decrypting it if it has, using the key provided.
-func EncryptDecrypt(input, key string) (output string) {
-	kL := len(key)
-	for i := range input {
-		output += string(input[i] ^ key[i%kL])
+func EncryptDecrypt(input string, key []byte) []byte {
+	output := []byte(input)
+
+	for i, val := range output {
+		output[i] = val ^ key[i%len(key)]
 	}
+
 	return output
 }
-
-/*
-The MIT License (MIT)
-
-Copyright (c) 2017 Kyle Banks.
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-
-*/

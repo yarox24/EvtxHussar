@@ -8,27 +8,27 @@ sendto_layer2: ScheduledTasks_Execution
 events:
     100:
         attrib_extraction: []
-        short_description: "Task Scheduler started X instance of the A task for user B."
+        short_description: "Task Scheduler started .. instance of the .. task for user .."
         provider_guid: "{de7b24ea-73c8-4a09-985d-5bdadcfa9017}"
     
     106:
         attrib_extraction: []
-        short_description: "User X registered Task Scheduler task A"
+        short_description: "User .. registered Task Scheduler task .."
         provider_guid: "{de7b24ea-73c8-4a09-985d-5bdadcfa9017}"
         
     129:
         attrib_extraction: []
-        short_description: "Task Scheduler launch task X , instance A  with process ID C"
+        short_description: "Task Scheduler launch task .. , instance ..  with process ID .."
         provider_guid: "{de7b24ea-73c8-4a09-985d-5bdadcfa9017}"
         
     200:
         attrib_extraction: []
-        short_description: "Task Scheduler launched action B in instance C of task X"
+        short_description: "Task Scheduler launched action .. in instance .. of task .."
         provider_guid: "{de7b24ea-73c8-4a09-985d-5bdadcfa9017}"
 
     201:
         attrib_extraction: []
-        short_description: "Task Scheduler successfully completed task X , instance A , action B with return code C"
+        short_description: "Task Scheduler successfully completed task .. , instance .. , action .. with return code .."
         provider_guid: "{de7b24ea-73c8-4a09-985d-5bdadcfa9017}"
         
         

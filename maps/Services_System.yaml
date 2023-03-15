@@ -10,27 +10,27 @@ events:
         attrib_extraction:
             - "rename_field:input_field=param1,output_field=ServiceName"
             - "rename_field:input_field=param2,output_field=Error"
-        short_description: "The X service terminated with service-specific error Y."
+        short_description: "The .. service terminated with service-specific error .."
         provider_guid: "{555908d1-a6d7-4695-8e1e-26931d2012f4}"
 
     7034:
         attrib_extraction:
             - "rename_field:input_field=param1,output_field=ServiceName"
-        short_description: "The X service terminated unexpectedly. It has done this Y time(s)."
+        short_description: "The .. service terminated unexpectedly. It has done this .. time(s)."
         provider_guid: "{555908d1-a6d7-4695-8e1e-26931d2012f4}"
 
     7035:
         attrib_extraction:
             - "rename_field:input_field=param1,output_field=ServiceName"
             - "rename_field:input_field=param2,output_field=Status"
-        short_description: "The X service was successfully sent a Y control."
+        short_description: "The .. service was successfully sent a .. control."
         provider_guid: "{555908d1-a6d7-4695-8e1e-26931d2012f4}"
 
     7036:
         attrib_extraction:
             - "rename_field:input_field=param1,output_field=ServiceName"
             - "rename_field:input_field=param2,output_field=State"
-        short_description: "The X service entered the Y state."
+        short_description: "The .. service entered the .. state."
         provider_guid: "{555908d1-a6d7-4695-8e1e-26931d2012f4}"
 
     7040:
@@ -39,7 +39,7 @@ events:
             - "rename_field:input_field=param2,output_field=ServiceStartTypeOld"
             - "rename_field:input_field=param3,output_field=ServiceStartTypeNew"
             - "rename_field:input_field=param4,output_field=ExtraServiceName"
-        short_description: "The start type of the X service was changed from A to B."
+        short_description: "The start type of the .. service was changed from .. to .."
         provider_guid: "{555908d1-a6d7-4695-8e1e-26931d2012f4}" 
 
     7042:
@@ -49,13 +49,13 @@ events:
             - "rename_field:input_field=param3,output_field=ServiceReason"
             - "rename_field:input_field=param4,output_field=ServiceReasonText"
             - "rename_field:input_field=param5,output_field=Comment"
-        short_description: "The X service was successfully sent a Y control. The reason specified was: A [B] Comment: C"
+        short_description: "The .. service was successfully sent a .. control. The reason specified was: .. [..] Comment: .."
         provider_guid: "{555908d1-a6d7-4695-8e1e-26931d2012f4}"
 
     7043:
         attrib_extraction:
             - "rename_field:input_field=param1,output_field=ServiceName"
-        short_description: "The X service did not shut down properly after receiving a preshutdown control."
+        short_description: "The .. service did not shut down properly after receiving a preshutdown control."
         provider_guid: "{555908d1-a6d7-4695-8e1e-26931d2012f4}"
 
     7045:
@@ -66,6 +66,6 @@ events:
     7046:
         attrib_extraction:
             - "rename_field:input_field=param1,output_field=ServiceName"
-        short_description: "The following service has repeatedly stopped responding to service control requests: X"
+        short_description: "The following service has repeatedly stopped responding to service control requests: .."
         provider_guid: "{555908d1-a6d7-4695-8e1e-26931d2012f4}"
 

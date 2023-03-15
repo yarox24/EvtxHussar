@@ -8,10 +8,10 @@ sendto_layer2: ScheduledTasks_CreationModification
 events:       
     140:
         attrib_extraction: []
-        short_description: "User B updated Task Scheduler task X"
+        short_description: "User .. updated Task Scheduler task .."
         provider_guid: "{de7b24ea-73c8-4a09-985d-5bdadcfa9017}"
         
     141:
         attrib_extraction: []
-        short_description: "User X deleted Task Scheduler task A"
+        short_description: "User .. deleted Task Scheduler task .."
         provider_guid: "{de7b24ea-73c8-4a09-985d-5bdadcfa9017}"

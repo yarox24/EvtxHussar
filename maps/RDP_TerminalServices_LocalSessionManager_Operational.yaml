@@ -22,46 +22,46 @@ events:
     20:
         attrib_extraction: 
             - userdata_flatten_first_value
-        short_description: "Attempt to send %1 message to Windows video subsystem failed. The relevant status code was %2."
+        short_description: "Attempt to send message to Windows video subsystem failed. The relevant status code was"
         provider_guid: "{5d896912-022d-40aa-a3a8-4fa5515c76d7}"  
         
     21:
         attrib_extraction: 
             - userdata_flatten_first_value
             - "rename_field:input_field=Address,output_field=SourceIP"
-        short_description: "Remote Desktop Services: Session logon succeeded:    User: %1  Session ID: %2  Source Network Address: %3"
+        short_description: "Remote Desktop Services: Session logon succeeded:    User:   Session ID:   Source Network Address:"
         provider_guid: "{5d896912-022d-40aa-a3a8-4fa5515c76d7}"  
         
     22:
         attrib_extraction: 
             - userdata_flatten_first_value
             - "rename_field:input_field=Address,output_field=SourceIP"
-        short_description: "Remote Desktop Services: Shell start notification received:    User: %1  Session ID: %2  Source Network Address: %3"
+        short_description: "Remote Desktop Services: Shell start notification received:    User:   Session ID:   Source Network Address:"
         provider_guid: "{5d896912-022d-40aa-a3a8-4fa5515c76d7}"  
         
     23:
         attrib_extraction: 
             - userdata_flatten_first_value
-        short_description: "Remote Desktop Services: Session logoff succeeded:    User: %1  Session ID: %2"
+        short_description: "Remote Desktop Services: Session logoff succeeded:    User:   Session ID:"
         provider_guid: "{5d896912-022d-40aa-a3a8-4fa5515c76d7}"  
         
     24:
         attrib_extraction: 
             - userdata_flatten_first_value
             - "rename_field:input_field=Address,output_field=SourceIP"
-        short_description: "Remote Desktop Services: Session has been disconnected:    User: %1  Session ID: %2  Source Network Address: %3"
+        short_description: "Remote Desktop Services: Session has been disconnected:    User:   Session ID:   Source Network Address:"
         provider_guid: "{5d896912-022d-40aa-a3a8-4fa5515c76d7}"          
         
     25:
         attrib_extraction: 
             - userdata_flatten_first_value
             - "rename_field:input_field=Address,output_field=SourceIP"
-        short_description: "Remote Desktop Services: Session reconnection succeeded:    User: %1  Session ID: %2  Source Network Address: %3"
+        short_description: "Remote Desktop Services: Session reconnection succeeded:    User:  Session ID:  Source Network Address:"
         provider_guid: "{5d896912-022d-40aa-a3a8-4fa5515c76d7}"                  
         
     36:
         attrib_extraction: []
-        short_description: "An error occurred when transitioning from %3 in response to %5. (ErrorCode %6)"
+        short_description: "An error occurred when transitioning from .. in response to .. . (ErrorCode ..)"
         provider_guid: "{5d896912-022d-40aa-a3a8-4fa5515c76d7}"
         
     39:
@@ -69,24 +69,24 @@ events:
             - userdata_flatten_first_value
             - "rename_field:input_field=TargetSession,output_field=SessionID"
             - "rename_field:input_field=Source,output_field=SourceSessionID"
-        short_description: "Session %1 has been disconnected by session %2"
+        short_description: "Session .. has been disconnected by session .."
         provider_guid: "{5d896912-022d-40aa-a3a8-4fa5515c76d7}"             
         
     40:
         attrib_extraction: 
             - userdata_flatten_first_value
             - "rename_field:input_field=Session,output_field=SessionID"
-        short_description: "Session %1 has been disconnected, reason code %2"
+        short_description: "Session .. has been disconnected, reason code"
         provider_guid: "{5d896912-022d-40aa-a3a8-4fa5515c76d7}"                   
         
     41:
         attrib_extraction: 
             - userdata_flatten_first_value
-        short_description: "Begin session arbitration:    User: %1  Session ID: %2"
+        short_description: "Begin session arbitration:    User:   Session ID:"
         provider_guid: "{5d896912-022d-40aa-a3a8-4fa5515c76d7}"
         
     42:
         attrib_extraction: 
             - userdata_flatten_first_value
-        short_description: "End session arbitration:    User: %1  Session ID: %2"
+        short_description: "End session arbitration:    User:   Session ID:"
         provider_guid: "{5d896912-022d-40aa-a3a8-4fa5515c76d7}"        

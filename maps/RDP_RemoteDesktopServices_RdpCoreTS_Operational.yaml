@@ -9,17 +9,17 @@ events:
 
     65:
         attrib_extraction: []
-        short_description: "Connection %1 created"
+        short_description: "Connection created"
         provider_guid: "{1139c61b-b549-4251-8ed3-27250a1edec8}"
 
     66:
         attrib_extraction: []
-        short_description: "The connection %1 was assigned to session %2"
+        short_description: "The connection was assigned to session"
         provider_guid: "{1139c61b-b549-4251-8ed3-27250a1edec8}"    
 
     97:
         attrib_extraction: []
-        short_description: "The RDP protocol component %1 detected an error (%2) in the protocol stream and the client was disconnected."
+        short_description: "The RDP protocol component  detected an error () in the protocol stream and the client was disconnected."
         provider_guid: "{1139c61b-b549-4251-8ed3-27250a1edec8}"   
         
     98:
@@ -30,7 +30,7 @@ events:
     99:
         attrib_extraction: 
             - "rename_field:input_field=ResultCode,output_field=ErrorCode"
-        short_description: "The TCP connection has failed with the error code %1."
+        short_description: "The TCP connection has failed with the error code"
         provider_guid: "{1139c61b-b549-4251-8ed3-27250a1edec8}"   
         
     102:
@@ -40,39 +40,39 @@ events:
         
     103:
         attrib_extraction: []
-        short_description: "The disconnect reason is %1"
+        short_description: "The disconnect reason is"
         provider_guid: "{1139c61b-b549-4251-8ed3-27250a1edec8}"        
         
     104:
         attrib_extraction: []
-        short_description: "Client timezone is %1 hour from UTC"
+        short_description: "Client timezone is .. hour from UTC"
         provider_guid: "{1139c61b-b549-4251-8ed3-27250a1edec8}"                
 
     131:
         attrib_extraction: 
             - "rename_field:input_field=ClientIP,output_field=SourceIP"
-        short_description: "The server accepted a new %1 connection from client %2."
+        short_description: "The server accepted a new connection from client"
         provider_guid: "{1139c61b-b549-4251-8ed3-27250a1edec8}"        
         
     139:
         attrib_extraction: 
             - "rename_field:input_field=IPString,output_field=SourceIP"
             - "rename_field:input_field=ResultCode,output_field=ErrorCode"
-        short_description: "The server security layer detected an error (%1) in the protocol stream and the client (Client IP:%2) has been disconnected."
+        short_description: "The server security layer detected an error () in the protocol stream and the client (Client IP:..) has been disconnected."
         provider_guid: "{1139c61b-b549-4251-8ed3-27250a1edec8}"                
         
     140:
         attrib_extraction: 
             - "rename_field:input_field=IPString,output_field=SourceIP"
-        short_description: "A connection from the client computer with an IP address of %1 failed because the user name or password is not correct."
+        short_description: "A connection from the client computer with an IP address of failed because the user name or password is not correct."
         provider_guid: "{1139c61b-b549-4251-8ed3-27250a1edec8}"           
         
     168:
         attrib_extraction: []
-        short_description: "The resolution requested by the client: Monitor %1: (%2, %3), origin: (%4, %5). Server: %6"
+        short_description: "The resolution requested by the client: Monitor ..: (.., ..), origin: (.., ..). Server: .."
         provider_guid: "{1139c61b-b549-4251-8ed3-27250a1edec8}"             
         
     169:
         attrib_extraction: []
-        short_description: "The client operating system type is (%1, %2).  Server: %3"
+        short_description: "The client operating system type is (.., ..).  Server:"
         provider_guid: "{1139c61b-b549-4251-8ed3-27250a1edec8}"             

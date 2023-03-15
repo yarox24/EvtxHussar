@@ -16,11 +16,11 @@ events:
         
     6:
         attrib_extraction: []
-        short_description: "Creating WSMan Session. The connection string is: %1"
+        short_description: "Creating WSMan Session. The connection string is: .."
         
     7:
         attrib_extraction: []
-        short_description: "WSMan Create Session operation failed, error code %1"
+        short_description: "WSMan Create Session operation failed, error code .."
         
     8:
         attrib_extraction: []
@@ -28,23 +28,23 @@ events:
         
     9:
         attrib_extraction: []
-        short_description: "Closing WSMan Session failed, error code %1"
+        short_description: "Closing WSMan Session failed, error code .."
         
     11:
         attrib_extraction: []
-        short_description: "Creating WSMan shell with the ResourceUri: %1 and ShellId: %2"
+        short_description: "Creating WSMan shell with the ResourceUri: .. and ShellId: .."
         
     12:
         attrib_extraction: []
-        short_description: "WSMan shell creation failed, error code %1"
+        short_description: "WSMan shell creation failed, error code .."
         
     13:
         attrib_extraction: []
-        short_description: "Running WSMan command with CommandId: %1"
+        short_description: "Running WSMan command with CommandId: .."
         
     14:
         attrib_extraction: []
-        short_description: "Running WSMan command failed, error code %1"
+        short_description: "Running WSMan command failed, error code .."
         
     15:
         attrib_extraction: []
@@ -72,55 +72,55 @@ events:
         
     41:
         attrib_extraction: []
-        short_description: "The WinRM protocol handler has began loading for application %1"
+        short_description: "The WinRM protocol handler has began loading for application .."
         
     44:
         attrib_extraction: []
-        short_description: "The WinRM protocol handler started to create a session at the following destination: %1"
+        short_description: "The WinRM protocol handler started to create a session at the following destination: .."
         
     47:
         attrib_extraction: []
-        short_description: "The WinRM protocol session began an operation of type %1 to the server. The operation accesses class %3 under the %2 namespace."
+        short_description: "The WinRM protocol session began an operation of type .. to the server. The operation accesses class .. under the .. namespace."
         
     80:
         attrib_extraction: []
-        short_description: "Sending the request for operation %1 to destination machine and port %2:%3"
+        short_description: "Sending the request for operation .. to destination machine and port ..:.."
         
     81:
         attrib_extraction: []
-        short_description: "Processing client request for operation %1"
+        short_description: "Processing client request for operation .."
         
     82:
         attrib_extraction: []
-        short_description: "Entering the plugin for operation %1 with a ResourceURI of <%2>"
+        short_description: "Entering the plugin for operation .. with a ResourceURI of <..>"
         
     91:
         attrib_extraction: []
-        short_description: "Creating WSMan shell on server with ResourceUri: %1"
+        short_description: "Creating WSMan shell on server with ResourceUri: .."
         
     132:
         attrib_extraction: []
-        short_description: "WSMan operation %1 completed successfully"
+        short_description: "WSMan operation .. completed successfully"
         
     134:
         attrib_extraction: []
-        short_description: "Sending response for operation %1"
+        short_description: "Sending response for operation .."
         
     142:
         attrib_extraction: []
-        short_description: "WSMan operation %1 failed, error code %2"
+        short_description: "WSMan operation .. failed, error code .."
         
     143:
         attrib_extraction: []
-        short_description: "Sending response for operation %1 / Same as 134?"
+        short_description: "Sending response for operation .. / Same as 134?"
         
     160:
         attrib_extraction: []
-        short_description: "Authenticating the user using %1 mechanism"
+        short_description: "Authenticating the user using .. mechanism"
         
     161:
         attrib_extraction: []
-        short_description: "%1 / WinRM cannot process the request"
+        short_description: ".. / WinRM cannot process the request"
         
     162:
         attrib_extraction: []
@@ -128,19 +128,19 @@ events:
         
     163:
         attrib_extraction: []
-        short_description: "The authentication mechanism (%1) requested by the client is not supported by the server.  Possible authentication mechanisms reported by server: %2 %3 %4 %5 %6"
+        short_description: "The authentication mechanism (%1) requested by the client is not supported by the server.  Possible authentication mechanisms reported by server: .."
         
     164:
         attrib_extraction: []
-        short_description: "The destination computer (%1) returned an 'access denied' error. Verify your credentials are correct."
+        short_description: "The destination computer (..) returned an 'access denied' error. Verify your credentials are correct."
         
     165:
         attrib_extraction: []
-        short_description: "The authentication mechanism requested by the proxy is not supported by the client. The only proxy authentication mechanism supported are Negotiate, Basic or Digest.   Possible authentication mechanisms reported by proxy: %1 %2 %3 %4 %5"
+        short_description: "The authentication mechanism requested by the proxy is not supported by the client. The only proxy authentication mechanism supported are Negotiate, Basic or Digest.   Possible authentication mechanisms reported by proxy: .."
         
     166:
         attrib_extraction: []
-        short_description: "The chosen authentication mechanism is %1"
+        short_description: "The chosen authentication mechanism is .."
 
     168:
         attrib_extraction: []
@@ -148,11 +148,11 @@ events:
 
     169:
         attrib_extraction: []
-        short_description: "User %1 authenticated successfully using %2 authentication"
+        short_description: "User .. authenticated successfully using %2 authentication"
 
     170:
         attrib_extraction: []
-        short_description: "The authentication using client certificate with subject %1 done successfully"
+        short_description: "The authentication using client certificate with subject .. done successfully"
 
     171:
         attrib_extraction: []
@@ -160,11 +160,11 @@ events:
 
     173:
         attrib_extraction: []
-        short_description: "The WinRM service has terminated %1 unauthenticated connections over the past %2 minutes to maintain healthy system state."
+        short_description: "The WinRM service has terminated .. unauthenticated connections over the past .. minutes to maintain healthy system state."
 
     192:
         attrib_extraction: []
-        short_description: "The authorization of the user failed with error %1"
+        short_description: "The authorization of the user failed with error .."
 
     208:
         attrib_extraction: []
@@ -176,7 +176,7 @@ events:
 
     210:
         attrib_extraction: []
-        short_description: "The WinRM service is unable to start because of a failure during initialization. The error code is %1"
+        short_description: "The WinRM service is unable to start because of a failure during initialization. The error code is .."
 
     211:
         attrib_extraction: []

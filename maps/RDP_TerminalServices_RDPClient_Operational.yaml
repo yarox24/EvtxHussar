@@ -9,13 +9,13 @@ events:
 
     226:
         attrib_extraction: []
-        short_description: "%1: An error was encountered when transitioning from %3 to %5 in response to %6 (error code %8)."
+        short_description: "..: An error was encountered when transitioning from .. to .. in response to . (error code ..)."
         provider_guid: "{28aa95bb-d444-4719-a36f-40462168127e}"
 
     1024:
         attrib_extraction: 
             - "rename_field:input_field=Value,output_field=TargetIP"
-        short_description: "RDP ClientActiveX is trying to connect to the server (%2)"
+        short_description: "RDP ClientActiveX is trying to connect to the server (..)"
         provider_guid: "{28aa95bb-d444-4719-a36f-40462168127e}" 
 
     1025:
@@ -26,28 +26,28 @@ events:
     1026:
         attrib_extraction: 
             - "rename_field:input_field=Value,output_field=ReasonCode"
-        short_description: "RDP ClientActiveX has been disconnected (Reason= %2)"
+        short_description: "RDP ClientActiveX has been disconnected (Reason= ..)"
         provider_guid: "{28aa95bb-d444-4719-a36f-40462168127e}" 
         
     1027:
         attrib_extraction: []
-        short_description: "Connected to domain (%1) with session %2."
+        short_description: "Connected to domain (..) with session .."
         provider_guid: "{28aa95bb-d444-4719-a36f-40462168127e}"         
         
     1028:
         attrib_extraction: []
-        short_description: "Server supports SSL = %1"
+        short_description: "Server supports SSL = .."
         provider_guid: "{28aa95bb-d444-4719-a36f-40462168127e}"
         
     1029:
         attrib_extraction: []
-        short_description: "Base64(SHA1/SHA256(UserName)) is = %1"
+        short_description: "Base64(SHA1/SHA256(UserName)) is = .."
         provider_guid: "{28aa95bb-d444-4719-a36f-40462168127e}"
         
     1102:
         attrib_extraction: 
             - "rename_field:input_field=Value,output_field=TargetIP"
-        short_description: "The client has initiated a multi-transport connection to the server %2."
+        short_description: "The client has initiated a multi-transport connection to the server .."
         provider_guid: "{28aa95bb-d444-4719-a36f-40462168127e}"        
         
     1103:
@@ -67,5 +67,5 @@ events:
         
     1401:
         attrib_extraction: []
-        short_description: "The server is using version %1 of the RDP graphics protocol (client mode: %2, AVC available: %3)."
+        short_description: "The server is using version .. of the RDP graphics protocol (client mode: .., AVC available: ..)."
         provider_guid: "{28aa95bb-d444-4719-a36f-40462168127e}"              

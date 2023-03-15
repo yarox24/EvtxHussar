@@ -28,7 +28,7 @@ events:
 
     20:
         attrib_extraction: []
-        short_description: "The last shutdown's success status was X. The last boot's success status was Y"
+        short_description: "The last shutdown's success status was. The last boot's success status was"
         provider_guid: "{15CA44FF-4D7A-4BAA-BBA5-0998955E531E}"
 
     41:
@@ -46,14 +46,14 @@ events:
            - "rename_field:input_field=param1,output_field=Bugcheck"
            - "rename_field:input_field=param2,output_field=DumpPath"
            - "rename_field:input_field=param3,output_field=ReportID"
-        short_description: "The computer has rebooted from a bugcheck.  The bugcheck was: X. A dump was saved in: Y. Report Id: Z"
+        short_description: "The computer has rebooted from a bugcheck.  The bugcheck was . A dump was saved in . Report Id"
         provider_guid: "{ABCE23E7-DE45-4366-8631-84FA6C525952}"
 
     1073:
         attrib_extraction:
            - "rename_field:input_field=param1,output_field=SourceComputer"
            - "rename_field:input_field=param2,output_field=SubjectUserName"
-        short_description: "The attempt by user X to restart/shutdown computer Y failed"
+        short_description: "The attempt by user to restart/shutdown computer failed"
         provider_guid: "{b0aa8734-56f7-41cc-b2f4-de228e98b946}"
 
     1074:
@@ -65,7 +65,7 @@ events:
            - "rename_field:input_field=param5,output_field=Type"
            - "rename_field:input_field=param6,output_field=Comment"
            - "rename_field:input_field=param7,output_field=SubjectUserName"
-        short_description: "The process X has initiated the Y of computer Z on behalf of user G for the following reason: H "
+        short_description: "The process has initiated the of computer on behalf of user for the following reason"
         provider_guid: "{b0aa8734-56f7-41cc-b2f4-de228e98b946}"
 
     1076:
@@ -76,7 +76,7 @@ events:
            - "rename_field:input_field=param4,output_field=Bugcheck"
            # Lost param 5
            - "rename_field:input_field=param5,output_field=Comment"
-        short_description: "The reason supplied by user X for the last unexpected shutdown of this computer is: Y"
+        short_description: "The reason supplied by user for the last unexpected shutdown of this computer is"
         provider_guid: "{b0aa8734-56f7-41cc-b2f4-de228e98b946}"
 
     1100:
@@ -99,7 +99,7 @@ events:
            - "content_data_autonumbering"
            - "append_to_field:input_field=autonumbered1,output_field=StopTime,add_space_at_end=true"
            - "append_to_field:input_field=autonumbered0,output_field=StopTime"
-        short_description: "The previous system shutdown at X on Y was unexpected"
+        short_description: "The previous system shutdown at on was unexpected"
         provider_name: "EventLog"  
         
     6009:
@@ -112,6 +112,6 @@ events:
         attrib_extraction:
            - "content_data_autonumbering"
            - "rename_field:input_field=autonumbered4,output_field=Uptime"
-        short_description: "The system uptime is X seconds"
+        short_description: "The system uptime is .. seconds"
         provider_name: "EventLog"
         

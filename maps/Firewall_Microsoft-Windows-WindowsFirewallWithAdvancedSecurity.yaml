@@ -25,7 +25,7 @@ events:
     2003:
         attrib_extraction:
            - "rename_field:input_field=SettingValueString,output_field=SettingValueText"
-        short_description: "A Windows Firewall setting in the %1 profile has changed"
+        short_description: "A Windows Firewall setting in the profile has changed"
         provider_guid: "{D1BC9AFF-2ABF-4D71-9146-ECB2A986EB85}"
         
     2004:

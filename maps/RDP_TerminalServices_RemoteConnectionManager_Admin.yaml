@@ -1,0 +1,15 @@
+info:
+    typ: "layer1"
+    source_comment: "Microsoft-Windows-TerminalServices-RemoteConnectionManager%4Admin.xml"
+    channel: "Microsoft-Windows-TerminalServices-RemoteConnectionManager/Admin"
+
+sendto_layer2: RDPUniversal
+
+events:
+
+    1158:
+        attrib_extraction: 
+            - userdata_flatten_first_value
+            - "rename_field:input_field=Param1,output_field=SourceIP"
+        short_description: "Remote Desktop Services accepted a connection from IP address"
+        provider_guid: "{c76baa63-ae81-421c-b425-340b4b24157f}"

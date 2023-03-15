@@ -36,6 +36,8 @@ params_number:
     0x19: "Additional pre-authentication required"
     0x1A: "KDC does not know about the requested server"
     0x1B: "KDC is unavailable"
+    0x1C: "KDC Policy rejects transited path"
+    0x1D: "A service is not available"
     0x1F: "Integrity check on decrypted field failed"
     0x20: "The ticket has expired"
     0x21: "The ticket is not yet valid"
@@ -48,6 +50,7 @@ params_number:
     0x28: "Message type is unsupported"
     0x29: "Message stream modified and checksum didn't match	"
     0x2A: "Message out of order (possible tampering)"
+    0x2B: "Illegal cross realm ticket"
     0x2C: "Specified version of key is not available"
     0x2D: "Service key not available"
     0x2E: "Mutual authentication failed"
@@ -65,7 +68,15 @@ params_number:
     0x41: "A higher encryption level is needed"
     0x42: "User-to-user authorization is required"
     0x43: "No TGT was presented or available"
-    0x44: "Incorrect domain or principal"  # Kerberos end
+    0x44: "Incorrect domain or principal"
+    0x45: "KRB_AP_ERR_USER_TO_USER_REQUIRED"
+    0x46: "KDC_ERR_CANT_VERIFY_CERTIFICATE"
+    0x47: "KDC_ERR_INVALID_CERTIFICATE"
+    0x48: "KDC_ERR_REVOKED_CERTIFICATE"
+    0x49: "KDC_ERR_REVOCATION_STATUS_UNKNOWN"
+    0x4A: "KDC_ERR_REVOCATION_STATUS_UNAVAILABLE"
+    0x4B: "KDC_ERR_CLIENT_NAME_MISMATCH"
+    0x4C: "KDC_ERR_KDC_NAME_MISMATCH"  # Kerberos end
     
     0x30200: "The underlying file was converted to compound file format."
     0x30201: "The storage operation should block until more data is available."

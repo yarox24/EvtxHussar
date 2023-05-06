@@ -1,0 +1,19 @@
+info:
+    typ: "layer1"
+    source_comment: "Microsoft-Windows-SmbClient%4Audit.evtx"
+    channel: "Microsoft-Windows-SmbClient/Audit"
+
+sendto_layer2: SMB_ClientDestinations
+
+events:
+    32000:
+        attrib_extraction: []
+        short_description: "SMB1 negotiate response received from remote device when SMB1 cannot be negotiated by the local computer"
+
+    32002:
+        attrib_extraction: []
+        short_description: "The local computer received an SMB1 negotiate response"
+
+    32003:
+        attrib_extraction: []
+        short_description: "The local computer didn't received an SMB1 negotiate response in the last .. days"

@@ -1,0 +1,28 @@
+info:
+    typ: "layer1"
+    source_comment: "Security.evtx"
+    channel: "Security"
+
+sendto_layer2: SMB_ServerAccessAudit
+
+events:
+
+    5140:
+        attrib_extraction: []
+        short_description: "A network share object was accessed"
+        provider_guid: "{54849625-5478-4994-A5BA-3E3B0328C30D}"
+
+    5145:
+        attrib_extraction: []
+        short_description: "A network share object was checked to see whether client can be granted desired access"
+        provider_guid: "{54849625-5478-4994-A5BA-3E3B0328C30D}"
+
+    5168:
+        attrib_extraction: []
+        short_description: "Spn check for SMB/SMB2 fails"
+        provider_guid: "{54849625-5478-4994-A5BA-3E3B0328C30D}"
+
+
+
+
+

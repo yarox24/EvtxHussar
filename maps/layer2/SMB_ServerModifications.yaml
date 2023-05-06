@@ -1,0 +1,25 @@
+info:
+  typ: "layer2"
+  name: SMB_ServerModifications
+
+output:
+  typ: flat
+  category: smb
+  filename: smb_server_modifications
+
+ordered_fields:
+    - SubjectUserSid
+    - SubjectUserName
+    - SubjectDomainName
+    - SubjectLogonId:display_as=hex
+    - ShareName
+    - ShareLocalPath
+    - ObjectType
+    - OldRemark
+    - NewRemark
+    - OldMaxUsers:display_as=hex
+    - NewMaxUsers:display_as=hex
+    - OldShareFlags:display_as=hex
+    - NewShareFlags:display_as=hex
+    - OldSD
+    - NewSD

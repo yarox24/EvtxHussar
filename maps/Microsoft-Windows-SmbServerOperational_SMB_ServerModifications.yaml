@@ -1,0 +1,23 @@
+info:
+    typ: "layer1"
+    source_comment: "Microsoft-Windows-SMBServer%4Operational.evtx"
+    channel: "Microsoft-Windows-SMBServer/Operational"
+
+sendto_layer2: SMB_ServerModifications
+
+events:
+    1023:
+        attrib_extraction: []
+        short_description: "One or more shares present on this server have access based enumeration enabled"
+
+    1024:
+        attrib_extraction: []
+        short_description: "SMB2 and SMB3 have been disabled on this server.  This results in reduced functionality and performance"
+
+    1025:
+        attrib_extraction: []
+        short_description: "One or more named pipes or shares have been marked for access by anonymous users.  This increases the security risk of the computer by allowing unauthenticated users to connect to this server"
+
+    1027:
+        attrib_extraction: []
+        short_description: "The file and printer sharing firewall ports are currently closed.  This is the default configuration for a system that is not sharing content or is on a Public network"

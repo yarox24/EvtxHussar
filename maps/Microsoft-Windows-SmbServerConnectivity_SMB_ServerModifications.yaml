@@ -1,0 +1,24 @@
+info:
+    typ: "layer1"
+    source_comment: "Microsoft-Windows-SMBServer%4Connectivity.evtx"
+    channel: "Microsoft-Windows-SMBServer/Connectivity"
+
+sendto_layer2: SMB_ServerModifications
+
+events:
+    1022:
+        attrib_extraction: []
+        short_description: "File and printer sharing firewall rule enabled"
+
+
+
+
+
+
+
+
+
+
+
+
+

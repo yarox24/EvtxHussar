@@ -1,0 +1,23 @@
+info:
+    typ: "layer1"
+    source_comment: "Security.evtx"
+    channel: "Security"
+
+sendto_layer2: SMB_ServerModifications
+
+events:
+
+    5142:
+        attrib_extraction: []
+        short_description: "A network share object was added"
+        provider_guid: "{54849625-5478-4994-A5BA-3E3B0328C30D}"
+
+    5143:
+        attrib_extraction: []
+        short_description: "A network share object was modified"
+        provider_guid: "{54849625-5478-4994-A5BA-3E3B0328C30D}"
+
+    5144:
+        attrib_extraction: []
+        short_description: "A network share object was deleted"
+        provider_guid: "{54849625-5478-4994-A5BA-3E3B0328C30D}"

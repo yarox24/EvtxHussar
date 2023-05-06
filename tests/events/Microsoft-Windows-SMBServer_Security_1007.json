@@ -1,0 +1,44 @@
+{
+	"Event": {
+		"System": {
+			"Provider": {
+				"Name": "Microsoft-Windows-SMBServer",
+				"Guid": "D48CE617-33A2-4BC3-A5C7-11AA4F29619E"
+			},
+			"EventID": {
+				"Value": 1007
+			},
+			"Version": 0,
+			"Level": 2,
+			"Task": 1007,
+			"Opcode": 0,
+			"Keywords": 580964351930793992,
+			"TimeCreated": {
+				"SystemTime": 1638798000.1111112
+			},
+			"EventRecordID": 111,
+			"Correlation": {},
+			"Execution": {
+				"ProcessID": 4,
+				"ThreadID": 22584
+			},
+			"Channel": "Microsoft-Windows-SMBServer/Security",
+			"Computer": "DESKTOP-EvtxHussar",
+			"Security": {
+				"UserID": "S-1-5-18"
+			}
+		},
+		"UserData": {
+			"EventData": {
+				"ShareNameLength": 10,
+				"ShareName": "\\\\*\\SYSVOL",
+				"SharePathLength": 33,
+				"SharePath": "\\??\\H:\\Windows\\SYSVOL_DFSR\\sysvol",
+				"ClientAddressLength": 16,
+				"ClientAddress": "",
+				"ClientNameLength": 14,
+				"ClientName": "\\\\1.1.1.1"
+			}
+		}
+	}
+}

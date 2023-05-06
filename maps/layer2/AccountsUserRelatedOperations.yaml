@@ -10,6 +10,7 @@ output:
 fields_remap:
   "SidHistory": SidHistory/SidList
   "SidList": SidHistory/SidList
+  "Workstation": UserWorkstations
 
 ordered_fields:
   - TargetUserName
@@ -44,3 +45,4 @@ ordered_fields:
   - UserParameters:resolve=doublequotes
   - SidHistory/SidList
   - LogonHours:resolve=doublequotes
+  - Status

@@ -1,0 +1,39 @@
+{
+	"Event": {
+		"System": {
+			"Provider": {
+				"Name": "Microsoft-Windows-SMBClient",
+				"Guid": "988C59C5-0A1C-45B6-A555-0C62276E327D"
+			},
+			"EventID": {
+				"Value": 31013
+			},
+			"Version": 0,
+			"Level": 2,
+			"Task": 0,
+			"Opcode": 0,
+			"Keywords": 144115188075856384,
+			"TimeCreated": {
+				"SystemTime": 1638798000.1111112
+			},
+			"EventRecordID": 111,
+			"Correlation": {},
+			"Execution": {
+				"ProcessID": 4,
+				"ThreadID": 72
+			},
+			"Channel": "Microsoft-Windows-SmbClient/Security",
+			"Computer": "DESKTOP-EvtxHussar",
+			"Security": {}
+		},
+		"EventData": {
+			"Smb2Command": 11,
+			"MessageId": 5,
+			"SessionId": 238064467181645,
+			"TreeId": 0,
+			"ServerNameLength": 28,
+			"ServerName": "\\huss.net",
+			"Status": 3221266432
+		}
+	}
+}

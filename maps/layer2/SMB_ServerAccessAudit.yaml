@@ -1,0 +1,62 @@
+info:
+  typ: "layer2"
+  name: SMB_ServerAccessAudit
+
+output:
+  typ: flat
+  category: smb
+  filename: smb_server_access_audit
+
+fields_remap:
+  "SharePath": ShareLocalPath
+  "IpAddress": ClientAddress
+  "IpAddresses": ClientAddress 
+  "UserName": SubjectUserName 
+  "SessionID": SubjectLogonId 
+
+ordered_fields:
+    - ShareName
+    - ShareLocalPath
+    - ClientName
+    - SubjectUserName
+    - SubjectUserSid
+    - SubjectDomainName
+    - SubjectLogonId:display_as=hex
+    - ClientAddress:display_as=auto_ipport
+    - IpPort
+    - Status:mapper_number_to_string=ntstatussmb
+    #- SessionID:display_as=hex
+    - SessionGuid
+    - FileName
+    - ComputerName
+    - RelativeTargetName
+    - ObjectType
+    - AccessMask:display_as=hex
+    - AccessList:resolve=doublequotes
+    - AccessReason:resolve=doublequotes
+    - DurableHandle
+    - ResilientHandle
+    - PersistentHandle
+    - ResumeKey
+    - Reason
+    - PersistentFID:display_as=hex
+    - VolatileFID:display_as=hex
+    - Command
+    - Duration
+    - TranslatedStatus:mapper_number_to_string=ntstatussmb
+    - RKFStatus:display_as=hex
+    - TranslatedRKFStatus:display_as=hex
+    - ConnectionGUID
+    - Threshold
+    - MappedAccess:display_as=hex
+    - GrantedAccess:display_as=hex
+    - ShareSecurityDescriptor:display_as=general_hex_number
+    - SPN
+    - SpnName
+    - SPNValidationPolicy
+    - ErrorCode
+    - ServerNames
+    - ConfiguredNames
+
+
+    

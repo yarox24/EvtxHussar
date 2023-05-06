@@ -247,6 +247,22 @@ func ConvertAllTypesToString(val interface{}, display_as string) string {
 			} else {
 				common.LogErrorWithError("uint8slice_utf-16 decoding error", err2)
 			}
+		} else if display_as == "auto_ipport" {
+			text, err3 := common.ConvertSocketUint8ToText(val.([]uint8))
+
+			if err3 != nil {
+				common.LogErrorWithError("auto_ipport decoding error: ", err3)
+				return "(Error decoding IP)"
+			}
+			return text
+		} else if display_as == "general_hex_number" {
+			text := "0x"
+
+			for _, x := range val.([]uint8) {
+				text += fmt.Sprintf("%02X", x)
+			}
+
+			return text
 		} else {
 			common.LogError(fmt.Sprintf("Wrong format for value: %v", val))
 			common.LogError(fmt.Sprintf("Wrong format for value: %s", val))
@@ -607,6 +623,9 @@ func ApplySpecialTransformations(ord_map *ordereddict.Dict, Field_extra_transfor
 		} else if strings.ToLower(st.Special_transform) == "av_symantec" {
 			special_transformations.AVSymantecExtract(ord_map, opt)
 		}
+		//} else if strings.ToLower(st.Special_transform) == "rdp_cracker" {
+		//	special_transformations.RDP1029DetermineUsername(ord_map, opt)
+		//}
 	}
 
 }

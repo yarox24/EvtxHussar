@@ -1,0 +1,53 @@
+{
+	"Event": {
+		"System": {
+			"Provider": {
+				"Name": "Microsoft-Windows-SMBServer",
+				"Guid": "D48CE617-33A2-4BC3-A5C7-11AA4F29619E"
+			},
+			"EventID": {
+				"Value": 1006
+			},
+			"Version": 0,
+			"Level": 2,
+			"Task": 1006,
+			"Opcode": 0,
+			"Keywords": 580964351930793992,
+			"TimeCreated": {
+				"SystemTime": 1638798000.1111112
+			},
+			"EventRecordID": 111,
+			"Correlation": {},
+			"Execution": {
+				"ProcessID": 4,
+				"ThreadID": 13396
+			},
+			"Channel": "Microsoft-Windows-SMBServer/Security",
+			"Computer": "DESKTOP-EvtxHussar",
+			"Security": {
+				"UserID": "S-1-5-18"
+			}
+		},
+		"UserData": {
+			"EventData": {
+				"ShareNameLength": 20,
+				"ShareName": "\\\\*\\ss$",
+				"SharePathLength": 22,
+				"SharePath": "\\??\\D:\\ss",
+				"ClientAddressLength": 128,
+				"ClientAddress": "",
+				"UserNameLength": 14,
+				"UserName": "HU\\SS",
+				"ClientNameLength": 14,
+				"ClientName": "\\\\1.1.1.1",
+				"MappedAccess": 1048705,
+				"GrantedAccess": 0,
+				"ShareSecurityDescriptorLength": 276,
+				"ShareSecurityDescriptor": "",
+				"Status": 3221225506,
+				"TranslatedStatus": 3221225506,
+				"SessionID": 365037927530513
+			}
+		}
+	}
+}

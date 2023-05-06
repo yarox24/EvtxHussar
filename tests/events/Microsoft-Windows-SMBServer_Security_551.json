@@ -1,0 +1,49 @@
+{
+	"Event": {
+		"System": {
+			"Provider": {
+				"Name": "Microsoft-Windows-SMBServer",
+				"Guid": "D48CE617-33A2-4BC3-A5C7-11AA4F29619E"
+			},
+			"EventID": {
+				"Value": 551
+			},
+			"Version": 2,
+			"Level": 2,
+			"Task": 551,
+			"Opcode": 0,
+			"Keywords": 580964351930793992,
+			"TimeCreated": {
+				"SystemTime": 1638798000.1111112
+			},
+			"EventRecordID": 111,
+			"Correlation": {},
+			"Execution": {
+				"ProcessID": 4,
+				"ThreadID": 4948
+			},
+			"Channel": "Microsoft-Windows-SMBServer/Security",
+			"Computer": "DESKTOP-EvtxHussar",
+			"Security": {
+				"UserID": "S-1-5-18"
+			}
+		},
+		"UserData": {
+			"EventData": {
+				"SessionGUID": "84224323-FC1E-0003-BD6D-68841EFCD601",
+				"ConnectionGUID": "84334323-FC1E-0001-858B-68841EFCD601",
+				"Status": 3221225581,
+				"TranslatedStatus": 3221225581,
+				"ClientAddressLength": 16,
+				"ClientAddress": "",
+				"SessionId": 8796093022209,
+				"UserNameLength": 0,
+				"UserName": "",
+				"ClientNameLength": 12,
+				"ClientName": "\\\\1.1.1.1",
+				"SPN": "session setup failed before the SPN could be queried",
+				"SPNValidationPolicy": 0
+			}
+		}
+	}
+}

@@ -91,7 +91,27 @@ events:
         short_description: "A user account was unlocked."
         provider_guid: "{54849625-5478-4994-a5ba-3e3b0328c30d}"
 
+    4780:
+        attrib_extraction: []
+        short_description: "The ACL was set on accounts which are members of administrators groups."
+        provider_guid: "{54849625-5478-4994-a5ba-3e3b0328c30d}"
+
     4781:
         attrib_extraction: []
         short_description: "The name of an account was changed"
+        provider_guid: "{54849625-5478-4994-a5ba-3e3b0328c30d}"
+
+    4794:
+        attrib_extraction: []
+        short_description: "An attempt was made to set the Directory Services Restore Mode  administrator password."
+        provider_guid: "{54849625-5478-4994-a5ba-3e3b0328c30d}"
+
+    5376:
+        attrib_extraction: []
+        short_description: "Credential Manager credentials were backed up."
+        provider_guid: "{54849625-5478-4994-a5ba-3e3b0328c30d}"
+
+    5377:
+        attrib_extraction: []
+        short_description: "Credential Manager credentials were restored from a backup."
         provider_guid: "{54849625-5478-4994-a5ba-3e3b0328c30d}"

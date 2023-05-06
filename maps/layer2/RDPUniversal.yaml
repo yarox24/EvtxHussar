@@ -12,11 +12,17 @@ fields_remap:
   "TraceMessage": MessageName
   "NewProcessName": MessageName
 
+#field_extra_transformations:
+#  - input_field: Base64_SHA256_UserName
+#    output_field: User
+#    special_transform: rdp_cracker
+
 ordered_fields:
   - SourceIP
   - SourceWorkstation
   - ServerName
   - TargetIP
+  #- Base64_SHA256_UserName
   - User
   - DomainName
   - LogonType

@@ -1,0 +1,54 @@
+info:
+    typ: "layer1"
+    source_comment: "Microsoft-Windows-SMBServer%4Operational.evtx"
+    channel: "Microsoft-Windows-SMBClient/Operational"
+
+sendto_layer2: SMB_ClientDestinations
+
+events:
+    30622:
+        attrib_extraction: []
+        short_description: "Session to server was re-established"
+
+    30624:
+        attrib_extraction: []
+        short_description: "Connection to share was re-established"
+
+    30904:
+        attrib_extraction: []
+        short_description: "The server does not support multichannel"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

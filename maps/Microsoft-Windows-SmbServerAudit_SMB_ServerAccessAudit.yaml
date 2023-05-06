@@ -1,0 +1,12 @@
+info:
+    typ: "layer1"
+    source_comment: "Microsoft-Windows-SMBServer%4Audit.evtx"
+    channel: "Microsoft-Windows-SMBServer/Audit"
+
+sendto_layer2: SMB_ServerAccessAudit
+
+events:
+    3000:
+        attrib_extraction: []
+        short_description: "SMB1 access"
+

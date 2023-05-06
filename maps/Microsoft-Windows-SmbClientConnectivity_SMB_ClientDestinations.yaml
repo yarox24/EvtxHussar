@@ -1,0 +1,82 @@
+info:
+    typ: "layer1"
+    source_comment: "Microsoft-Windows-SmbClient%4Connectivity.evtx"
+    channel: "Microsoft-Windows-SmbClient/Connectivity"
+
+sendto_layer2: SMB_ClientDestinations
+
+events:
+    30800:
+        attrib_extraction: []
+        short_description: "The server name cannot be resolved"
+
+    30803:
+        attrib_extraction: []
+        short_description: "Failed to establish a network connection"
+
+    30804:
+        attrib_extraction: []
+        short_description: "A network connection was disconnected"
+
+    30805:
+        attrib_extraction: []
+        short_description: "The client lost its session to the server"
+        
+    30806:
+        attrib_extraction: []
+        short_description: "The client re-established its session to the server"
+
+    30807:
+        attrib_extraction: []
+        short_description: "The connection to the share was lost"
+        
+    30808:
+        attrib_extraction: []
+        short_description: "The connection to the share was re-established"
+
+    30809:
+        attrib_extraction: []
+        short_description: "A request timed out because there was no response from the server"
+
+    30816:
+        attrib_extraction: []
+        short_description: "The server failed the negotiate request"
+
+    30822:
+        attrib_extraction: []
+        short_description: "Failed to establish an SMB multichannel network connection"
+
+    30823:
+        attrib_extraction: []
+        short_description: "The connection was terminated due to one or more IO request timeouts"
+
+    30824:
+        attrib_extraction: []
+        short_description: "The connection was forcibly disconnected"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -40,7 +40,8 @@ events:
         provider_guid: "{28aa95bb-d444-4719-a36f-40462168127e}"
         
     1029:
-        attrib_extraction: []
+        attrib_extraction: 
+            - "rename_field:input_field=TraceMessage,output_field=Base64_SHA256_UserName"
         short_description: "Base64(SHA1/SHA256(UserName)) is = .."
         provider_guid: "{28aa95bb-d444-4719-a36f-40462168127e}"
         

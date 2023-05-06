@@ -1,0 +1,47 @@
+info:
+  typ: "layer2"
+  name: SMB_ClientDestinations
+
+output:
+  typ: flat
+  category: smb
+  filename: smb_client_destinations
+
+# https://github.com/repnz/etw-providers-docs/blob/d5f68e8acda5da154ab44e405b610dd8c2ba1164/Manifests-Win10-18990/Microsoft-Windows-SMBClient.xml
+fields_remap:
+  "Address": RemoteAddress
+
+ordered_fields:
+    - RemoteAddress:display_as=auto_ipport
+    - ServerName
+    - UserName
+    - LogonId:display_as=hex
+    - PrincipalName
+    - LocalAddress:display_as=auto_ipport
+    - Reason:mapper_number_to_string=reasonsmb
+    - Status:mapper_number_to_string=ntstatussmb
+    - SecurityStatus:mapper_number_to_string=ntstatussmb
+    - ShareName
+    - SecurityMode
+    - ObjectName
+    - ConnectionType:mapper_number_to_string=connectiontypesmb
+    - SessionId:display_as=hex
+    - Smb2Command
+    - MessageId
+    - Object
+    - OldState
+    - NewState
+    - Capabilities
+    - Guid
+    - TreeId:display_as=hex
+    - InstanceName
+    - Dialect
+    - Dialect2
+    - SecurityMode2
+    - Capabilities2
+    - Guid2
+    #- OldAuthProtocolId
+    #- NewAuthProtocolId
+    #- OldMutualAuthState
+    #- NewMutualAuthState
+    #- ClusteredServer

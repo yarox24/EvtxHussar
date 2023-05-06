@@ -1,0 +1,39 @@
+{
+	"Event": {
+		"System": {
+			"Provider": {
+				"Name": "Microsoft-Windows-SMBClient",
+				"Guid": "988C59C5-0A1C-45B6-A555-0C62276E327D"
+			},
+			"EventID": {
+				"Value": 30806
+			},
+			"Version": 2,
+			"Level": 4,
+			"Task": 0,
+			"Opcode": 0,
+			"Keywords": 288230376151711808,
+			"TimeCreated": {
+				"SystemTime": 1638798000.1111112
+			},
+			"EventRecordID": 111,
+			"Correlation": {},
+			"Execution": {
+				"ProcessID": 4,
+				"ThreadID": 3972
+			},
+			"Channel": "Microsoft-Windows-SmbClient/Connectivity",
+			"Computer": "DESKTOP-EvtxHussar",
+			"Security": {}
+		},
+		"EventData": {
+			"Status": 0,
+			"SessionId": 184720436494421,
+			"TreeId": 0,
+			"ServerNameLength": 12,
+			"ServerName": "\\Hussar.NET",
+			"AddressLength": 16,
+			"Address": "AAAAAAAAAAAAAAAAAAAAAA=="
+		}
+	}
+}

@@ -1,0 +1,36 @@
+{
+	"Event": {
+		"System": {
+			"Provider": {
+				"Name": "Microsoft-Windows-SMBServer",
+				"Guid": "D48CE617-33A2-4BC3-A5C7-11AA4F29619E"
+			},
+			"EventID": {
+				"Value": 3000
+			},
+			"Version": 0,
+			"Level": 4,
+			"Task": 0,
+			"Opcode": 0,
+			"Keywords": 144115188075855872,
+			"TimeCreated": {
+				"SystemTime": 1638798000.1111112
+			},
+			"EventRecordID": 111,
+			"Correlation": {},
+			"Execution": {
+				"ProcessID": 0,
+				"ThreadID": 0
+			},
+			"Channel": "Microsoft-Windows-SMBServer/Audit",
+			"Computer": "DESKTOP-EvtxHussar",
+			"Security": {}
+		},
+		"EventData": {
+			"Data": {
+				"Name": "ClientName",
+				"Value": "1.1.1.1"
+			}
+		}
+	}
+}

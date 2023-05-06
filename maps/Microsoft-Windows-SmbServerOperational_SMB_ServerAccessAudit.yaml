@@ -1,0 +1,76 @@
+info:
+    typ: "layer1"
+    source_comment: "Microsoft-Windows-SMBServer%4Operational.evtx"
+    channel: "Microsoft-Windows-SMBServer/Operational"
+
+sendto_layer2: SMB_ServerAccessAudit
+
+events:
+    658:
+        attrib_extraction: 
+            - "userdata_flatten_first_value"
+        short_description: "File handle for file was invalidated by user from computer"
+
+    1001:
+        attrib_extraction: 
+            - "userdata_flatten_first_value"
+        short_description: "SRV Disabled - The SMB1 negotiate request fails due to SMB1 is disabled"
+
+    1003:
+        attrib_extraction: 
+            - "userdata_flatten_first_value"
+        short_description: "The server received an unencrypted message from client. Messsage was rejected"
+
+    1004:
+        attrib_extraction: 
+            - "userdata_flatten_first_value"
+        short_description: "The server received a incorrectly signed message from client. Message was rejected"
+
+    1005:
+        attrib_extraction: 
+            - "userdata_flatten_first_value"
+        short_description: "The server failed to validate negotiation from client. Connection was terminated"
+
+    1016:
+        attrib_extraction: 
+            - "userdata_flatten_first_value"
+        short_description: "Reopen failed"
+
+    1017:
+        attrib_extraction: 
+            - "userdata_flatten_first_value"
+        short_description: "Handle scavenged"
+
+    1020:
+        attrib_extraction: 
+            - "userdata_flatten_first_value"
+        short_description: "File system operation has taken longer than expected"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

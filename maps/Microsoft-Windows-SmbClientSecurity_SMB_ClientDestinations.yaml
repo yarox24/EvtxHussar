@@ -1,0 +1,68 @@
+info:
+    typ: "layer1"
+    source_comment: "Microsoft-Windows-SmbClient%4Security.evtx"
+    channel: "Microsoft-Windows-SmbClient/Security"
+
+sendto_layer2: SMB_ClientDestinations
+
+events:
+    31000:
+        attrib_extraction: []
+        short_description: "Error"
+
+    31001:
+        attrib_extraction: []
+        short_description: "Error (2)"
+
+    31002:
+        attrib_extraction: []
+        short_description: "The outbound authentication failed using a network token"
+
+    31010:
+        attrib_extraction: []
+        short_description: "The SMB client failed to connect to the share"
+
+    31012:
+        attrib_extraction: []
+        short_description: "The negotiate validation failed"
+
+    31013:
+        attrib_extraction: []
+        short_description: "The signing validation failed"
+
+    31014:
+        attrib_extraction: []
+        short_description: "The client received an unencrypted message when encryption was expected"
+
+    31015:
+        attrib_extraction: []
+        short_description: "Failed to decrypt an encrypted SMB message"
+
+    31017:
+        attrib_extraction: []
+        short_description: "Rejected an insecure guest logon"
+
+    31019:
+        attrib_extraction: []
+        short_description: "Mutual authentication was unexpectedly lost after re-authenticating"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

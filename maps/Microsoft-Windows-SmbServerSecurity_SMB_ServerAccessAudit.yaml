@@ -1,0 +1,44 @@
+info:
+    typ: "layer1"
+    source_comment: "Microsoft-Windows-SMBServer%4Security.evtx"
+    channel: "Microsoft-Windows-SMBServer/Security"
+
+sendto_layer2: SMB_ServerAccessAudit
+
+events:
+    551:
+        attrib_extraction: 
+            - "userdata_flatten_first_value"
+        short_description: "SMB Session Authentication Failure"
+
+    1006:
+        attrib_extraction: 
+            - "userdata_flatten_first_value"
+        short_description: "The share denied access to the client"
+
+    1007:
+        attrib_extraction: 
+            - "userdata_flatten_first_value"
+        short_description: "The share denied anonymous access to the client"
+
+    1009:
+        attrib_extraction: 
+            - "userdata_flatten_first_value"
+        short_description: "The server denied anonymous access to the client"
+
+    1015:
+        attrib_extraction: 
+            - "userdata_flatten_first_value"
+        short_description: "Decrypt call failed"
+
+
+
+
+
+
+
+
+
+
+
+

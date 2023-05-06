@@ -1,0 +1,14 @@
+info:
+    typ: "mapper_number_to_string"
+    name: connectiontypesmb
+    display_original: hex
+
+# https://github.com/repnz/etw-providers-docs/blob/d5f68e8acda5da154ab44e405b610dd8c2ba1164/Manifests-Win10-18990/Microsoft-Windows-SMBClient.xml
+
+params_number:
+    0x0: "Tdi"
+    0x1: "Wsk"
+    0x2: "Rdma"
+    0x3: "VMBUS"
+    0x4: "Quic"
+    

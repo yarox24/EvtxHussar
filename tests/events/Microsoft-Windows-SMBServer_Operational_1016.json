@@ -1,0 +1,57 @@
+{
+	"Event": {
+		"System": {
+			"Provider": {
+				"Name": "Microsoft-Windows-SMBServer",
+				"Guid": "D48CE617-33A2-4BC3-A5C7-11AA4F29619E"
+			},
+			"EventID": {
+				"Value": 1016
+			},
+			"Version": 0,
+			"Level": 2,
+			"Task": 1016,
+			"Opcode": 0,
+			"Keywords": 2305843009213693960,
+			"TimeCreated": {
+				"SystemTime": 1638798000.1111112
+			},
+			"EventRecordID": 111,
+			"Correlation": {},
+			"Execution": {
+				"ProcessID": 4,
+				"ThreadID": 15148
+			},
+			"Channel": "Microsoft-Windows-SMBServer/Operational",
+			"Computer": "DESKTOP-EvtxHussar",
+			"Security": {
+				"UserID": "S-1-5-18"
+			}
+		},
+		"UserData": {
+			"EventData": {
+				"Status": 3221225524,
+				"TranslatedStatus": 3221225524,
+				"RKFStatus": 0,
+				"TranslatedRKFStatus": 0,
+				"ConnectionGUID": "FF2D70A7-31C7-0302-6A0F-43EFC791D301",
+				"ClientNameLength": 16,
+				"ClientName": "\\\\1.1.1.1",
+				"ClientAddressLength": 128,
+				"ClientAddress": "",
+				"ShareNameLength": 2,
+				"ShareName": "C$",
+				"UserNameLength": 26,
+				"UserName": "Hu\\SS",
+				"SessionId": 180336013082733,
+				"FileNameLength": 49,
+				"FileName": "Program Files (x86)\\install\\install.exe",
+				"DurableHandle": false,
+				"ResilientHandle": false,
+				"PersistentHandle": false,
+				"ResumeKey": "2F23241B-1FD5-11A8-81BD-821844E9A9F9",
+				"Reason": 1
+			}
+		}
+	}
+}

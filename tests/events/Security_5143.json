@@ -1,0 +1,47 @@
+{
+	"Event": {
+		"System": {
+			"Provider": {
+				"Name": "Microsoft-Windows-Security-Auditing",
+				"Guid": "54849625-5478-4994-A5BA-3E3B0328C30D"
+			},
+			"EventID": {
+				"Value": 5143
+			},
+			"Version": 0,
+			"Level": 0,
+			"Task": 12808,
+			"Opcode": 0,
+			"Keywords": 9232379236109516800,
+			"TimeCreated": {
+				"SystemTime": 1638798000.1111112
+			},
+			"EventRecordID": 111,
+			"Correlation": {},
+			"Execution": {
+				"ProcessID": 4,
+				"ThreadID": 3024
+			},
+			"Channel": "Security",
+			"Computer": "DESKTOP-EvtxHussar",
+			"Security": {}
+		},
+		"EventData": {
+			"SubjectUserSid": "S-1-5-21-3212943211-794299840-588279583-500",
+			"SubjectUserName": "Administrator",
+			"SubjectDomainName": "2016SRV",
+			"SubjectLogonId": 194826,
+			"ObjectType": "Directory",
+			"ShareName": "\\\\*\\Documents",
+			"ShareLocalPath": "C:\\Documents",
+			"OldRemark": "My Share!",
+			"NewRemark": "My Modified Share!",
+			"OldMaxUsers": 10,
+			"NewMaxUsers": 15,
+			"OldShareFlags": 48,
+			"NewShareFlags": 48,
+			"OldSD": "O:BAG:S-1-5-21-3212943211-794299840-588279583-513D:(A;;0x1301bf;;;WD)",
+			"NewSD": "O:BAG:S-1-5-21-3212943211-794299840-588279583-513D:(A;;0x1200a9;;;WD)"
+		}
+	}
+}

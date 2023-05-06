@@ -27,6 +27,7 @@ Initial triage of Windows Event logs. This is beta quality software.
 - Scheduled Tasks XML parsing
 - Audit changes
 - Boot up/Restart/Shutdown events
+= SMB related events
 - Merge events from different sources (e.g. Microsoft-Windows-PowerShellOperational_General and Windows PowerShell) to single output file
 - Deduplication of events (so you can provide logs from backup, VSS, archive)
 - Supported events can be easily added by adding .yaml files to maps/ directory
@@ -73,6 +74,10 @@ EvtxHussar.exe --includeonly PowerShellUniversal,PowerShellScriptBlock -r -o C:\
 ```cmd
 EvtxHussar.exe --excludeonly FirewallUniversal -r -o C:\evtxhussar_results C:\evtx_many_machines
 ```
+
+### Usage (as Velociraptor plugin)
+
+https://docs.velociraptor.app/exchange/artifacts/pages/windows.eventlogs.evtxhussar/
 
 ### Blog article
 :memo:
